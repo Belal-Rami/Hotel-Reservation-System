@@ -1,8 +1,7 @@
 package hotel.data;
 
-public class Amenity{
+public class RoomType {
     String name;
     double price;
-
+    
 }
-
