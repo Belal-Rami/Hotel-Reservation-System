@@ -19,4 +19,11 @@ public void setprice(double p){
     }
     this.price=p;
 }
+public void setname(){
+    if(name==null||name.isEmpty()){
+        System.out.println("Name cannot be empty!");
+    }else{
+
+    }
+}
 }

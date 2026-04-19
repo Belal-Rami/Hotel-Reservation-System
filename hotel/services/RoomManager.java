@@ -1,9 +1,13 @@
 package hotel.services;
 import java.util.ArrayList;
 import hotel.data.Room;
+import hotel.data.RoomType;
 
 public class RoomManager {
     private ArrayList<Room> rooms = new ArrayList<>();
+    public void changeroomtype(Room room, RoomType type){
+        room.setroomtype(type);
+    }
     public void addroom(Room room){
         rooms.add(room);
     }
@@ -34,7 +38,7 @@ public class RoomManager {
             }
         }
     }
-    public void allroomonfo(){
+    public void allroominfo(){
         for(Room r:rooms){
             r.Displayroomdata();
         }

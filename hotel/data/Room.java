@@ -19,6 +19,10 @@ public class Room {
         duration= ChronoUnit.DAYS.between(checkin,checkout);
 
     }
+    public void setroomtype(RoomType type){
+        roomtype=type.getname();
+        roomprice=type.getprice();
+    }
     public double getroomprice(){
         return roomprice;
     }
