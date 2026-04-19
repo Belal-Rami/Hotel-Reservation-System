@@ -3,17 +3,22 @@ package hotel.data;
 public class RoomType {
     String name;
     double price;
-    public void singleroom(Room s){
-      s.setroomtype("single");
-      s.setroomprice(1000.0);
+    public void Single(){
+        this.name="single";
+        this.price=1000.0;
     }
-    public void doubleroom(Room s){
-        s.setroomtype("Double");
-        s.setroomprice(2000.0);
+    public void Double(){
+        this.name="double";
+        this.price=2000.0;
     }
-
-    public void suitroom(Room s){
-        s.setroomtype("Suit");
-        s.setroomprice(4000.0);
+    public void Suit(){
+        this.name="suit";
+        this.price=4000.0;
+    }
+    public String getname(){
+        return name;
+    }
+    public double getprice(){
+        return price;
     }
 }
