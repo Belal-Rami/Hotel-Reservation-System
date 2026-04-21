@@ -46,7 +46,7 @@ public class Room {
 
     public double aamenitiespriceperday(){
         for(Amenity p:amenities){
-            sumperday+=p.getprice();
+            sumperday+=p.getPrice();
         }
         return sumperday;
     }
