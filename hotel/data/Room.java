@@ -16,8 +16,8 @@ public class Room {
 
     public Room(int num,RoomType type,LocalDate checkin,LocalDate checkout){
         this.roomnum=num;
-        this.roomtype=type.getname();
-        this.roomprice=type.getprice();
+        this.roomtype = type.getName();
+        this.roomprice = type.getPrice();
         duration= ChronoUnit.DAYS.between(checkin,checkout);
 
     }
@@ -26,8 +26,8 @@ public class Room {
 
 
     public void setroomtype(RoomType type){
-        roomtype=type.getname();
-        roomprice=type.getprice();
+        roomtype = type.getName();
+        roomprice = type.getPrice();
     }
 
 
@@ -69,7 +69,7 @@ public class Room {
         System.out.println("Room Number: " + getroomnum() + " | Room type: " + getroomtype());
         System.out.println("---Amenities---");
         for (Amenity p:amenities) {
-            System.out.println(p.getname());
+            System.out.println(p.getName());
         }
     }
 
