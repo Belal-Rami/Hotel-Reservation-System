@@ -8,5 +8,17 @@ public class Reservation {
     private Room assignedRoom;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    public Reservation(Room room,LocalDate checkin,LocalDate checkout,Guest guest){
+        this.checkInDate=checkin;
+        this.checkOutDate=checkout;
+        this.assignedRoom=room;
+        this.assignedGuest=guest;
+    }
+    public LocalDate getcheckin(){
+        return checkInDate;
+    }
+    public LocalDate getcheckout(){
+        return checkOutDate;
+    }
  
 }
