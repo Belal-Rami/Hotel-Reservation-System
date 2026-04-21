@@ -2,7 +2,6 @@ package hotel.services;
 
 import hotel.data.Amenity;
 import hotel.data.Room;
-
 import java.util.ArrayList;
 
 public class AmenityManager {
@@ -32,7 +31,8 @@ public class AmenityManager {
                 for(int i=0;i<HotelAmenities.size();i++){
                         if(HotelAmenities.get(i).getname().equalsIgnoreCase(amenity.getname())){
                                 found=true;
-                        }else{
+                        }
+                        else{
                                 System.out.println("Amenity not found!");
                         }
                 }
@@ -56,5 +56,14 @@ public class AmenityManager {
                 amenity.setprice(newprice);
                 System.out.println("The price is updated!");
         }
-    
+
+    public void addAmenity(Amenity amenity) {
+    }
+
+        public void deleteAmenity(String amenityName) {
+        }
+
+    public void listAllAmenities() {
+
+    }
 }
