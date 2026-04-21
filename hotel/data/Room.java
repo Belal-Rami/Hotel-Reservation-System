@@ -12,6 +12,8 @@ public class Room {
     double total;
     Long duration;
     private ArrayList<Amenity> amenities = new ArrayList<>();
+
+
     public Room(int num,RoomType type,LocalDate checkin,LocalDate checkout){
         this.roomnum=num;
         this.roomtype=type.getname();
@@ -19,10 +21,17 @@ public class Room {
         duration= ChronoUnit.DAYS.between(checkin,checkout);
 
     }
+
+
+
+
     public void setroomtype(RoomType type){
         roomtype=type.getname();
         roomprice=type.getprice();
     }
+
+
+
     public double getroomprice(){
         return roomprice;
     }
@@ -32,19 +41,30 @@ public class Room {
     public String getroomtype(){
         return roomtype;
     }
+
+
+
     public double aamenitiespriceperday(){
         for(Amenity p:amenities){
             sumperday+=p.getprice();
         }
         return sumperday;
     }
+
+
+
     public double totalpriceperday(){
         totalperday+=sumperday;
         return totalperday;
     }
+
     public ArrayList<Amenity> getamenities(){
         return amenities;
     }
+
+
+
+
     public void Displayroomdata() {
         System.out.println("Room Number: " + getroomnum() + " | Room type: " + getroomtype());
         System.out.println("---Amenities---");
@@ -52,6 +72,9 @@ public class Room {
             System.out.println(p.getname());
         }
     }
+
+
+
     public void totalprice(){
         total=totalperday*duration;
     }

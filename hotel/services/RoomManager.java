@@ -7,6 +7,9 @@ public class RoomManager {
     private ArrayList<Room> rooms = new ArrayList<>();
     public void changeroomtype(Room room, RoomType type){
         room.setroomtype(type);
+
+
+
     }
     public void addroom(Room room){
         rooms.add(room);
@@ -21,6 +24,10 @@ public class RoomManager {
             }
         }
     }
+
+
+
+
     public void findroom(Room room){
         for(int i=0;i<rooms.size();i++){
             if(rooms.get(i).getroomnum()==room.getroomnum()){
@@ -30,6 +37,11 @@ public class RoomManager {
             }
         }
     }
+
+
+
+
+
     public void roominfo(Room room){
         for(int i=0;i<rooms.size();i++){
             if(rooms.get(i).getroomnum()==room.getroomnum()){
@@ -38,6 +50,9 @@ public class RoomManager {
             }
         }
     }
+
+
+
     public void allroominfo(){
         for(Room r:rooms){
             r.Displayroomdata();
