@@ -1,24 +1,42 @@
 package hotel.data;
 
 public class RoomType {
-    String name;
-    double price;
-    public void Single(){
-        this.name="single";
-        this.price=1000.0;
+    private String name;
+    private double price;
+
+    public RoomType(String name){
+        this(name, 0);
     }
-    public void Double(){
-        this.name="double";
-        this.price=2000.0;
+
+    public RoomType(String name, double price){
+        setName(name);
+        setPrice(price);
     }
-    public void Suit(){
-        this.name="suit";
-        this.price=4000.0;
-    }
-    public String getname(){
+
+    public String getName(){
         return name;
     }
-    public double getprice(){
+
+    public void setName(String name){
+        if(name == null || name.isEmpty()){
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+        this.name = name;
+    }
+
+    public double getPrice(){
         return price;
+    }
+
+    public void setPrice(double price){
+        if(price < 0){
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "RoomType: " + name + " - price: " + price;
     }
 }
