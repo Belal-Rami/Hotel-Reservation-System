@@ -1,5 +1,6 @@
 package hotel.data;
 
+import hotel.enums.Status;
 import hotel.users.Guest;
 import java.time.LocalDate;
 
@@ -9,26 +10,52 @@ public class Reservation {
     private Room assignedRoom;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    private Status status;
 
     // Parameterized constructor to initialize data.
-    public Reservation(Room room,LocalDate checkin,LocalDate checkout,Guest guest){
-        this.checkInDate=checkin;
-        this.checkOutDate=checkout;
+    public Reservation(Guest guest,Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
+        this.checkInDate= checkIn;
+        this.checkOutDate=checkOut;
         this.assignedRoom=room;
         this.assignedGuest=guest;
+        this.status=status;
     }
     // Getter and Setter methods.
-    public LocalDate getcheckin(){
+    public Guest getGuest() {
+        return assignedGuest;
+    }
+    public void setGuest(Guest assignedGuest) {
+        this.assignedGuest = assignedGuest;
+    }
+
+    public Room getRoom() {
+        return assignedRoom;
+    }
+    public void setRoom(Room assignedRoom) {
+        this.assignedRoom = assignedRoom;
+    }
+
+    public LocalDate getCheckIn(){
         return checkInDate;
     }
     public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public LocalDate getcheckout(){
+    public LocalDate getCheckOut(){
         return checkOutDate;
     }
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
+
 }

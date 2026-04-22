@@ -1,56 +1,71 @@
 package hotel.users;
 
 import java.time.LocalDate;
+import hotel.data.HotelDatabase;
+import hotel.data.RoomType;
 import hotel.enums.Role;
 import hotel.data.Room;
-import hotel.data.RoomType;
 import hotel.data.Amenity;
-import hotel.interfaces.Manageble;
-import hotel.services.RoomManager;
-import hotel.services.AmenityManager;
+import hotel.interfaces.Manageable;
 
-public class Admin extends Staff implements Manageble {
+public class Admin extends Staff implements Manageable {
 
     // Parameterized Constructor to initialize data.
-    public Admin(String username, String password, LocalDate dateOfBirth, int workingHours) {
+    public Admin(String username, String password, LocalDate dateOfBirth, int workingHours) throws InvalidInputException {
         super(username, password, dateOfBirth, Role.ADMIN, workingHours);
     }
 
-
-    public void createRoom(Room room, RoomManager roomManager) {
-        roomManager.addRoom(room);
-        System.out.println("Room " + room.getRoomNumber() + " added successfully.");
-    }
-
-    public void updateRoom(int roomNumber, Room updatedRoom, RoomManager roomManager) {
-        roomManager.updateRoom(roomNumber, updatedRoom);
-    }
-
-    public void deleteRoom(int roomNumber, RoomManager roomManager) {
-        roomManager.removeRoom(roomNumber);
-    }
-
-    public void addRoomType(RoomType type, RoomManager roomManager) {
-        roomManager.addRoomType(type);
-    }
-
-    public void addAmenity(Amenity amenity, AmenityManager amenityManager) {
-        amenityManager.addAmenity(amenity);
-    }
-
-    public void removeAmenity(String amenityName, AmenityManager amenityManager) {
-        amenityManager.deleteAmenity(amenityName);
-    }
-
-    public void viewAllSystemData(RoomManager rm, AmenityManager am) {
-        System.out.println("--- System Data Report ---");
-        rm.listAllRooms();
-        am.listAllAmenities();
-    }
-
-    // toString() method to print data.
+    //Welcome message.
     @Override
-    public String toString() {
-        return "Admin username: " + getUsername() + "\nRole: " + getRole();
+    public void showDashboard() {
+        System.out.println("Welcome to the Admin Dashboard, " + getUsername());
+    }
+
+    // Add room to the database for the first time.
+    public void createRoom(Room room, HotelDatabase db) {
+        db.getRooms().add(room);
+        System.out.println("Room " + room.getRoomNum() + " added successfully.");
+    }
+
+    public Room readRoom(String roomNumber, HotelDatabase db) {
+        for (Room r : db.getRooms()) {
+            if (r.getRoomNum().equals(roomNumber)) return r;
+        }
+        return null;
+    }
+
+    // Modify the details of the room that already exists in the database.
+    public void updateRoom(String roomNumber, Room updatedData, HotelDatabase db) {
+        Room existing = readRoom(roomNumber, db);
+        if (existing != null) {
+            existing.setRoomType((RoomType) updatedData.getRoomType());
+            System.out.println("Room updated.");
+        } else {
+            System.out.println("Room not found.");
+        }
+    }
+    // Delete room from the database.
+    public void deleteRoom(String roomNumber, HotelDatabase db) {
+        Room r = readRoom(roomNumber, db);
+        if (r != null) {
+            db.getRooms().remove(r);
+            System.out.println("Room deleted.");
+        }
+    }
+
+    // Adds an amenity to the database.
+    public void createAmenity(Amenity amenity, HotelDatabase db) {
+        db.getAmenities().add(amenity);
+        System.out.println("Amenity added.");
+    }
+
+    //Removes an amenity from the database.
+    public void deleteAmenity(Amenity amenity, HotelDatabase db) {
+        if (db.getAmenities().contains(amenity)) {
+            db.getAmenities().remove(amenity);
+            System.out.println("Amenity removed.");
+        } else {
+            System.out.println("Amenity not found.");
+        }
     }
 }

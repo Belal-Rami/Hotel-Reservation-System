@@ -1,8 +1,10 @@
-package hotel;
+package hotel.data;
+
 import java.util.Scanner;
 import hotel.users.Guest;
 import java.time.LocalDate;
 import hotel.enums.Gender;
+
 public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);

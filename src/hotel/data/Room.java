@@ -6,20 +6,22 @@ import java.util.ArrayList;
 
 public class Room {
     // Data Fields
-    private int roomnum;
+    private String roomnum;
     private String roomtype;
     private double roomprice;
+    private Boolean isAvailable=false;
     double sumperday;
     double totalperday;
     double total;
     Long duration;
+
     private ArrayList<Amenity> amenities = new ArrayList<>();
 
-    // Parametarized constructor to initialize data.
-    public Room(int num, RoomType type, LocalDate checkin, LocalDate checkout) {
+    // Parameterized constructor to initialize data.
+    public Room(String num, RoomType type, LocalDate checkin, LocalDate checkout) {
         this.roomnum = num;
-        this.roomtype = type.getname();
-        this.roomprice = type.getprice();
+        this.roomtype = type.getName();
+        this.roomprice = type.getPrice();
         duration = ChronoUnit.DAYS.between(checkin, checkout);
     }
 
@@ -30,16 +32,16 @@ public class Room {
 
     public double aamenitiespriceperday() {
         for (Amenity p : amenities) {
-            sumperday += p.getprice();
+            sumperday += p.getPrice();
         }
         return sumperday;
     }
 
     public void Displayroomdata() {
-        System.out.println("Room Number: " + getroomnum() + " | Room type: " + getroomtype());
+        System.out.println("Room Number: " + getRoomNum() + " | Room type: " + getRoomType());
         System.out.println("---Amenities---");
         for (Amenity p : amenities) {
-            System.out.println(p.getname());
+            System.out.println(p.getName());
         }
     }
 
@@ -58,40 +60,42 @@ public class Room {
     }
 
     // Getter and Setter methods.
-    public String getroomtype() {
+    public Object getRoomType() {
         return roomtype;
     }
 
-    public void setroomtype(RoomType type) {
-        roomtype = type.getname();
-        roomprice = type.getprice();
+    public void setRoomType(RoomType type) {
+        roomtype = type.getName();
+        roomprice = type.getPrice();
     }
 
-    public double getroomprice() {
+    public double getRoomPrice() {
         return roomprice;
     }
-
     public void setRoomprice(double roomprice) {
         this.roomprice = roomprice;
     }
 
-    public int getroomnum() {
-        return roomnum;
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
-    public void setRoomnum(int roomnum) {
+    public String getRoomNum() {
+        return roomnum;
+    }
+    public void setRoomNum(String roomnum) {
         this.roomnum = roomnum;
     }
 
-    public ArrayList<Amenity> getamenities() {
+    public ArrayList<Amenity> getAmenities() {
         return amenities;
     }
-
     public void setAmenities(ArrayList<Amenity> amenities) {
         this.amenities = amenities;
     }
 
-    public int getRoomNumber() {
-        return  roomnum ;
-    }
+
 }

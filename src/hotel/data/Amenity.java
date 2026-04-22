@@ -12,20 +12,20 @@ public class Amenity {
 }
 
 // Getter and Setter methods.
-public double getprice() {
+public double getPrice() {
         return price;
 }
-    public void setprice(double p){
+public void setprice(double p){
         while(p<0){
             System.out.println("invalid please try again");
         }
         this.price=p;
     }
 
-public String getname(){
+public String getName(){
     return name;
 }
-public void setname(){
+public void setName(){
     if(name==null||name.isEmpty()){
         System.out.println("Name cannot be empty!");
         }
