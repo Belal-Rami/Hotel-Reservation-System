@@ -1,14 +1,14 @@
 package hotel.data;
 
-public class RoomType {
+public class Amenity {
     private String name;
     private double price;
 
-    public RoomType(String name){
+    public Amenity(String name){
         this(name, 0);
     }
 
-    public RoomType(String name, double price){
+    public Amenity(String name, double price){
         setName(name);
         setPrice(price);
     }
@@ -19,7 +19,7 @@ public class RoomType {
 
     public void setName(String name){
         if(name == null || name.isEmpty()){
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Invalid name");
         }
         this.name = name;
     }
@@ -30,13 +30,13 @@ public class RoomType {
 
     public void setPrice(double price){
         if(price < 0){
-            throw new IllegalArgumentException("Price cannot be negative");
+            throw new IllegalArgumentException("Invalid price");
         }
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "RoomType: " + name + " - price: " + price;
+        return "Amenity: " + name + ", price: " + price;
     }
 }
