@@ -2,7 +2,7 @@ package hotel.users;
 
 import hotel.data.HotelDatabase;
 import hotel.data.Reservation;
-import hotel.data.Room;
+import hotel.data.Room1;
 import hotel.enums.Role;
 import java.time.LocalDate;
 import hotel.enums.Status;
@@ -25,7 +25,7 @@ public class Receptionist extends Staff {
         if (reservation.getStatus() != ReservationStatus.CONFIRMED) {
             throw new IllegalStateException("Reservation is not confirmed. Cannot check-in.");
         }
-        Room room = reservation.getRoom();
+        Room1 room = reservation.getRoom();
         if (!room.getAvailable()) {
             throw new RoomNotAvailableException("Room " + room.getRoomNum() + " is currently occupied or under maintenance.");
         }
@@ -36,7 +36,7 @@ public class Receptionist extends Staff {
 
     //Finalizes the reservation and restores the room status to available for future bookings.
     public void manageCheckOut(Reservation reservation, HotelDatabase db) {
-        Room room = reservation.getRoom();
+        Room1 room = reservation.getRoom();
         room.setAvailable(true);
         Object ReservationStatus = new Object();
         reservation.setStatus((Status) ReservationStatus);

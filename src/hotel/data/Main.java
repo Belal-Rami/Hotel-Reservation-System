@@ -5,6 +5,21 @@ import hotel.users.Guest;
 import java.time.LocalDate;
 import hotel.enums.Gender;
 
+   /*  static{
+        guests.add(new Guest("ShahidISmail26",
+                "Shahid_2006?",
+                LocalDate.of(2006,7,11),
+                20000000,
+                "Cairo",
+                Gender.MALE));
+        guests.add(new Guest("Hananelderiny19"
+                ,"Hanan-123$",
+                LocalDate.of(1987,3,12),
+                12345,
+                "Alexandria",
+                Gender.FEMALE));
+    }
+    */
 public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);

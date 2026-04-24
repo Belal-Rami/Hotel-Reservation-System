@@ -3,13 +3,14 @@ package hotel.services;
 import java.util.ArrayList;
 import hotel.data.Room;
 import hotel.data.RoomType;
+import hotel.data.Amenity;
 
 public class RoomManager {
 
-    private ArrayList<Room> rooms = new ArrayList<>();
+    private ArrayList<Room> rooms;
 
-    public void changeroomtype(Room room, RoomType type){
-        room.setroomtype(type);
+    public RoomManager(ArrayList<Room> rooms) {
+        this.rooms = rooms;
     }
 
     public void addroom(Room room){
@@ -20,7 +21,7 @@ public class RoomManager {
 
     public void removeroom(Room room){
         for(int i=0 ; i<rooms.size() ; i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
                 rooms.remove(room);
                 System.out.println("Room "+room+" removed successfully!");
             }
@@ -32,8 +33,8 @@ public class RoomManager {
 
     public void findroom(Room room){
         for(int i=0;i<rooms.size();i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
-                System.out.println("Room " + rooms.get(i).getroomnum()+" founed");
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
+                System.out.println("Room " + rooms.get(i).getRoomNum()+" found");
             }else{
                 System.out.println("room not found!");
             }
@@ -42,7 +43,7 @@ public class RoomManager {
 
     public void roominfo(Room room){
         for(int i=0;i<rooms.size();i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
                 room.Displayroomdata();
 
             }
@@ -55,24 +56,32 @@ public class RoomManager {
         }
     }
 
-    public ArrayList<Room> getrooms(){
+    
+    public void addAmenityToRoom(Room room, Amenity amenity) {
+                room.createAmenity(amenity);
+    }
+    
+    public void deleteAmenity(Amenity amenity) {
+        for (Room r : rooms) {
+            r.deleteAmenity(amenity);
+        }
+    }
 
-        return rooms;
+    public void changeRoomType(RoomType type, Room room) {
+        room.setRoomType(type);
 
     }
 
-    public void addRoomType(RoomType type) {
-    }
-
-    public void removeRoom(int roomNumber) {
-    }
-
-    public void listAllRooms() {
-    }
-
-    public void addRoom(Room room) {
-    }
-
-    public void updateRoom(int roomNumber, Room updatedRoom) {
+    public void deleteRoomType(RoomType oldRoomType, RoomType newRoomType) {
+        for (Room r : rooms) {
+            //Here, == is used since the actual reference of the two objects are being compared
+            if (r.getRoomType() == oldRoomType) {
+                r.setRoomType(newRoomType);
+            }
+        }
     }
 }
+
+
+
+

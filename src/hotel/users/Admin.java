@@ -7,18 +7,15 @@ import hotel.enums.Role;
 import hotel.data.Room;
 import hotel.data.Amenity;
 import hotel.interfaces.Manageable;
+import hotel.services.RoomManager;
 
 public class Admin extends Staff implements Manageable {
+    private RoomManager roomManager;
 
     // Parameterized Constructor to initialize data.
-    public Admin(String username, String password, LocalDate dateOfBirth, int workingHours) throws InvalidInputException {
+    public Admin(String username, String password, LocalDate dateOfBirth, int workingHours, RoomManager roomManager) throws InvalidInputException {
         super(username, password, dateOfBirth, Role.ADMIN, workingHours);
-    }
-
-    //Welcome message.
-    @Override
-    public void showDashboard() {
-        System.out.println("Welcome to the Admin Dashboard, " + getUsername());
+        this.roomManager = roomManager;
     }
 
     // Add room to the database for the first time.
@@ -54,9 +51,10 @@ public class Admin extends Staff implements Manageable {
     }
 
     // Adds an amenity to the database.
-    public void createAmenity(Amenity amenity, HotelDatabase db) {
-        db.getAmenities().add(amenity);
-        System.out.println("Amenity added.");
+    public void createAmenity(String name, double price) {
+        roomManager.createAmenity(name, price);
+
+   
     }
 
     //Removes an amenity from the database.
