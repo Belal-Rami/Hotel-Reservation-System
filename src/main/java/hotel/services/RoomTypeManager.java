@@ -1,6 +1,7 @@
 package hotel.services;
 
 import java.util.ArrayList;
+
 import hotel.data.RoomType;
 
 public class RoomTypeManager {

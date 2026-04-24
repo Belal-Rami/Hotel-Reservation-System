@@ -1,7 +1,8 @@
 package hotel.services;
 
-import hotel.users.Guest;
 import java.util.*;
+
+import hotel.users.Guest;
 
 public class GuestManager {
 

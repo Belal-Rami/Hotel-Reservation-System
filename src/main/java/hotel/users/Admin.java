@@ -1,16 +1,19 @@
 package hotel.users;
 
 import java.time.LocalDate;
+
+import hotel.data.Amenity;
 import hotel.data.HotelDatabase;
+import hotel.data.Room;
 import hotel.data.RoomType;
 import hotel.enums.Role;
-import hotel.data.Room;
-import hotel.data.Amenity;
 import hotel.interfaces.Manageable;
+import hotel.services.AmenityManager;
 import hotel.services.RoomManager;
 
 public class Admin extends Staff implements Manageable {
     private RoomManager roomManager;
+    private AmenityManager amenityManager;
 
     // Parameterized Constructor to initialize data.
     public Admin(String username, String password, LocalDate dateOfBirth, int workingHours, RoomManager roomManager) throws InvalidInputException {
@@ -52,8 +55,7 @@ public class Admin extends Staff implements Manageable {
 
     // Adds an amenity to the database.
     public void createAmenity(String name, double price) {
-        roomManager.createAmenity(name, price);
-
+        amenityManager.createAmenity(name, price);
    
     }
 

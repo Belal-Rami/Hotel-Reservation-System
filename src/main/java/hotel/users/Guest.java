@@ -1,6 +1,7 @@
 package hotel.users;
 
 import java.time.LocalDate;
+
 import hotel.enums.Gender;
 
 public class Guest {

@@ -1,11 +1,12 @@
 package hotel.users;
 
+import java.time.LocalDate;
+
 import hotel.data.HotelDatabase;
 import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.enums.Role;
 import hotel.interfaces.Manageable;
-import java.time.LocalDate;
 
 public abstract class Staff implements Manageable {
         // Data fields.

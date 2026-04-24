@@ -1,7 +1,10 @@
 package hotel.data;
 
-import hotel.users.*;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
+
+import hotel.users.*;
 
 public class HotelDatabase {
 

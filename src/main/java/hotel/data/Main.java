@@ -1,9 +1,11 @@
 package hotel.data;
 
 import java.util.Scanner;
-import hotel.users.Guest;
-import java.time.LocalDate;
+
 import hotel.enums.Gender;
+import hotel.users.Guest;
+
+import java.time.LocalDate;
 
    /*  static{
         guests.add(new Guest("ShahidISmail26",

@@ -1,7 +1,8 @@
 package hotel.services;
 
-import hotel.data.Amenity;
 import java.util.ArrayList;
+
+import hotel.data.Amenity;
 
 public class AmenityManager {
         // DATA FEILDS

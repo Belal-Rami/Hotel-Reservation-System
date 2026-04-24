@@ -1,9 +1,10 @@
 package hotel.services;
 
 import java.util.ArrayList;
+
+import hotel.data.Amenity;
 import hotel.data.Room;
 import hotel.data.RoomType;
-import hotel.data.Amenity;
 
 public class RoomManager {
 

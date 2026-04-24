@@ -1,8 +1,9 @@
 package hotel.data;
 
+import java.time.LocalDate;
+
 import hotel.enums.Status;
 import hotel.users.Guest;
-import java.time.LocalDate;
 
 public class Reservation {
     // Data fields.

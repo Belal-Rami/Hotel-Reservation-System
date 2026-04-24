@@ -60,15 +60,6 @@ public class Room {
         roomAmenities.remove(amenity);
     }
 
-    public void updateAmenity(Amenity amenity, double newPrice) {
-        for (Amenity a : roomAmenities) {
-            if (a.getName().equalsIgnoreCase(amenity.getName())) {
-                a.setPrice(newPrice);
-                System.out.println("The price is updated!");
-            }
-        }
-    }
-
     public void invoice() {
         System.out.println("Your trip lasted " + duration + " days");
         System.out.println("the cost of room perday: " + totalPricePerDay());
