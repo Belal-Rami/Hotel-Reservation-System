@@ -34,4 +34,10 @@ public class AmenityManager {
                 amenity.setPrice(newprice);
         }
 
+        public void printAll(){
+                for(Amenity a : hotelAmenities){
+                        System.out.println(a.toString());
+                }
+        }
+
     }

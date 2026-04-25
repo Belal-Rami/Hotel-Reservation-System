@@ -23,12 +23,11 @@ public class Guest {
         setGender(gender);
     }
 
-    // toString() method to print data info.
-    @Override
-    public String toString(){
-        return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
-                + "\nAddress: " + address + "\nGender: "+ gender;
+    //This no-argument constructor is needed for Gson to work
+    public Guest() {
     }
+
+ 
 
     // Getter and Setter methods.
     public String getUsername(){
@@ -90,4 +89,13 @@ public class Guest {
         }
         this.gender=gender;
     }
+
+       // toString() method to print data info.
+    @Override
+    public String toString(){
+        return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
+                + "\nAddress: " + address + "\nGender: "+ gender;
+    }
 }
+
+

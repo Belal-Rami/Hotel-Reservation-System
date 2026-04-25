@@ -14,11 +14,16 @@ public class Receptionist extends Staff {
         super(username, password, dateOfBirth, Role.RECEPTIONIST, workingHours);
     }
 
+//This no-argument constructor is needed for Gson to work
+    public Receptionist() {
+    }
+
     // Welcome message.
     @Override
     public void showDashboard() {
         System.out.println("Welcome to the Receptionist Desk, " + getUsername());
     }
+
 
     //Validates the reservation and marks the assigned room as occupied to begin the guest's stay.
     public void manageCheckIn(Reservation reservation, HotelDatabase db) throws RoomNotAvailableException {

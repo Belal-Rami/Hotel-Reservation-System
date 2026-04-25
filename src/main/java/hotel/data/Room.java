@@ -20,13 +20,17 @@ public class Room {
         duration = ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
+        //This no-argument constructor is needed for Gson to work
+    public Room() {
+    }
+
     
     // 3. GETTERS
 
     public RoomType getRoomType() {
         return roomType;
     }
-
+    //The functions that calculate the expenses of the room
     public double amenitiesPriceperDay() {
         double amenitesPricePerDay = 0;
         for (Amenity i : roomAmenities) {
@@ -44,13 +48,7 @@ public class Room {
     }
 
 
-        public void Displayroomdata() {
-        System.out.println("Room Number: " + getRoomNum() + " | Room type: " + getRoomType());
-        System.out.println("---Amenities---");
-        for (Amenity p : roomAmenities) {
-            System.out.println(p.getName());
-        }
-    }
+    //Functions to edit the amenity list inside each room
 
     public void createAmenity(Amenity amenity) {
         roomAmenities.add(amenity);
@@ -59,6 +57,7 @@ public class Room {
     public void deleteAmenity(Amenity amenity) {
         roomAmenities.remove(amenity);
     }
+
 
     public void invoice() {
         System.out.println("Your trip lasted " + duration + " days");
@@ -94,6 +93,14 @@ public class Room {
 
     public ArrayList<Amenity> getAmenities() {
         return roomAmenities;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Room [roomNum=" + roomNum + ", roomType=" + roomType + ", isAvailable=" + isAvailable + ", duration="
+                + duration + ", roomAmenities=" + roomAmenities + ", amenitiesPriceperDay()=" + amenitiesPriceperDay()
+                + ", totalPricePerDay()=" + totalPricePerDay() + ", totalPrice()=" + totalPrice() + "]";
     }
 
 }

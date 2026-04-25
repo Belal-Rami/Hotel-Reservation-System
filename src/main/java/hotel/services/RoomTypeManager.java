@@ -51,4 +51,13 @@ public class RoomTypeManager {
                 roomType.setPrice(newprice);
         }
 
+
+
+        
+    public void printAll(){
+        for(RoomType rt : roomTypes){
+            rt.toString();
+        }
     }
+
+}

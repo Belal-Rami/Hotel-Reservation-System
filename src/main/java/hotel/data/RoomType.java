@@ -12,6 +12,10 @@ public class RoomType {
         
     }
 
+    //This no-argument constructor is needed for Gson to work
+    public RoomType() {
+    }
+
 // 3. GETTERS
     public String getName(){
         return name;

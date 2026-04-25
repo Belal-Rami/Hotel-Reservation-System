@@ -1,14 +1,17 @@
 package hotel.services;
 
 import java.util.*;
+import java.time.LocalDate;
+import hotel.enums.Gender;
 
 import hotel.users.Guest;
 
 public class GuestManager {
 
-    private List<Guest> guests;
 
-    public GuestManager(List<Guest> guests) {
+    private ArrayList<Guest> guests;
+
+    public GuestManager(ArrayList<Guest> guests) {
         this.guests = guests;
     }
 
@@ -21,13 +24,13 @@ public class GuestManager {
         }
         return false;
     }
-public Guest loginGuest(String username, String password){
+public boolean loginGuest(String username, String password){
         for(Guest g: guests){
             if(g.getUsername().equalsIgnoreCase(username)&&g.getPassword().equals(password)){
-                return g;
+                return true;
             }
         }
-        return null;
+        return false;
 
 }
 
@@ -36,8 +39,16 @@ public void registerGuest(Guest newGuest){
             System.out.println("Guest already exists");
             return;
         }
+        else{
         guests.add(newGuest);
     }
+}
+   
+
+
     
     
 }
+
+
+

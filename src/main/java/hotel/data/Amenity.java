@@ -11,6 +11,10 @@ public class Amenity {
         setPrice(price);
     }
 
+    //This no-argument constructor is needed for Gson to work
+    public Amenity() {
+    }
+
 // 3. GETTERS
     public String getName(){
         return name;

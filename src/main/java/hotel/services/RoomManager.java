@@ -7,13 +7,21 @@ import hotel.data.Room;
 import hotel.data.RoomType;
 
 public class RoomManager {
-
+    //The array list of rooms in the hotel
     private ArrayList<Room> rooms;
 
+    //CONSTRUCTOR
     public RoomManager(ArrayList<Room> rooms) {
         this.rooms = rooms;
     }
 
+
+    // SETTER for the array list
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    //CRUD METHODS for the rooms themselves
     public void addroom(Room room){
 
         rooms.add(room);
@@ -45,15 +53,14 @@ public class RoomManager {
     public void roominfo(Room room){
         for(int i=0;i<rooms.size();i++){
             if(rooms.get(i).getRoomNum()==room.getRoomNum()){
-                room.Displayroomdata();
-
+                System.out.println(room.toString());
             }
         }
     }
 
     public void allroominfo(){
         for(Room r:rooms){
-            r.Displayroomdata();
+            System.out.println(r.toString());
         }
     }
 

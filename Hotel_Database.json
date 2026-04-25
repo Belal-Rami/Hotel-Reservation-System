@@ -1,0 +1,29 @@
+{
+  "guests": [
+    {
+      "username": "Belal",
+      "password": "123",
+      "dateOfBirth": "2025-03-02",
+      "balance": 30.0,
+      "address": "Cairo",
+      "gender": "MALE"
+    }
+  ],
+  "staffMembers": [],
+  "amenities": [
+    {
+      "name": "Wifi",
+      "price": 50.0
+    },
+    {
+      "name": "Tv",
+      "price": 30.0
+    },
+    {
+      "name": "Snacks",
+      "price": 90.0
+    }
+  ],
+  "roomTypes": [],
+  "rooms": []
+}
