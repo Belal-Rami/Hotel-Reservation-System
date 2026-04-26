@@ -25,20 +25,20 @@ public class Receptionist extends Staff {
     }
 
 
-    //Validates the reservation and marks the assigned room as occupied to begin the guest's stay.
-    public void manageCheckIn(Reservation reservation, HotelDatabase db) throws RoomNotAvailableException {
-        Status ReservationStatus = null;
-        if (reservation.getStatus() != ReservationStatus.CONFIRMED) {
-            throw new IllegalStateException("Reservation is not confirmed. Cannot check-in.");
-        }
-        Room room = reservation.getRoom();
-        if (!room.getAvailable()) {
-            throw new RoomNotAvailableException("Room " + room.getRoomNum() + " is currently occupied or under maintenance.");
-        }
-
-        room.setAvailable(false);
-        System.out.println("Guest " + reservation.getGuest().getUsername() + " checked into room " + room.getRoomNum());
-    }
+//    //Validates the reservation and marks the assigned room as occupied to begin the guest's stay.
+//   // public void manageCheckIn(Reservation reservation, HotelDatabase db) throws RoomNotAvailableException {
+//      //  Status ReservationStatus = null;
+////        if (reservation.getStatus() != ReservationStatus.CONFIRMED) {
+//  //          throw new IllegalStateException("Reservation is not confirmed. Cannot check-in.");
+//        }
+//        Room room = reservation.getRoom();
+//        if (!room.getAvailable()) {
+//            throw new RoomNotAvailableException("Room " + room.getRoomNum() + " is currently occupied or under maintenance.");
+//        }
+//
+//        room.setAvailable(false);
+//        System.out.println("Guest " + reservation.getGuest().getUsername() + " checked into room " + room.getRoomNum());
+//    }
 
     //Finalizes the reservation and restores the room status to available for future bookings.
     public void manageCheckOut(Reservation reservation, HotelDatabase db) {

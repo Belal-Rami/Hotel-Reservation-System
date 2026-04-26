@@ -12,6 +12,7 @@ public class Reservation {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private Status status;
+    private int reservationID;
 
     // Parameterized constructor to initialize data.
     public Reservation(Guest guest,Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
@@ -56,6 +57,11 @@ public class Reservation {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public int getReservationID() { return reservationID;}
+    public void setReservationID(int reservationID) { this.reservationID = reservationID;}
+
+     public String getpassword() {return assignedGuest.getPassword();}
 
 
 
