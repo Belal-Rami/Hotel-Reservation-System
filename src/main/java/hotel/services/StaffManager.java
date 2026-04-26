@@ -21,13 +21,13 @@ private ArrayList<Staff> staff;
     }
     return false;
     }
-public boolean loginStaff(String username, String password){
+public Staff loginStaff(String username, String password){
         for(Staff s: staff){
             if(s.getUsername().equalsIgnoreCase(username)&&s.getPassword().equals(password)){
-                return true;
+                return s;
             }
         }
-        return false;
+        return null;
 
 }
 

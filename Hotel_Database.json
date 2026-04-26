@@ -6,10 +6,29 @@
       "dateOfBirth": "2025-03-02",
       "balance": 30.0,
       "address": "Cairo",
-      "gender": "MALE"
+      "gender": "MALE",
+      "Greservations": []
+    },
+    {
+      "username": "Shawkat",
+      "password": "345",
+      "dateOfBirth": "2012-04-05",
+      "balance": 0.0,
+      "address": "Ain Shams",
+      "gender": "MALE",
+      "Greservations": []
     }
   ],
-  "staffMembers": [],
+  "staffMembers": [
+    {
+      "type": "Admin",
+      "username": "Admin",
+      "password": "123456",
+      "dateOfBirth": "2000-04-07",
+      "role": "ADMIN",
+      "workingHours": 67
+    }
+  ],
   "amenities": [
     {
       "name": "Wifi",
@@ -24,6 +43,56 @@
       "price": 90.0
     }
   ],
-  "roomTypes": [],
-  "rooms": []
+  "roomTypes": [
+    {
+      "name": "Single",
+      "price": 200.0
+    },
+    {
+      "name": "Double",
+      "price": 500.0
+    }
+  ],
+  "rooms": [
+    {
+      "roomNum": "78130",
+      "roomType": {
+        "name": "Single",
+        "price": 200.0
+      },
+      "isAvailable": true,
+      "duration": 1,
+      "roomAmenities": []
+    },
+    {
+      "roomNum": "31791",
+      "roomType": {
+        "name": "Double",
+        "price": 500.0
+      },
+      "isAvailable": true,
+      "duration": 1,
+      "roomAmenities": []
+    },
+    {
+      "roomNum": "26354",
+      "roomType": {
+        "name": "Double",
+        "price": 500.0
+      },
+      "isAvailable": true,
+      "duration": 1,
+      "roomAmenities": [
+        {
+          "name": "Wifi",
+          "price": 50.0
+        },
+        {
+          "name": "Wifi",
+          "price": 50.0
+        }
+      ]
+    }
+  ],
+  "reservations": []
 }
