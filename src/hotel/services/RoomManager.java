@@ -9,7 +9,7 @@ public class RoomManager {
     private ArrayList<Room> rooms = new ArrayList<>();
 
     public void changeroomtype(Room room, RoomType type){
-        room.setroomtype(type);
+        room.setRoomType(type);
     }
 
     public void addroom(Room room){
@@ -20,7 +20,7 @@ public class RoomManager {
 
     public void removeroom(Room room){
         for(int i=0 ; i<rooms.size() ; i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
                 rooms.remove(room);
                 System.out.println("Room "+room+" removed successfully!");
             }
@@ -32,8 +32,8 @@ public class RoomManager {
 
     public void findroom(Room room){
         for(int i=0;i<rooms.size();i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
-                System.out.println("Room " + rooms.get(i).getroomnum()+" founed");
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
+                System.out.println("Room " + rooms.get(i).getRoomNum()+" founed");
             }else{
                 System.out.println("room not found!");
             }
@@ -42,7 +42,7 @@ public class RoomManager {
 
     public void roominfo(Room room){
         for(int i=0;i<rooms.size();i++){
-            if(rooms.get(i).getroomnum()==room.getroomnum()){
+            if(rooms.get(i).getRoomNum()==room.getRoomNum()){
                 room.Displayroomdata();
 
             }
