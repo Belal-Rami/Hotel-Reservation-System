@@ -15,13 +15,13 @@ public class AmenityManager {
                 HotelAmenities.add(new Amenity(name,price));
         }
         public void addamenitytoroom(Amenity amenity, Room room){
-                room.getamenities().add(amenity);
+                room.getAmenities().add(amenity);
         }
         public void removeamenityroom(Amenity amenity,Room room){
                 for(Room r:roommanager.getrooms()) {
-                        for (int i=0;i<r.getamenities().size();i++) {
-                                if (r.getamenities().get(i).getName().equalsIgnoreCase(amenity.getName())) {
-                                        r.getamenities().remove(i);
+                        for (int i=0;i<r.getAmenities().size();i++) {
+                                if (r.getAmenities().get(i).getName().equalsIgnoreCase(amenity.getName())) {
+                                        r.getAmenities().remove(i);
                                         System.out.println("The amenity is removed successfully!");
                                 }
                         }
@@ -43,9 +43,9 @@ public class AmenityManager {
                                 }
                         }
                         for (Room r : roommanager.getrooms()) {
-                                for (int i = 0; i < r.getamenities().size(); i++) {
-                                        if (r.getamenities().get(i).getName().equalsIgnoreCase(amenity.getName())) {
-                                                r.getamenities().remove(i);
+                                for (int i = 0; i < r.getAmenities().size(); i++) {
+                                        if (r.getAmenities().get(i).getName().equalsIgnoreCase(amenity.getName())) {
+                                                r.getAmenities().remove(i);
                                         }
                                 }
                         }
@@ -53,7 +53,7 @@ public class AmenityManager {
                 }
         }
         public void updateamenityprice(Amenity amenity,double newprice){
-                amenity.setPrice(newprice);
+                amenity.setprice(newprice);
                 System.out.println("The price is updated!");
         }
 
