@@ -16,7 +16,12 @@ public class RoomManager {
     //The array list of rooms in the hotel
     private ArrayList<Room> rooms;
     private ArrayList<Reservation> reservations = new ArrayList<>();
-
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+    public ArrayList<Room> getRooms(){
+        return rooms;
+    }
     //CONSTRUCTOR
     public RoomManager(ArrayList<Room> rooms) {
         this.rooms = rooms;
