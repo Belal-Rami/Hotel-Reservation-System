@@ -24,13 +24,13 @@ public class GuestManager {
         }
         return false;
     }
-public boolean loginGuest(String username, String password){
+public Guest loginGuest(String username, String password){
         for(Guest g: guests){
             if(g.getUsername().equalsIgnoreCase(username)&&g.getPassword().equals(password)){
-                return true;
+                return g;
             }
         }
-        return false;
+        return null;
 
 }
 

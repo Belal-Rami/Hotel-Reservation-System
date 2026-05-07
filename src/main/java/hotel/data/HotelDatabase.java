@@ -15,7 +15,7 @@ public class HotelDatabase {
 
 
     private ArrayList<Room> rooms = new ArrayList<>();
-   // private ArrayList<Reservation> reservations = new ArrayList<>();
+    private ArrayList<Reservation> reservations = new ArrayList<>();
    // private ArrayList<Invoice> invoices = new ArrayList<>();
 
     // Getter and Setter methods.
@@ -42,5 +42,12 @@ public class HotelDatabase {
     public ArrayList<Staff> getStaffMembers() {
         return staffMembers;
     }
+
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+
+
+   
 
 }

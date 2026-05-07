@@ -15,11 +15,12 @@ import hotel.users.Guest;
 public class RoomManager {
     //The array list of rooms in the hotel
     private ArrayList<Room> rooms;
-    private ArrayList<Reservation> reservations = new ArrayList<>();
+    private ArrayList<Reservation> reservations;
 
     //CONSTRUCTOR
-    public RoomManager(ArrayList<Room> rooms) {
+    public RoomManager(ArrayList<Room> rooms, ArrayList<Reservation> reservations) {
         this.rooms = rooms;
+        this.reservations = reservations;
     }
 
 
@@ -175,6 +176,39 @@ public class RoomManager {
                     ", Check-in: " + r.getCheckIn() +
                     ", Check-out: " + r.getCheckOut() +
                     ", Status: " + r.getStatus());
+        }
+    }
+
+
+        // Add room to the database for the first time.
+    public void createRoom(Room room) {
+        rooms.add(room);
+        System.out.println("Room " + room.getRoomNum() + " added successfully.");
+    }
+
+    public Room readRoom(String roomNumber) {
+        for (Room r : rooms) {
+            if (r.getRoomNum().equals(roomNumber)) return r;
+        }
+        return null;
+    }
+
+    // Modify the details of the room that already exists in the database.
+    public void updateRoom(String roomNumber, Room updatedData) {
+        Room existing = readRoom(roomNumber);
+        if (existing != null) {
+            existing.setRoomType((RoomType) updatedData.getRoomType());
+            System.out.println("Room updated.");
+        } else {
+            System.out.println("Room not found.");
+        }
+    }
+    // Delete room from the database.
+    public void deleteRoom(String roomNumber) {
+        Room r = readRoom(roomNumber);
+        if (r != null) {
+            rooms.remove(r);
+            System.out.println("Room deleted.");
         }
     }
 }
