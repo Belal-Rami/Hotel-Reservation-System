@@ -113,9 +113,19 @@ public class ManageReservationsController {
             System.out.println("please choose");
             return;
         }
+        LocalDate today=LocalDate.now();
+        LocalDate checkInDate = LocalDate.parse(selected.getCheckIn());
 
+        if(checkInDate.equals(today)){
         selected.getReservation().setStatus(Status.CONFIRMED);
+        System.out.println("checkIn done successfuly");
+    }else{
+            selected.getReservation().setStatus(Status.PENDING);
+            System.out.println("check in allowed only on reservation date");
+
+        }
         reservationTable.refresh();
+
     }
 
     @FXML
@@ -136,14 +146,7 @@ public class ManageReservationsController {
             System.out.println("check out allowed only on reservation date");
 
         }
-        if(checkOutDate.equals(today)){
-        selected.getReservation().setStatus(Status.COMPLETED);
-        System.out.println("the checkOut done successfully");
-        }else{
-            selected.getReservation().setStatus(Status.CONFIRMED);
-            System.out.println("check out allowed only on reservation date");
-
-        }
         reservationTable.refresh();
+
     }
 }
