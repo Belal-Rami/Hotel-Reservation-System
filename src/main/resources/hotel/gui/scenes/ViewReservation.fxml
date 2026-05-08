@@ -26,8 +26,8 @@
             <TableColumn fx:id="reservationIdColumn" prefWidth="321.0" text="Reservation Id" />
         </columns>
       </TableView>
-      <Button layoutX="1654.0" layoutY="897.0" mnemonicParsing="false" onAction="#cancel" prefHeight="102.0" prefWidth="236.0" text="Cancel" />
-      <Button layoutX="1395.0" layoutY="900.0" mnemonicParsing="false" onAction="#confirm" prefHeight="102.0" prefWidth="212.0" text="Confirm" />
+      <Button layoutX="1654.0" layoutY="897.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="102.0" prefWidth="236.0" text="CheckOut" />
+      <Button layoutX="1395.0" layoutY="900.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="102.0" prefWidth="212.0" text="CheckIn" />
       <TextField fx:id="searchIdField" layoutX="1497.0" layoutY="190.0" prefHeight="46.0" prefWidth="221.0" text="Enter Reservation Id" />
       <Button layoutX="1739.0" layoutY="190.0" mnemonicParsing="false" onAction="#searchById" prefHeight="46.0" prefWidth="121.0" text="Search" />
       <Button layoutX="1739.0" layoutY="122.0" mnemonicParsing="false" onAction="#showAll" prefHeight="46.0" prefWidth="121.0" text="Show All" />

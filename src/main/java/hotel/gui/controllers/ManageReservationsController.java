@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ManageReservationsController {
@@ -105,28 +106,47 @@ public class ManageReservationsController {
     }
 
     @FXML
-    public void confirm(ActionEvent e) {
+    public void checkIn(ActionEvent e) {
         ReservationRow selected = reservationTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
             System.out.println("please choose");
             return;
         }
+        LocalDate today=LocalDate.now();
+        LocalDate checkInDate = LocalDate.parse(selected.getCheckIn());
 
+        if(checkInDate.equals(today)){
         selected.getReservation().setStatus(Status.CONFIRMED);
+        System.out.println("checkIn done successfuly");
+    }else{
+            selected.getReservation().setStatus(Status.PENDING);
+            System.out.println("check in allowed only on reservation date");
+
+        }
         reservationTable.refresh();
+
     }
 
     @FXML
-    public void cancel(ActionEvent e) {
+    public void checkOut(ActionEvent e) {
         ReservationRow selected = reservationTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
             System.out.println("please choose");
             return;
         }
+        LocalDate today=LocalDate.now();
+        LocalDate checkOutDate = LocalDate.parse(selected.getCheckOut());
+        if(checkOutDate.equals(today)){
+        selected.getReservation().setStatus(Status.COMPLETED);
+        System.out.println("the checkOut done successfully");
+        }else{
+            selected.getReservation().setStatus(Status.CONFIRMED);
+            System.out.println("check out allowed only on reservation date");
 
-        selected.getReservation().setStatus(Status.CANCELLED);
+        }
         reservationTable.refresh();
+
     }
 }
