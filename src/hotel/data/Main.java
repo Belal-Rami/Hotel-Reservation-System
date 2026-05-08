@@ -4,6 +4,7 @@ import java.util.Scanner;
 import hotel.users.Guest;
 import java.time.LocalDate;
 import hotel.enums.Gender;
+import hotel.enums.PaymentMethod;
 
 public class Main {
     public static void main(String[] args){
@@ -13,8 +14,10 @@ public class Main {
         do {
             System.out.println("1. Register");
             System.out.println("2. Login");
-            System.out.println("3. Exit");
+            System.out.println("3. Create Invoice");
+            System.out.println("4. Exit");
             System.out.print("Enter choice: ");
+
 
             choice = input.nextInt();
             input.nextLine();
@@ -59,9 +62,37 @@ public class Main {
                 }
                     break;
 
-
-
                 case 3:
+                    System.out.print("Enter total amount: ");
+                    double totalAmount = input.nextDouble();
+                    input.nextLine();
+
+                    System.out.println("Choose payment method:");
+                    System.out.println("1. CASH");
+                    System.out.println("2. CREDIT_CARD");
+                    System.out.println("3. ONLINE");
+                    int paymentChoice = input.nextInt();
+                    input.nextLine();
+
+                    PaymentMethod paymentMethod;
+
+                    if (paymentChoice == 1) {
+                        paymentMethod = PaymentMethod.CASH;
+                    } else if (paymentChoice == 2) {
+                        paymentMethod = PaymentMethod.CREDIT_CARD;
+                    } else {
+                        paymentMethod = PaymentMethod.ONLINE;
+                    }
+
+                    Invoice invoice = new Invoice(totalAmount, paymentMethod, LocalDate.now());
+
+                    System.out.println("Invoice created successfully");
+                    System.out.println(invoice);
+                    break;
+
+
+
+                case 4:
                     System.out.println("Goodbye");
                     break;
                 default:
@@ -69,6 +100,6 @@ public class Main {
             }
 
 
-        } while(choice != 3);
+        } while(choice != 4);
     }
 }

@@ -11,6 +11,7 @@ public class Reservation {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private Status status;
+    private Invoice invoice;
 
     // Parameterized constructor to initialize data.
     public Reservation(Guest guest,Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
@@ -54,6 +55,18 @@ public class Reservation {
     }
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public void createInvoice(double totalAmount, hotel.enums.PaymentMethod paymentMethod) {
+        this.invoice = new Invoice(totalAmount, paymentMethod, LocalDate.now());
     }
 
 
