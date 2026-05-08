@@ -1,5 +1,7 @@
 package hotel.data;
 
+import hotel.gui.GuiData;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ public class Room {
     private RoomType roomType;
     private Boolean isAvailable=false;
     private Long duration;
+    private LocalDate checkOut;
 
     private ArrayList<Amenity> roomAmenities = new ArrayList<>();
 
@@ -17,6 +20,7 @@ public class Room {
     public Room(String roomNum, RoomType roomType, LocalDate checkIn, LocalDate checkOut) {
         this.roomNum = roomNum;
         this.roomType = roomType;
+        this.checkOut=checkOut;
         duration = ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
@@ -94,6 +98,20 @@ public class Room {
     public ArrayList<Amenity> getAmenities() {
         return roomAmenities;
     }
+    public String getTypeName(){
+        return roomType.getName();
+    }
+    public LocalDate getCheckOut(){
+        return checkOut;
+    }
+    public String getStatus(){
+
+        if(checkOut.isBefore(LocalDate.now())){
+            return "Available";
+        }
+
+        return "Occupied";
+    }
 
 
     @Override
@@ -101,6 +119,9 @@ public class Room {
         return "Room [roomNum=" + roomNum + ", roomType=" + roomType + ", isAvailable=" + isAvailable + ", duration="
                 + duration + ", roomAmenities=" + roomAmenities + ", amenitiesPriceperDay()=" + amenitiesPriceperDay()
                 + ", totalPricePerDay()=" + totalPricePerDay() + ", totalPrice()=" + totalPrice() + "]";
+    }
+    public double getPrice(){
+        return roomType.getPrice();
     }
 
 }

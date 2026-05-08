@@ -25,8 +25,6 @@ public class Guest {
         return Greservations;
     }
 
-
-
     //Parameterized constructor.
     public Guest(String username,String password,LocalDate dateOfBirth,double balance,String address,Gender gender){
         setUsername(username);

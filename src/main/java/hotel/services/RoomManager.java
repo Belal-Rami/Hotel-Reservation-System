@@ -211,6 +211,13 @@ public class RoomManager {
             System.out.println("Room deleted.");
         }
     }
+
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+    public ArrayList<Room> getRooms(){
+        return rooms;
+    }
 }
 
 
