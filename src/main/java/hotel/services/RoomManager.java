@@ -149,7 +149,7 @@ public class RoomManager {
             Reservation r = reservations.get(i);
 
             if (r.getReservationID() == reservationID &&
-                    r.getpassword().equals(password)) {
+                    r.getGuest().getPassword().equals(password) ){
 
                 reservations.remove(i);
                 r.getGuest().getReservations().remove(r);

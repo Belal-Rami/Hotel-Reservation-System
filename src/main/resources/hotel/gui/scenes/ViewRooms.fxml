@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: lightblue;"
             xmlns="http://javafx.com/javafx/21"
@@ -10,6 +10,12 @@
             fx:controller="hotel.gui.controllers.ViewRoomsController">
 
     <children>
+        <Button layoutX="20.0" layoutY="20.0"
+                mnemonicParsing="false"
+                onAction="#goBack"
+                prefHeight="40.0"
+                prefWidth="100.0"
+                text="Back" />
         <Label layoutX="220.0" layoutY="170.0" text="Rooms Screen" />
     </children>
 

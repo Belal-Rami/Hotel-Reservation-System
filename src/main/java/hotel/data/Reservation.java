@@ -70,6 +70,12 @@ public class Reservation {
         this.invoice = new Invoice(totalAmount, paymentMethod, LocalDate.now());
     }
 
+    public int getReservationID() {
+        return reservationID;
+    }
 
+    public void setReservationID(int reservationID) {
+        this.reservationID = reservationID;
+    }
 
 }
