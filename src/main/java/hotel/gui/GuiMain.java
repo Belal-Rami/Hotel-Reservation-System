@@ -72,6 +72,8 @@ public class GuiMain extends Application {
         GuiData.guestManager = new GuestManager(database.getGuests());
         GuiData.staffManager = new StaffManager(database.getStaffMembers());
         GuiData.roomTypeManager = new RoomTypeManager(database.getRoomTypes());
+        GuiData.database = database; 
+
 
 
 
@@ -79,11 +81,11 @@ public class GuiMain extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml")
+                getClass().getResource("/hotel/gui/scenes/admin-catalog.fxml")
         );
 
         Scene scene = new Scene(loader.load(), 1920, 1080);
-        stage.setTitle("Receptionist Dashboard");
+        stage.setTitle("Admin Catalog");
         stage.setScene(scene);
         stage.show();
     }

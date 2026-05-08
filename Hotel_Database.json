@@ -31,26 +31,34 @@
   ],
   "amenities": [
     {
-      "name": "Wifi",
-      "price": 50.0
-    },
-    {
       "name": "Tv",
-      "price": 30.0
+      "price": 40.0
     },
     {
       "name": "Snacks",
       "price": 90.0
+    },
+    {
+      "name": "Wifi",
+      "price": 45.0
+    },
+    {
+      "name": "Pool Table",
+      "price": 100.0
     }
   ],
   "roomTypes": [
     {
-      "name": "Single",
-      "price": 200.0
-    },
-    {
       "name": "Double",
       "price": 500.0
+    },
+    {
+      "name": "Single",
+      "price": 400.0
+    },
+    {
+      "name": "Deluxe",
+      "price": 700.0
     }
   ],
   "rooms": [

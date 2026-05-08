@@ -12,6 +12,12 @@
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/enums/Status.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/GuiData.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/GuiMain.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminCatalogCardController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminCatalogController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminCreateItemController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminRegisterController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminRoomsController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ManageReservationsController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ManageRoomController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ReceptionistDashboardController.java

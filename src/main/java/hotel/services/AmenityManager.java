@@ -40,4 +40,10 @@ public class AmenityManager {
                 }
         }
 
+
+        public ArrayList<Amenity> getAmenities() {
+                return hotelAmenities;
+        }
+
+        
     }

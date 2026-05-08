@@ -48,6 +48,6 @@ public void setName(String name){
 
     @Override
     public String toString() {
-        return "RoomType: " + name + " - price: " + price;
+        return getName();
     }
 }

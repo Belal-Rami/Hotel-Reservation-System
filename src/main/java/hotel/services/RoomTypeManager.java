@@ -60,4 +60,10 @@ public class RoomTypeManager {
         }
     }
 
+
+
+    public ArrayList<RoomType> getRoomTypes() {
+        return roomTypes;
+    }
+
 }
