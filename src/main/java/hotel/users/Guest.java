@@ -1,6 +1,9 @@
 package hotel.users;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import hotel.services.RoomManager;
+import hotel.data.Reservation;
 import hotel.enums.Gender;
 
 public class Guest {
@@ -12,6 +15,18 @@ public class Guest {
     private String address;
     private Gender gender;
 
+    private ArrayList<Reservation> Greservations = new ArrayList<Reservation>();
+
+    public void addReservation(Reservation r) {
+        Greservations.add(r);
+    }
+
+    public ArrayList<Reservation> getReservations() {
+        return Greservations;
+    }
+
+
+
     //Parameterized constructor.
     public Guest(String username,String password,LocalDate dateOfBirth,double balance,String address,Gender gender){
         setUsername(username);
@@ -22,12 +37,13 @@ public class Guest {
         setGender(gender);
     }
 
-    // toString() method to print data info.
-    @Override
-    public String toString(){
-        return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
-                + "\nAddress: " + address + "\nGender: "+ gender;
+    //This no-argument constructor is needed for Gson to work
+    public Guest() {
     }
+
+
+
+
 
     // Getter and Setter methods.
     public String getUsername(){
@@ -89,4 +105,13 @@ public class Guest {
         }
         this.gender=gender;
     }
+
+       // toString() method to print data info.
+    @Override
+    public String toString(){
+        return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
+                + "\nAddress: " + address + "\nGender: "+ gender;
+    }
 }
+
+

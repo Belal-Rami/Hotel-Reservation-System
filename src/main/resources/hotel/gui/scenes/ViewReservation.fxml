@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: indianred; -fx-border-color: gold; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ManageReservationsController">
+   <children>
+      <Label alignment="CENTER" layoutX="4.0" layoutY="23.0" prefHeight="83.0" prefWidth="592.0" text="View Reservations">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="140.0" text="Back" />
+      <TableView fx:id="reservationTable" editable="true" fixedCellSize="24.0" layoutX="13.0" layoutY="100.0" prefHeight="200.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="guestNameColumn" prefWidth="159.0" text="Guest name" />
+          <TableColumn fx:id="roomNumberColumn" minWidth="0.0" prefWidth="90.0" text="Room number" />
+            <TableColumn fx:id="checkInColumn" prefWidth="87.0" text="CheckIn" />
+            <TableColumn fx:id="checkOutColumn" prefWidth="84.0" text="CheckOut" />
+            <TableColumn fx:id="statusColumn" prefWidth="144.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="476.0" layoutY="325.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="120.0" text="Cancel" />
+      <Button layoutX="343.0" layoutY="325.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="120.0" text="Confirm" />
+   </children>
+</AnchorPane>

@@ -1,24 +1,31 @@
 package hotel.users;
 
 import java.time.LocalDate;
+
+import hotel.data.Amenity;
 import hotel.data.HotelDatabase;
+import hotel.data.Room;
 import hotel.data.RoomType;
 import hotel.enums.Role;
-import hotel.data.Room;
-import hotel.data.Amenity;
 import hotel.interfaces.Manageable;
 
+
 public class Admin extends Staff implements Manageable {
+
+
+    // Welcome message.
+    @Override
+    public void showDashboard() {
+        System.out.println("Welcome to the Receptionist Desk, " + getUsername());
+    }
 
     // Parameterized Constructor to initialize data.
     public Admin(String username, String password, LocalDate dateOfBirth, int workingHours) throws InvalidInputException {
         super(username, password, dateOfBirth, Role.ADMIN, workingHours);
     }
 
-    //Welcome message.
-    @Override
-    public void showDashboard() {
-        System.out.println("Welcome to the Admin Dashboard, " + getUsername());
+    //This no-argument constructor is needed for Gson to work
+    public Admin() {
     }
 
     // Add room to the database for the first time.
@@ -54,18 +61,18 @@ public class Admin extends Staff implements Manageable {
     }
 
     // Adds an amenity to the database.
-    public void createAmenity(Amenity amenity, HotelDatabase db) {
-        db.getAmenities().add(amenity);
-        System.out.println("Amenity added.");
-    }
+  //  public void createAmenity(String name, double price) {
+   //     amenityManager.createAmenity(name, price);
+   
+  //  }
 
     //Removes an amenity from the database.
-    public void deleteAmenity(Amenity amenity, HotelDatabase db) {
-        if (db.getAmenities().contains(amenity)) {
-            db.getAmenities().remove(amenity);
-            System.out.println("Amenity removed.");
-        } else {
-            System.out.println("Amenity not found.");
-        }
-    }
+//    public void deleteAmenity(Amenity amenity, HotelDatabase db) {
+ //       if (db.getAmenities().contains(amenity)) {
+    //        db.getAmenities().remove(amenity);
+   //         System.out.println("Amenity removed.");
+   //     } else {
+   //         System.out.println("Amenity not found.");
+   //     }
+   // }
 }

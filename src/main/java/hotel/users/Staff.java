@@ -1,11 +1,12 @@
 package hotel.users;
 
+import java.time.LocalDate;
+
 import hotel.data.HotelDatabase;
 import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.enums.Role;
 import hotel.interfaces.Manageable;
-import java.time.LocalDate;
 
 public abstract class Staff implements Manageable {
         // Data fields.
@@ -49,10 +50,10 @@ public abstract class Staff implements Manageable {
     @Override
     public void viewAllReservations(HotelDatabase db) {
         System.out.println("--- Reservation List ---");
-        for (int i = 0; i < db.getReservations().size(); i++) {
-            Reservation res = db.getReservations().get(i);
-            System.out.println(res);
-        }
+       // for (int i = 0; i < db.getReservations().size(); i++) {
+        //    Reservation res = db.getReservations().get(i);
+        //    System.out.println(res);
+       // }
     }
 
     // Abstract method to force child classes to implement their specific dashboard.

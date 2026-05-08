@@ -8,7 +8,7 @@ public class RoomManager {
 
     private ArrayList<Room> rooms = new ArrayList<>();
 
-    public void changeRoomtype(Room room, RoomType type){
+    public void changeroomtype(Room room, RoomType type){
         room.setRoomType(type);
     }
 

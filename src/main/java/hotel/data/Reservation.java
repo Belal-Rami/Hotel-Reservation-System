@@ -12,6 +12,7 @@ public class Reservation {
     private LocalDate checkOutDate;
     private Status status;
     private Invoice invoice;
+    private int reservationID;
 
     // Parameterized constructor to initialize data.
     public Reservation(Guest guest,Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
