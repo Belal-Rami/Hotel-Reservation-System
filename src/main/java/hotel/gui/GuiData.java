@@ -5,17 +5,20 @@ import hotel.data.Room;
 import hotel.data.RoomType;
 import hotel.enums.Gender;
 import hotel.enums.Status;
+import hotel.services.GuestManager;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static hotel.enums.Gender.FEMALE;
 import static hotel.enums.Gender.MALE;
 
 public class GuiData {
 
     public static RoomManager roomManager = new RoomManager(new ArrayList<>());
+    public static GuestManager guestmanager= new GuestManager(new ArrayList<>());
     static
     {
         RoomType single= new RoomType("Single",1200);
@@ -23,7 +26,7 @@ public class GuiData {
         LocalDate checkout= LocalDate.of(2027,11,21);
         Room room1= new Room("101",single,checkIn,checkout);
         LocalDate DateOfBirth= LocalDate.of(2007,11,21);
-        Guest guest=new Guest("Adel","12071980",DateOfBirth,50000, "Cairo",MALE);
+        Guest guest=new Guest("Jana","124928",DateOfBirth,20000, "Cairo",FEMALE);
         Reservation res1= new Reservation(guest,room1,checkIn,checkout,Status.PENDING);
         roomManager.addReservation(res1);
 
@@ -39,8 +42,11 @@ public class GuiData {
         roomManager.addReservation(res2);
         roomManager.addroom(room1);
         roomManager.addroom(room11);
+        guestmanager.registerGuest(guest1);
+        guestmanager.registerGuest(guest);
 
 
-}
+
+    }
 
 }

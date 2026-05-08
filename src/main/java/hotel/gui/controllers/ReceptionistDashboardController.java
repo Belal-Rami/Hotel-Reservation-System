@@ -30,6 +30,6 @@ public class ReceptionistDashboardController {
       stage.show();
     }
     public void logout(ActionEvent e){
-        System.out.println("logout clicked");
+        System.exit(0);
     }
 }

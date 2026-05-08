@@ -10,6 +10,9 @@ public class GuestManager {
 
 
     private ArrayList<Guest> guests;
+    public ArrayList<Guest> getGuests(){
+        return guests;
+    }
 
     public GuestManager(ArrayList<Guest> guests) {
         this.guests = guests;
