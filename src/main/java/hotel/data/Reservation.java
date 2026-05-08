@@ -1,9 +1,8 @@
 package hotel.data;
 
-import java.time.LocalDate;
-
 import hotel.enums.Status;
 import hotel.users.Guest;
+import java.time.LocalDate;
 
 public class Reservation {
     // Data fields.
@@ -12,6 +11,7 @@ public class Reservation {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private Status status;
+    private Invoice invoice;
     private int reservationID;
 
     // Parameterized constructor to initialize data.
@@ -58,10 +58,17 @@ public class Reservation {
         this.status = status;
     }
 
-    public int getReservationID() { return reservationID;}
-    public void setReservationID(int reservationID) { this.reservationID = reservationID;}
+    public Invoice getInvoice() {
+        return invoice;
+    }
 
-     public String getpassword() {return assignedGuest.getPassword();}
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public void createInvoice(double totalAmount, hotel.enums.PaymentMethod paymentMethod) {
+        this.invoice = new Invoice(totalAmount, paymentMethod, LocalDate.now());
+    }
 
 
 
