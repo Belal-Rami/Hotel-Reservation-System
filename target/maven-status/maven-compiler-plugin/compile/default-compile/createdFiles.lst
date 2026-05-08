@@ -29,3 +29,4 @@ hotel/users/RoomNotAvailableException.class
 hotel/gui/GuiMain.class
 hotel/services/AmenityManager.class
 hotel/data/Reservation.class
+hotel/data/MainApplication.class

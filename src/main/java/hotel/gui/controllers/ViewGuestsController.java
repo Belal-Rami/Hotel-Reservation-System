@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import static hotel.gui.GuiData.guestmanager;
+import static hotel.gui.GuiData.guestManager;
 
 public class ViewGuestsController {
     @FXML
@@ -53,7 +53,7 @@ public class ViewGuestsController {
         AddressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
         GenderCol.setCellValueFactory(new PropertyValueFactory<>("gender"));
         ObservableList List= FXCollections.observableArrayList();
-        for(Guest g: guestmanager.getGuests()){
+        for(Guest g: guestManager.getGuests()){
             List.add(g);
         }
         GuestTable.setItems(List);
@@ -66,7 +66,7 @@ public class ViewGuestsController {
             return;
         }
         ObservableList namee =FXCollections.observableArrayList();
-        for(Guest g: GuiData.guestmanager.getGuests()){
+        for(Guest g: GuiData.guestManager.getGuests()){
             if(g.getUsername().equals(name)){
                 namee.add(g);
             }
@@ -79,7 +79,7 @@ public class ViewGuestsController {
     }
     public void viewAll(){
         ObservableList All=FXCollections.observableArrayList();
-        for(Guest g:GuiData.guestmanager.getGuests()){
+        for(Guest g:GuiData.guestManager.getGuests()){
             All.add(g);
         }
         GuestTable.setItems(All);
