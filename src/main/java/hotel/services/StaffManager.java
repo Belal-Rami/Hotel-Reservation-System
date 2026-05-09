@@ -1,7 +1,6 @@
 package hotel.services;
 
 import java.util.ArrayList;
-
 import hotel.users.Staff;
 
 public class StaffManager {
@@ -40,6 +39,5 @@ public void registerStaff(Staff newStaff){
         staff.add(newStaff);
     }
 }
-
     
 }

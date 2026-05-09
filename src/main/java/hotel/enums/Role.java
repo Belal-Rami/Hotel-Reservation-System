@@ -2,5 +2,7 @@ package hotel.enums;
 
 public enum Role {
     ADMIN,
-    RECEPTIONIST
+    RECEPTIONIST,
+    GUEST,
+    STAFF
 }

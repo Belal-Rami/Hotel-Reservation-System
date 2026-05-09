@@ -17,6 +17,9 @@ public class Guest {
 
     private ArrayList<Reservation> Greservations = new ArrayList<Reservation>();
 
+    public Guest(String user, String pass) {
+    }
+
     public void addReservation(Reservation r) {
         Greservations.add(r);
     }

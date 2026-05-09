@@ -1,9 +1,6 @@
 package hotel.services;
 
 import java.util.*;
-import java.time.LocalDate;
-import hotel.enums.Gender;
-
 import hotel.users.Guest;
 
 public class GuestManager {
@@ -46,11 +43,6 @@ public void registerGuest(Guest newGuest){
         guests.add(newGuest);
     }
 }
-   
-
-
-    
-    
 }
 
 
