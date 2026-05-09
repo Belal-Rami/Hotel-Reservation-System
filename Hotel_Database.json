@@ -133,6 +133,22 @@
           "price": 80.0
         }
       ]
+    },
+    {
+      "roomNum": "shawkat 5awal",
+      "roomType": {
+        "name": "Deluxe",
+        "price": 700.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-09",
+      "roomAmenities": [
+        {
+          "name": "Jacuzzi",
+          "price": 80.0
+        }
+      ]
     }
   ],
   "reservations": []
