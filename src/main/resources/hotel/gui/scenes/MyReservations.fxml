@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="1080.0" prefWidth="1920.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hotel.gui.controllers.MyReservationsController">
+
+    <children>
+
+        <!-- ── Background ── -->
+        <ImageView fitHeight="1080.0" fitWidth="1980.0"
+                   layoutX="-54.0" layoutY="-1.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+            </image>
+        </ImageView>
+
+        <!-- ── Dark overlay panel ── -->
+        <AnchorPane layoutX="60.0" layoutY="40.0"
+                    prefHeight="1000.0" prefWidth="1800.0"
+                    style="-fx-background-color: rgba(0,0,0,0.55);
+                           -fx-background-radius: 20;" />
+
+        <!-- ── Back Button ── -->
+        <Button contentDisplay="GRAPHIC_ONLY"
+                layoutX="80.0" layoutY="60.0"
+                mnemonicParsing="false" onAction="#goBack"
+                prefHeight="85.0" prefWidth="110.0"
+                style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="135.0" fitWidth="118.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- ── Page Title ── -->
+        <Label layoutX="230.0" layoutY="48.0"
+               prefHeight="110.0" prefWidth="900.0"
+               text="My Reservations" textFill="WHITE">
+            <font><Font name="Arial Bold" size="80.0" /></font>
+        </Label>
+
+        <!-- ── Reservation count badge ── -->
+        <Label fx:id="lblCount"
+               layoutX="1500.0" layoutY="75.0"
+               prefHeight="60.0" prefWidth="280.0"
+               alignment="CENTER"
+               text="0 bookings"
+               textFill="WHITE"
+               style="-fx-background-color: rgba(60,130,210,0.75);
+                      -fx-background-radius: 10;
+                      -fx-padding: 6 20;">
+            <font><Font name="Arial Bold" size="32.0" /></font>
+        </Label>
+
+        <!-- ── Empty-state label ── -->
+        <Label fx:id="lblEmpty"
+               layoutX="560.0" layoutY="500.0"
+               prefWidth="800.0"
+               alignment="CENTER"
+               text="You have no reservations yet."
+               textFill="rgba(255,255,255,0.40)"
+               visible="false">
+            <font><Font name="Arial" size="40.0" /></font>
+        </Label>
+
+        <!-- ── Scrollable card list ── -->
+        <ScrollPane fx:id="scrollPane"
+                    layoutX="100.0" layoutY="190.0"
+                    prefHeight="850.0" prefWidth="1720.0"
+                    fitToWidth="true"
+                    style="-fx-background: transparent;
+                           -fx-background-color: transparent;
+                           -fx-border-color: transparent;">
+
+            <!-- Cards are injected here by the controller -->
+            <VBox fx:id="cardsContainer"
+                  spacing="24.0"
+                  style="-fx-padding: 10 10 20 10;
+                         -fx-background-color: transparent;" />
+
+        </ScrollPane>
+
+    </children>
+</AnchorPane>

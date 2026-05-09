@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="1080.0" prefWidth="1920.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hotel.gui.controllers.MakeReservationController">
+
+    <children>
+
+        <!-- ── Background (same image as other scenes) ── -->
+        <ImageView fitHeight="1080.0" fitWidth="1980.0"
+                   layoutX="-54.0" layoutY="-1.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+            </image>
+        </ImageView>
+
+        <!-- ── Dark overlay panel ── -->
+        <AnchorPane layoutX="60.0" layoutY="40.0"
+                    prefHeight="1000.0" prefWidth="1800.0"
+                    style="-fx-background-color: rgba(0,0,0,0.55);
+                           -fx-background-radius: 20;" />
+
+        <!-- ── Back Button ── -->
+        <Button contentDisplay="GRAPHIC_ONLY"
+                layoutX="80.0" layoutY="60.0"
+                mnemonicParsing="false" onAction="#goBack"
+                prefHeight="85.0" prefWidth="110.0"
+                style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="135.0" fitWidth="118.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- ── Page Title ── -->
+        <Label layoutX="230.0" layoutY="48.0"
+               prefHeight="110.0" prefWidth="900.0"
+               text="Make Reservation" textFill="WHITE">
+            <font><Font name="Arial Bold" size="80.0" /></font>
+        </Label>
+
+        <!-- ══════════════════════════════════════
+             LEFT PANEL  –  Room summary
+             ══════════════════════════════════════ -->
+        <VBox layoutX="100.0" layoutY="200.0"
+              prefWidth="780.0" spacing="28.0"
+              style="-fx-background-color: rgba(255,255,255,0.07);
+                     -fx-background-radius: 16;
+                     -fx-padding: 40 36;">
+
+            <Label text="Room Summary" textFill="rgba(255,255,255,0.65)">
+                <font><Font name="Arial Bold" size="34.0" /></font>
+            </Label>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.25);" />
+
+            <!-- Room number -->
+            <Label fx:id="lblSummaryRoom"
+                   text="Room —"
+                   textFill="WHITE">
+                <font><Font name="Arial Bold" size="62.0" /></font>
+            </Label>
+
+            <!-- Room type -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Type:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblSummaryType" text="—" textFill="WHITE">
+                    <font><Font name="Arial" size="30.0" /></font>
+                </Label>
+            </HBox>
+
+            <!-- Price per night -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Price / night:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblSummaryPrice" text="—" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+            </HBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.25);" />
+
+            <!-- Check-in (= viewing date, read-only) -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Check-in date:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblCheckIn" text="—" textFill="WHITE">
+                    <font><Font name="Arial" size="30.0" /></font>
+                </Label>
+            </HBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.25);" />
+
+            <!-- Calculated nights -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Nights:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblNights" text="—" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+            </HBox>
+
+            <!-- Calculated total -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Total cost:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblTotalCost" text="—" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="36.0" /></font>
+                </Label>
+            </HBox>
+
+            <!-- Guest balance -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+                <Label text="Your balance:" textFill="rgba(255,255,255,0.65)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+                <Label fx:id="lblGuestBalance" text="—" textFill="rgba(120,220,140,1.0)">
+                    <font><Font name="Arial Bold" size="30.0" /></font>
+                </Label>
+            </HBox>
+
+        </VBox>
+
+        <!-- ══════════════════════════════════════
+             RIGHT PANEL  –  Reservation form
+             ══════════════════════════════════════ -->
+        <VBox layoutX="940.0" layoutY="200.0"
+              prefWidth="860.0" spacing="36.0"
+              style="-fx-background-color: rgba(255,255,255,0.07);
+                     -fx-background-radius: 16;
+                     -fx-padding: 40 40;">
+
+            <!-- ── Check-out DatePicker ── -->
+            <VBox spacing="14.0">
+                <Label text="Select Check-out Date" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="36.0" /></font>
+                </Label>
+
+                <DatePicker fx:id="datePickerCheckOut"
+                            prefHeight="60.0" prefWidth="780.0"
+                            promptText="Pick a check-out date"
+                            style="-fx-background-color: rgba(255,255,255,0.12);
+                                   -fx-background-radius: 10;
+                                   -fx-border-color: rgba(255,255,255,0.3);
+                                   -fx-border-radius: 10;
+                                   -fx-text-fill: white;
+                                   -fx-font-size: 24px;" />
+
+                <!-- Date conflict error -->
+                <Label fx:id="lblDateError"
+                       text="⚠  Room is already reserved for part of that period."
+                       textFill="rgba(255,80,80,0.95)"
+                       visible="false"
+                       wrapText="true">
+                    <font><Font name="Arial Bold" size="24.0" /></font>
+                </Label>
+            </VBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.25);" />
+
+            <!-- ── Payment Method ── -->
+            <VBox spacing="20.0">
+                <Label text="Payment Method" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="36.0" /></font>
+                </Label>
+
+                <HBox spacing="40.0" alignment="CENTER_LEFT">
+                    <!-- All three RadioButtons share the same ToggleGroup -->
+                    <RadioButton fx:id="rbCash"
+                                 text="Cash"
+                                 textFill="WHITE"
+                                 selected="true"
+                                 style="-fx-font-size: 28px;
+                                        -fx-text-fill: white;">
+                        <toggleGroup><ToggleGroup fx:id="paymentGroup"/></toggleGroup>
+                    </RadioButton>
+
+                    <RadioButton fx:id="rbCredit"
+                                 text="Credit Card"
+                                 textFill="WHITE"
+                                 toggleGroup="$paymentGroup"
+                                 style="-fx-font-size: 28px;
+                                        -fx-text-fill: white;" />
+
+                    <RadioButton fx:id="rbBalance"
+                                 text="Balance"
+                                 textFill="WHITE"
+                                 toggleGroup="$paymentGroup"
+                                 style="-fx-font-size: 28px;
+                                        -fx-text-fill: white;" />
+                </HBox>
+
+                <!-- Balance error (shown only when balance is insufficient) -->
+                <Label fx:id="lblBalanceError"
+                       text="⚠  Insufficient balance for this reservation."
+                       textFill="rgba(255,80,80,0.95)"
+                       visible="false">
+                    <font><Font name="Arial Bold" size="24.0" /></font>
+                </Label>
+            </VBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.25);" />
+
+            <!-- ── Confirm Button ── -->
+            <Button fx:id="btnConfirm"
+                    prefHeight="90.0" prefWidth="780.0"
+                    text="Confirm Reservation"
+                    onAction="#handleConfirm"
+                    style="-fx-background-color: rgba(40,160,75,0.85);
+                           -fx-background-radius: 14;
+                           -fx-text-fill: white;
+                           -fx-cursor: hand;">
+                <font><Font name="Arial Bold" size="38.0" /></font>
+            </Button>
+
+            <!-- ── Success message ── -->
+            <Label fx:id="lblSuccess"
+                   text="✔  Reservation confirmed!"
+                   textFill="rgba(80,220,120,0.95)"
+                   alignment="CENTER"
+                   maxWidth="1.7976931348623157E308"
+                   visible="false">
+                <font><Font name="Arial Bold" size="32.0" /></font>
+            </Label>
+
+        </VBox>
+
+    </children>
+</AnchorPane>
