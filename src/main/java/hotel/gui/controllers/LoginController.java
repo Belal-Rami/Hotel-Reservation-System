@@ -1,6 +1,7 @@
 package hotel.gui.controllers;
 
 import hotel.enums.Role;
+import hotel.gui.GuiData;
 import hotel.gui.UserSession;
 import hotel.services.GuestManager;
 import hotel.services.StaffManager;
@@ -15,8 +16,8 @@ public class LoginController {
         @FXML private TextField usernameField;
         @FXML private PasswordField passwordField;
 
-        private GuestManager guestManager = new GuestManager(new java.util.ArrayList<>());
-        private StaffManager staffManager = new StaffManager(new java.util.ArrayList<>());
+       // private GuestManager guestManager = new GuestManager(new java.util.ArrayList<>());
+       // private StaffManager staffManager = new StaffManager(new java.util.ArrayList<>());
 
         @FXML
         void handleLogin() {
@@ -24,7 +25,7 @@ public class LoginController {
             String pass = passwordField.getText();
 
             if (UserSession.currentRole == Role.GUEST) {
-                Guest g = guestManager.loginGuest(user, pass);
+                Guest g = GuiData.guestManager.loginGuest(user, pass);
                 if (g != null) {
                     System.out.println("Guest Login Success!");
                     // Switch to Guest Dashboard
@@ -33,7 +34,7 @@ public class LoginController {
                 }
             } else {
                 // For both Staff and Admin
-                Staff s = staffManager.loginStaff(user, pass);
+                Staff s = GuiData.staffManager.loginStaff(user, pass);
                 if (s != null) {
                     System.out.println("Staff/Admin Login Success!");
                     // Switch to appropriate Dashboard

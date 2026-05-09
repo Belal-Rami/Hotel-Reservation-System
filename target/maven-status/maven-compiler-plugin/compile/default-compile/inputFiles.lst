@@ -12,6 +12,7 @@
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/enums/Status.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/GuiData.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/GuiMain.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/UserSession.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminCatalogCardController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminCatalogController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminController.java
@@ -20,10 +21,14 @@
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminRoomCardController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminRoomEditorController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/AdminRoomsController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/GuestOptionsController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/LoginController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ManageReservationsController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ManageRoomController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ReceptionistDashboardController.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/RegisterController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ReservationRow.java
+/Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/StartScreenController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/gui/controllers/ViewGuestsController.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/interfaces/Manageable.java
 /Users/belal/Desktop/Hotel Reservation System/src/main/java/hotel/services/AmenityManager.java
