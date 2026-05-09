@@ -50,13 +50,15 @@ public class MakeReservationController {
     private Guest       guest;
     private RoomManager roomManager;
 
-
+    public void setCurrentguest1(Guest currentguest) {
+        this.guest =currentguest;
+    }
 
     public void setContext(Room room, LocalDate checkIn,
                            Guest guest, RoomManager roomManager) {
         this.room        = room;
         this.checkInDate = checkIn;
-        this.guest       = guest;
+       // this.guest       = guest;
         this.roomManager = roomManager;
         populateSummary();
         wireListeners();

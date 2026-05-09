@@ -93,7 +93,7 @@ public class ManageReservationsController {
     }
 
     @FXML
-    public void goBack(ActionEvent e) throws Exception {
+    public void Back(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml")
         );

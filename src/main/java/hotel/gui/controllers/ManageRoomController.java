@@ -45,13 +45,17 @@ public class ManageRoomController
         ObservableList<Room> roomList= FXCollections.observableArrayList(GuiData.roomManager.getRooms());
         roomTable.setItems(roomList);
     }
-    public void goBack(ActionEvent e) throws Exception{
-        FXMLLoader load=new FXMLLoader(getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml"));
-        Scene scene = new Scene(load.load(),1920,1080);
-        Stage stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+    @FXML
+    public void Back(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     public void searchByNum() {

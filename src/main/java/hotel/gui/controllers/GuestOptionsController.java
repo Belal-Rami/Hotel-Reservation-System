@@ -30,18 +30,34 @@ public class GuestOptionsController {
     }
 
     @FXML
-    void onLoginChoice(ActionEvent event) {
+    void onLoginChoice(ActionEvent event) throws IOException {
         // We set the role to GUEST here so the LoginController
         // knows to use the GuestManager later.
         UserSession.currentRole = Role.GUEST;
-        switchScene("Login.fxml",event);
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/login.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void onRegisterChoice(ActionEvent event) {
+    void onRegisterChoice(ActionEvent event) throws IOException {
         // Set the role and move to the registration screen.
         UserSession.currentRole = Role.GUEST;
-        switchScene("Register.fxml",event);
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/Register.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -50,3 +66,4 @@ public class GuestOptionsController {
         switchScene("start-screen.fxml",event);
     }
 }
+

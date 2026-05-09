@@ -5,110 +5,144 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCatalogController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0"
+            stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hotel.gui.controllers.AdminCatalogController">
    <children>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0">
+
+      <!-- ── Background image ── -->
+      <ImageView fitHeight="1080.0" fitWidth="1920.0"
+                 layoutX="0.0" layoutY="0.0"
+                 pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+         </image>
+      </ImageView>
+
+      <!-- ── Dark overlay panel ── -->
+      <AnchorPane layoutX="60.0" layoutY="40.0"
+                  prefHeight="1000.0" prefWidth="1800.0"
+                  style="-fx-background-color: rgba(0,0,0,0.55);
+                           -fx-background-radius: 20;" />
+
+      <!-- ── Page Title ── -->
+      <Label layoutX="100.0" layoutY="55.0"
+             prefHeight="100.0"
+             text="System Catalog" textFill="WHITE">
+         <font><Font name="Arial Bold" size="64.0" /></font>
+      </Label>
+
+      <!-- ── Two-column layout ── -->
+      <HBox layoutX="80.0" layoutY="175.0"
+            prefHeight="860.0" prefWidth="1760.0"
+            spacing="0.0">
          <children>
-            <VBox prefHeight="400.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Amenities" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font size="42.0" />
-                     </font>
+
+            <!-- ===== Amenities Column ===== -->
+            <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+
+               <HBox alignment="CENTER_LEFT" spacing="16.0">
+                  <Label text="Amenities" textFill="WHITE">
+                     <font><Font name="Arial Bold" size="40.0" /></font>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="957.0">
-                     <children>
-                        <Label text="Name">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="27.0" prefWidth="147.0" />
-                        <Label prefHeight="17.0" prefWidth="93.0" text="Price">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="75.0" prefWidth="236.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="createAmenityBtn" mnemonicParsing="false" onAction="#createNewAmenity" prefHeight="44.0" prefWidth="147.0" stylesheets="@style.css" text="Create Amenity" textAlignment="CENTER">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                  </HBox>
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="976.0" prefWidth="967.0">
-                     <content>
-                        <VBox fx:id="amenitiesGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="955.0" spacing="10.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="createAmenityBtn"
+                          mnemonicParsing="false"
+                          onAction="#createNewAmenity"
+                          prefHeight="60.0" prefWidth="230.0"
+                          text="+ Create Amenity"
+                          style="-fx-background-color: rgba(40,160,75,0.85);
+                                       -fx-background-radius: 10;
+                                       -fx-text-fill: white;
+                                       -fx-cursor: hand;">
+                     <font><Font name="Arial Bold" size="20.0" /></font>
+                  </Button>
+               </HBox>
+
+               <!-- Sub-headers -->
+               <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
+                  <Label text="Name" prefWidth="320.0"
+                         textFill="rgba(255,255,255,0.45)">
+                     <font><Font name="Arial Bold" size="17.0" /></font>
+                  </Label>
+                  <Label text="Price"
+                         textFill="rgba(255,255,255,0.45)">
+                     <font><Font name="Arial Bold" size="17.0" /></font>
+                  </Label>
+               </HBox>
+
+               <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                           VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: transparent;
+                                       -fx-control-inner-background: transparent;
+                                       -fx-border-color: transparent;">
+                  <VBox fx:id="amenitiesGrid" spacing="10.0"
+                        style="-fx-background-color: transparent;" />
+               </ScrollPane>
             </VBox>
-            <Separator orientation="VERTICAL" prefHeight="200.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
+
+            <!-- ── Vertical divider ── -->
+            <Separator orientation="VERTICAL"
+                       style="-fx-background-color: rgba(255,255,255,0.20);">
+               <HBox.margin><Insets left="30.0" right="30.0" /></HBox.margin>
             </Separator>
-            <VBox prefHeight="400.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 30;" text="Room Types" textAlignment="CENTER">
-                     <font>
-                        <Font size="42.0" />
-                     </font>
+
+            <!-- ===== Room Types Column ===== -->
+            <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+
+               <HBox alignment="CENTER_LEFT" spacing="16.0">
+                  <Label text="Room Types" textFill="WHITE">
+                     <font><Font name="Arial Bold" size="40.0" /></font>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="947.0">
-                     <children>
-                        <Label text="Name">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="27.0" prefWidth="147.0" />
-                        <Label prefHeight="17.0" prefWidth="93.0" text="Price">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="86.0" prefWidth="481.0" />
-                        <Button fx:id="createRoomTypeBtn" mnemonicParsing="false" onAction="#createNewRoomType" prefHeight="45.0" prefWidth="148.0" text="Create Room Type" textAlignment="CENTER">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                  </HBox>
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="962.0" prefWidth="947.0">
-                     <content>
-                        <VBox fx:id="roomTypesGrid" maxWidth="1.7976931348623157E308" prefWidth="973.0" spacing="10.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="createRoomTypeBtn"
+                          mnemonicParsing="false"
+                          onAction="#createNewRoomType"
+                          prefHeight="60.0" prefWidth="250.0"
+                          text="+ Create Room Type"
+                          style="-fx-background-color: rgba(40,160,75,0.85);
+                                       -fx-background-radius: 10;
+                                       -fx-text-fill: white;
+                                       -fx-cursor: hand;">
+                     <font><Font name="Arial Bold" size="20.0" /></font>
+                  </Button>
+               </HBox>
+
+               <!-- Sub-headers -->
+               <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
+                  <Label text="Name" prefWidth="320.0"
+                         textFill="rgba(255,255,255,0.45)">
+                     <font><Font name="Arial Bold" size="17.0" /></font>
+                  </Label>
+                  <Label text="Price"
+                         textFill="rgba(255,255,255,0.45)">
+                     <font><Font name="Arial Bold" size="17.0" /></font>
+                  </Label>
+               </HBox>
+
+               <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                           VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: transparent;
+                                       -fx-control-inner-background: transparent;
+                                       -fx-border-color: transparent;">
+                  <VBox fx:id="roomTypesGrid" spacing="10.0"
+                        style="-fx-background-color: transparent;" />
+               </ScrollPane>
             </VBox>
+
          </children>
       </HBox>
+
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+</AnchorPane>
+

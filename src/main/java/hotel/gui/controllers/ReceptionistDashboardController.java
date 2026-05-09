@@ -29,7 +29,11 @@ public class ReceptionistDashboardController {
       stage.setScene(scene);
       stage.show();
     }
-    public void logout(ActionEvent e){
-        System.exit(0);
+    public void logout(ActionEvent e) throws Exception{
+        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/choose.fxml"));
+        Scene scene = new Scene(load.load(),1920,1080);
+        Stage stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();;
     }
 }
