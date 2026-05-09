@@ -6,6 +6,7 @@ import hotel.gui.GuiData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
@@ -16,7 +17,17 @@ public class AdminRoomsController {
 
     @FXML 
     private FlowPane roomsGrid;
+    public void Back(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/choose.fxml")
+        );
 
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     public void initialize() {
         // Automatically draw the grid the second the page loads

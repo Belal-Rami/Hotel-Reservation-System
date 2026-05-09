@@ -4,51 +4,125 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="250.0" prefWidth="400.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCreateItemController">
-   <padding>
-      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-   </padding>
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0"
+            stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hotel.gui.controllers.AdminCreateItemController">
    <children>
-      <Label fx:id="headerLabel" text="Create New Item">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </Label>
-      <HBox alignment="CENTER_LEFT" spacing="15.0">
+
+      <!-- ── Background image ── -->
+      <ImageView fitHeight="1080.0" fitWidth="1920.0"
+                 layoutX="0.0" layoutY="0.0"
+                 pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+         </image>
+      </ImageView>
+
+      <!-- ── Dark overlay ── -->
+      <AnchorPane layoutX="0.0" layoutY="0.0"
+                  prefHeight="1080.0" prefWidth="1920.0"
+                  style="-fx-background-color: rgba(0,0,0,0.60);" />
+
+      <!-- ── Create item glass card centred ── -->
+      <VBox layoutX="660.0" layoutY="320.0"
+            prefWidth="600.0" spacing="26.0"
+            alignment="CENTER"
+            style="-fx-background-color: rgba(255,255,255,0.07);
+                     -fx-background-radius: 20;
+                     -fx-border-color: rgba(255,255,255,0.12);
+                     -fx-border-radius: 20;
+                     -fx-border-width: 1;
+                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.50), 20, 0, 0, 8);">
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
          <children>
-            <Label fx:id="namePromptLabel" prefWidth="100.0" text="Item Name:">
-               <font>
-                  <Font size="14.0" />
-               </font>
+
+            <!-- Title -->
+            <Label fx:id="headerLabel"
+                   text="Create New Item"
+                   textFill="WHITE">
+               <font><Font name="Arial Bold" size="36.0" /></font>
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
             </Label>
-            <TextField fx:id="nameField" HBox.hgrow="ALWAYS" />
+
+            <!-- Item Name -->
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <Label fx:id="namePromptLabel"
+                      prefWidth="180.0"
+                      text="Item Name:"
+                      textFill="rgba(255,255,255,0.55)">
+                  <font><Font name="Arial Bold" size="22.0" /></font>
+               </Label>
+               <TextField fx:id="nameField"
+                          prefHeight="58.0"
+                          HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: rgba(255,255,255,0.12);
+                                      -fx-background-radius: 10;
+                                      -fx-border-color: rgba(255,255,255,0.28);
+                                      -fx-border-radius: 10;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: rgba(255,255,255,0.35);
+                                      -fx-font-size: 22px;" />
+            </HBox>
+
+            <!-- Base Price -->
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <Label prefWidth="180.0"
+                      text="Base Price ($):"
+                      textFill="rgba(255,255,255,0.55)">
+                  <font><Font name="Arial Bold" size="22.0" /></font>
+               </Label>
+               <TextField fx:id="priceField"
+                          prefHeight="58.0"
+                          HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: rgba(255,255,255,0.12);
+                                      -fx-background-radius: 10;
+                                      -fx-border-color: rgba(255,255,255,0.28);
+                                      -fx-border-radius: 10;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: rgba(255,255,255,0.35);
+                                      -fx-font-size: 22px;" />
+            </HBox>
+
+            <!-- Buttons -->
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+               <VBox.margin><Insets top="10.0" /></VBox.margin>
+               <children>
+                  <Button mnemonicParsing="false"
+                          onAction="#handleCancel"
+                          prefHeight="62.0" prefWidth="170.0"
+                          text="Cancel"
+                          style="-fx-background-color: rgba(217,48,37,0.85);
+                                       -fx-background-radius: 10;
+                                       -fx-text-fill: white;
+                                       -fx-cursor: hand;">
+                     <font><Font name="Arial Bold" size="22.0" /></font>
+                  </Button>
+                  <Button mnemonicParsing="false"
+                          onAction="#handleSave"
+                          prefHeight="62.0" prefWidth="180.0"
+                          text="Save Item"
+                          style="-fx-background-color: rgba(40,160,75,0.85);
+                                       -fx-background-radius: 10;
+                                       -fx-text-fill: white;
+                                       -fx-cursor: hand;">
+                     <font><Font name="Arial Bold" size="22.0" /></font>
+                  </Button>
+               </children>
+            </HBox>
+
          </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" spacing="15.0">
-         <children>
-            <Label prefWidth="100.0" text="Base Price ($):">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="priceField" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_RIGHT" spacing="15.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#handleCancel" styleClass="btn-red" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#handleSave" style="-fx-base: #28a745;" styleClass="btn-green" text="Save Item" textFill="WHITE" />
-         </children>
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </HBox>
+      </VBox>
+
    </children>
-</VBox>
+</AnchorPane>

@@ -5,31 +5,80 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: indianred; -fx-border-color: gold; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ManageReservationsController">
-   <children>
-      <Label alignment="CENTER" layoutX="4.0" layoutY="23.0" prefHeight="155.0" prefWidth="1920.0" text="View Reservations">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Label>
-      <Button layoutX="45.0" layoutY="968.0" mnemonicParsing="false" onAction="#goBack" prefHeight="93.0" prefWidth="208.0" text="Back" />
-      <TableView fx:id="reservationTable" editable="true" fixedCellSize="24.0" layoutX="17.0" layoutY="253.0" prefHeight="628.0" prefWidth="1895.0">
-        <columns>
-          <TableColumn fx:id="guestNameColumn" prefWidth="294.99998474121094" text="Guest name" />
-          <TableColumn fx:id="roomNumberColumn" minWidth="0.0" prefWidth="307.00001525878906" text="Room number" />
-            <TableColumn fx:id="checkInColumn" prefWidth="299.9999694824219" text="CheckIn" />
-            <TableColumn fx:id="checkOutColumn" prefWidth="363.9999694824219" text="CheckOut" />
-            <TableColumn fx:id="statusColumn" prefWidth="385.0" text="Status" />
-            <TableColumn fx:id="reservationIdColumn" prefWidth="321.0" text="Reservation Id" />
-        </columns>
-      </TableView>
-      <Button layoutX="1654.0" layoutY="897.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="102.0" prefWidth="236.0" text="CheckOut" />
-      <Button layoutX="1395.0" layoutY="900.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="102.0" prefWidth="212.0" text="CheckIn" />
-      <TextField fx:id="searchIdField" layoutX="1497.0" layoutY="190.0" prefHeight="46.0" prefWidth="221.0" text="Enter Reservation Id" />
-      <Button layoutX="1739.0" layoutY="190.0" mnemonicParsing="false" onAction="#searchById" prefHeight="46.0" prefWidth="121.0" text="Search" />
-      <Button layoutX="1739.0" layoutY="122.0" mnemonicParsing="false" onAction="#showAll" prefHeight="46.0" prefWidth="121.0" text="Show All" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ManageReservationsController">
+
+    <children>
+
+        <!-- ── Background ── -->
+        <ImageView fitHeight="1080.0" fitWidth="1980.0" layoutX="-54.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+            </image>
+        </ImageView>
+
+        <!-- ── Dark overlay panel ── -->
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
+
+        <!-- ── Page Title ── -->
+        <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="900.0" text="View Reservations" textFill="WHITE">
+            <font><Font name="Arial Bold" size="80.0" /></font>
+        </Label>
+
+        <!-- ── Search bar (top-right) ── -->
+        <HBox alignment="CENTER_LEFT" layoutX="1096.0" layoutY="68.0" prefHeight="66.0" prefWidth="740.0" spacing="16.0">
+
+            <Button mnemonicParsing="false" onAction="#showAll" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 10;                            -fx-border-width: 1;" text="Show All">
+                <font><Font name="Arial Bold" size="24.0" /></font>
+            </Button>
+
+            <TextField fx:id="searchIdField" prefHeight="66.0" prefWidth="320.0" promptText="Enter Reservation Id" style="-fx-background-color: rgba(255,255,255,0.12);                               -fx-background-radius: 10;                               -fx-border-color: rgba(255,255,255,0.28);                               -fx-border-radius: 10;                               -fx-text-fill: white;                               -fx-prompt-text-fill: rgba(255,255,255,0.35);                               -fx-font-size: 22px;" />
+
+            <Button mnemonicParsing="false" onAction="#searchById" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Search">
+                <font><Font name="Arial Bold" size="24.0" /></font>
+            </Button>
+
+        </HBox>
+
+        <!-- ── Reservations TableView ── -->
+        <TableView fx:id="reservationTable" editable="true" fixedCellSize="24.0" layoutX="80.0" layoutY="200.0" prefHeight="720.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0);                           -fx-border-color: rgba(255,255,255,0.15);                           -fx-border-radius: 12;                           -fx-background-radius: 12;                           -fx-control-inner-background: rgba(255,255,255,0.06);                           -fx-table-cell-border-color: rgba(255,255,255,0.08);                           -fx-text-fill: white;">
+            <columns>
+                <TableColumn fx:id="guestNameColumn" prefWidth="295.0" text="Guest Name" />
+                <TableColumn fx:id="roomNumberColumn" prefWidth="307.0" text="Room Number" />
+                <TableColumn fx:id="checkInColumn" prefWidth="300.0" text="Check In" />
+                <TableColumn fx:id="checkOutColumn" prefWidth="300.0" text="Check Out" />
+                <TableColumn fx:id="statusColumn" prefWidth="280.0" text="Status" />
+                <TableColumn fx:id="reservationIdColumn" prefWidth="278.0" text="Reservation Id" />
+            </columns>
+        </TableView>
+
+        <!-- ── Bottom action buttons ── -->
+        <HBox alignment="CENTER_LEFT" layoutX="80.0" layoutY="944.0" prefHeight="90.0" spacing="30.0">
+
+            <Button mnemonicParsing="false" onAction="#checkIn" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 12;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Check In">
+                <font><Font name="Arial Bold" size="30.0" /></font>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#checkOut" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(210,60,60,0.80);                            -fx-background-radius: 12;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Check Out">
+                <font><Font name="Arial Bold" size="30.0" /></font>
+            </Button>
+
+        </HBox>
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="65.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+            <graphic>
+                <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+    </children>
 </AnchorPane>
+

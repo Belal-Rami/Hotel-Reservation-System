@@ -14,11 +14,11 @@
             <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
          </image>
       </ImageView>
-      <Button layoutX="713.0" layoutY="435.0" mnemonicParsing="false" onAction="#BalanceB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: grey; -fx-background-radius: 60; -fx-border-radius: 60;" text="Balance">
+      <Button layoutX="713.0" layoutY="435.0" mnemonicParsing="false" onAction="#BalanceB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 60; -fx-border-radius: 60;" text="Balance">
          <font>
             <Font name="System Bold" size="64.0" />
          </font></Button>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="49.0" layoutY="43.0" mnemonicParsing="false"  prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+      <Button contentDisplay="GRAPHIC_ONLY" layoutX="49.0" layoutY="43.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
          <graphic>
             <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -32,12 +32,12 @@
             <Font name="Arial Bold" size="96.0" />
          </font>
       </Label>
-      <Button layoutX="103.0" layoutY="435.0" mnemonicParsing="false" onAction="#ProfileB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: grey; -fx-background-radius: 60; -fx-border-radius: 60;" text="Profile">
+      <Button layoutX="103.0" layoutY="435.0" mnemonicParsing="false" onAction="#ProfileB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 60; -fx-border-radius: 60;" text="Profile">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
       </Button>
-      <Button layoutX="1323.0" layoutY="435.0" mnemonicParsing="false" onAction="#RoomB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: grey; -fx-background-radius: 60; -fx-border-radius: 60;" text="reservations">
+      <Button layoutX="1323.0" layoutY="435.0" mnemonicParsing="false" onAction="#RoomB" prefHeight="270.0" prefWidth="464.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 60; -fx-border-radius: 60;" text="reservations">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>

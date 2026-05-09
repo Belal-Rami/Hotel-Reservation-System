@@ -5,28 +5,64 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ManageRoomController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: indianred; -fx-border-color: gold; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ManageRoomController">
-   <children>
-      <Label alignment="CENTER" layoutX="-8.0" layoutY="-26.0" prefHeight="200.0" prefWidth="1920.0" text="All Rooms">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Label>
-      <TableView fx:id="roomTable" layoutX="13.0" layoutY="194.0" prefHeight="624.0" prefWidth="1891.0">
-        <columns>
-          <TableColumn fx:id="roomNumber" prefWidth="393.99998474121094" text="RoomNumber" />
-            <TableColumn fx:id="roomType" prefWidth="706.0000152587891" text="Room type" />
-            <TableColumn fx:id="roomPrice" prefWidth="361.3333435058594" text="Price" />
-            <TableColumn fx:id="roomStatus" minWidth="0.0" prefWidth="332.99993896484375" text="Status" />
-        </columns>
-      </TableView>
-      <TextField fx:id="searchField" layoutX="1544.0" layoutY="135.0" prefHeight="49.0" prefWidth="185.0" text="Enter Room Number" />
-      <Button layoutX="36.0" layoutY="946.0" mnemonicParsing="false" onAction="#goBack" prefHeight="101.0" prefWidth="272.0" text="GO BACK" />
-      <Button layoutX="1752.0" layoutY="135.0" mnemonicParsing="false" onAction="#searchByNum" prefHeight="44.0" prefWidth="109.0" text="Search" />
-      <Button layoutX="1751.0" layoutY="74.0" mnemonicParsing="false" onAction="#showAllRooms" prefHeight="49.0" prefWidth="109.0" text="Show All" />
-   </children>
+    <children>
+
+        <!-- ── Background ── -->
+        <ImageView fitHeight="1080.0" fitWidth="1980.0" layoutX="-54.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+            </image>
+        </ImageView>
+
+        <!-- ── Dark overlay panel ── -->
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
+
+        <!-- ── Page Title ── -->
+        <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="700.0" text="All Rooms" textFill="WHITE">
+            <font><Font name="Arial Bold" size="80.0" /></font>
+        </Label>
+
+        <!-- ── Search bar (top-right) ── -->
+        <HBox alignment="CENTER_LEFT" layoutX="1102.0" layoutY="68.0" prefHeight="66.0" prefWidth="734.0" spacing="16.0">
+
+            <Button mnemonicParsing="false" onAction="#showAllRooms" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 10;                            -fx-border-width: 1;" text="Show All">
+                <font><Font name="Arial Bold" size="24.0" /></font>
+            </Button>
+
+            <TextField fx:id="searchField" prefHeight="66.0" prefWidth="300.0" promptText="Enter Room Number" style="-fx-background-color: rgba(255,255,255,0.12);                               -fx-background-radius: 10;                               -fx-border-color: rgba(255,255,255,0.28);                               -fx-border-radius: 10;                               -fx-text-fill: white;                               -fx-prompt-text-fill: rgba(255,255,255,0.35);                               -fx-font-size: 22px;" />
+
+            <Button mnemonicParsing="false" onAction="#searchByNum" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Search">
+                <font><Font name="Arial Bold" size="24.0" /></font>
+            </Button>
+
+        </HBox>
+
+        <!-- ── Rooms TableView ── -->
+        <TableView fx:id="roomTable" layoutX="80.0" layoutY="200.0" prefHeight="820.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0);                           -fx-border-color: rgba(255,255,255,0.15);                           -fx-border-radius: 12;                           -fx-background-radius: 12;                           -fx-control-inner-background: rgba(255,255,255,0.06);                           -fx-table-cell-border-color: rgba(255,255,255,0.08);                           -fx-text-fill: white;">
+            <columns>
+                <TableColumn fx:id="roomNumber" prefWidth="440.0" text="Room Number" />
+                <TableColumn fx:id="roomType" prefWidth="560.0" text="Room Type" />
+                <TableColumn fx:id="roomPrice" prefWidth="380.0" text="Price" />
+                <TableColumn fx:id="roomStatus" prefWidth="380.0" text="Status" />
+            </columns>
+        </TableView>
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="65.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+            <graphic>
+                <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Desktop/544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+    </children>
 </AnchorPane>
