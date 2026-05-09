@@ -75,11 +75,12 @@ public class GuiMain extends Application {
 
 
 
+
     }
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml"));
+                getClass().getResource("/hotel/gui/scenes/kkk.fxml"));
         Scene scene = new Scene(loader.load(), 1920, 1080);
         stage.setTitle("Receptionist Dashboard");
         stage.setScene(scene);

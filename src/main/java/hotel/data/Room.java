@@ -5,6 +5,7 @@ import hotel.gui.GuiData;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
     // 1. DATA FIELDS
@@ -13,7 +14,7 @@ public class Room {
     private Boolean isAvailable=false;
     private Long duration;
     private LocalDate checkOut;
-
+    private  List<LocalDate> reservedDates;
     private ArrayList<Amenity> roomAmenities = new ArrayList<>();
 
     // 2. CONSTRUCTOR
@@ -27,7 +28,9 @@ public class Room {
         //This no-argument constructor is needed for Gson to work
     public Room() {
     }
-
+    public boolean isReservedOn(LocalDate date) {
+        return reservedDates.contains(date);
+    }
     
     // 3. GETTERS
 
@@ -103,6 +106,9 @@ public class Room {
     }
     public LocalDate getCheckOut(){
         return checkOut;
+    }
+    public void setCheckOut(LocalDate checkOut) {
+        this.checkOut = checkOut;
     }
     public String getStatus(){
 

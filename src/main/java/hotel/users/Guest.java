@@ -75,7 +75,8 @@ public class Guest {
     }
 
     public double  getBalance(){
-        return balance;
+        return balance
+                ;
     }
     public void setBalance(double balance){
         if(balance<0){
