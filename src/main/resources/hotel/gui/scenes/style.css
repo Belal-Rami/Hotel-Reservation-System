@@ -90,3 +90,30 @@
 }
 .btn-orange:hover { -fx-background-color: #E67E22; }
 .btn-orange:pressed { -fx-background-color: #D35400; }
+/* ========================================================
+   TAB PANE STYLING
+   ======================================================== */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #2C3E50; /* Deep slate background for the whole bar */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #34495E; /* Slightly lighter slate for unselected tabs */
+    -fx-padding: 8px 25px;
+    -fx-background-radius: 5px 5px 0px 0px; /* Round the top corners only */
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: white; /* White text for unselected tabs */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* When a tab is actively selected */
+.tab-pane .tab:selected {
+    -fx-background-color: #F4F7F6; /* Matches your global app background color! */
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #2C3E50; /* Dark text so it pops against the light background */
+}
