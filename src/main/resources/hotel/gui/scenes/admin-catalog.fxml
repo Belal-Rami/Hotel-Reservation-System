@@ -13,17 +13,6 @@
 
 <VBox stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCatalogController">
    <children>
-      <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 60;" text="Hotel Setup" textAlignment="CENTER">
-         <font>
-            <Font size="60.0" />
-         </font>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </Label>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0">
          <children>
             <VBox prefHeight="400.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
@@ -33,7 +22,7 @@
                         <Font size="42.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="27.0" prefWidth="302.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="957.0">
                      <children>
                         <Label text="Name">
                            <font>
@@ -46,28 +35,25 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Pane prefHeight="75.0" prefWidth="236.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="createAmenityBtn" mnemonicParsing="false" onAction="#createNewAmenity" prefHeight="44.0" prefWidth="147.0" stylesheets="@style.css" text="Create Amenity" textAlignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
                      </children>
                      <padding>
-                        <Insets left="20.0" />
+                        <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="875.0" prefWidth="975.0">
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="976.0" prefWidth="967.0">
                      <content>
                         <VBox fx:id="amenitiesGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="955.0" spacing="10.0" />
                      </content>
                   </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="109.0" prefWidth="975.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button fx:id="createAmenityBtn" mnemonicParsing="false" onAction="#createNewAmenity" prefHeight="60.0" prefWidth="122.0" text="Create Amenity" textAlignment="CENTER">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </HBox>
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0">
@@ -85,7 +71,7 @@
                         <Font size="42.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="27.0" prefWidth="302.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="947.0">
                      <children>
                         <Label text="Name">
                            <font>
@@ -98,34 +84,31 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </HBox>
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="875.0" prefWidth="975.0">
-                     <content>
-                        <VBox fx:id="roomTypesGrid" maxWidth="1.7976931348623157E308" prefWidth="973.0" spacing="10.0" />
-                     </content>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="109.0" prefWidth="975.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button fx:id="createRoomTypeBtn" mnemonicParsing="false" onAction="#createNewRoomType" prefHeight="60.0" prefWidth="148.0" text="Create Room Type" textAlignment="CENTER">
+                        <Pane prefHeight="86.0" prefWidth="481.0" />
+                        <Button fx:id="createRoomTypeBtn" mnemonicParsing="false" onAction="#createNewRoomType" prefHeight="45.0" prefWidth="148.0" text="Create Room Type" textAlignment="CENTER">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <padding>
-                        <Insets left="20.0" />
+                        <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="962.0" prefWidth="947.0">
+                     <content>
+                        <VBox fx:id="roomTypesGrid" maxWidth="1.7976931348623157E308" prefWidth="973.0" spacing="10.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
          </children>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>

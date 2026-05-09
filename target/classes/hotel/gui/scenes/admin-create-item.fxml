@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="250.0" prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCreateItemController">
+<VBox alignment="CENTER" prefHeight="250.0" prefWidth="400.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCreateItemController">
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>
@@ -43,8 +43,8 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#handleSave" style="-fx-base: #28a745;" text="Save Item" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" styleClass="btn-red" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#handleSave" style="-fx-base: #28a745;" styleClass="btn-green" text="Save Item" textFill="WHITE" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane prefHeight="900.0" prefWidth="1200.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+      
+    <Tab text="Room Management">
+      <content>
+          <fx:include source="admin-rooms.fxml" />
+      </content>
+    </Tab>
+    
+    <Tab text="System Catalog">
+      <content>
+          <fx:include source="admin-catalog.fxml" /> 
+      </content>
+    </Tab>
+    
+    <Tab text="Staff Registration">
+      <content>
+          <fx:include source="admin-registeration.fxml" />
+      </content>
+    </Tab>
+    
+  </tabs>
+</TabPane>

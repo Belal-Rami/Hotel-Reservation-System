@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15.0" prefWidth="400.0" prefHeight="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminRoomEditorController">
+    <padding><Insets top="20.0" right="30.0" bottom="20.0" left="30.0"/></padding>
+    
+    <Label fx:id="headerLabel" styleClass="text-title" text="Room Editor"/>
+    
+    <Label text="Room Number:" styleClass="text-body"/>
+    <TextField fx:id="roomNumberField" promptText="e.g. 101"/>
+    
+    <Label text="Room Type:" styleClass="text-body"/>
+    <ComboBox fx:id="roomTypeComboBox" prefWidth="900" promptText="Select a Type..."/>
+    
+    <Label text="Included Amenities:" styleClass="text-body"/>
+    <ScrollPane fitToWidth="true" prefHeight="150.0" style="-fx-background-color: white; -fx-border-color: #CED4DA;">
+        <VBox fx:id="amenitiesBox" spacing="8.0" style="-fx-background-color: white;">
+            <padding><Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/></padding>
+        </VBox>
+    </ScrollPane>
+    
+    <Label fx:id="errorLabel" textFill="#d93025" style="-fx-font-weight: bold;"/>
+    
+    <HBox spacing="15.0" alignment="CENTER_RIGHT">
+        <Button mnemonicParsing="false" text="Cancel" onAction="#handleCancel"/>
+        <Button mnemonicParsing="false" styleClass="btn-green" text="Save Room" onAction="#handleSave"/>
+    </HBox>
+</VBox>

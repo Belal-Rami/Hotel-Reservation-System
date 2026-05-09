@@ -7,9 +7,11 @@ hotel/gui/controllers/ManageRoomController.class
 hotel/RuntimeTypeAdapterFactory.class
 hotel/gui/controllers/AdminCreateItemController.class
 hotel/gui/controllers/ManageReservationsController.class
+hotel/gui/controllers/AdminRoomCardController.class
 hotel/gui/controllers/AdminCatalogController.class
 hotel/data/RoomType.class
 hotel/gui/GuiData.class
+hotel/gui/controllers/AdminRoomEditorController.class
 hotel/gui/controllers/AdminController.class
 hotel/users/Guest.class
 hotel/services/RoomTypeManager.class

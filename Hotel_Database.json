@@ -27,6 +27,14 @@
       "dateOfBirth": "2000-04-07",
       "role": "ADMIN",
       "workingHours": 67
+    },
+    {
+      "type": "Receptionist",
+      "username": "Shahid",
+      "password": "123456",
+      "dateOfBirth": "2004-09-01",
+      "role": "RECEPTIONIST",
+      "workingHours": 40
     }
   ],
   "amenities": [
@@ -45,6 +53,10 @@
     {
       "name": "Pool Table",
       "price": 100.0
+    },
+    {
+      "name": "Jacuzzi",
+      "price": 80.0
     }
   ],
   "roomTypes": [
@@ -63,41 +75,62 @@
   ],
   "rooms": [
     {
-      "roomNum": "78130",
+      "roomNum": "101",
       "roomType": {
-        "name": "Single",
-        "price": 200.0
+        "name": "Deluxe",
+        "price": 700.0
       },
-      "isAvailable": true,
-      "duration": 1,
-      "roomAmenities": []
-    },
-    {
-      "roomNum": "31791",
-      "roomType": {
-        "name": "Double",
-        "price": 500.0
-      },
-      "isAvailable": true,
-      "duration": 1,
-      "roomAmenities": []
-    },
-    {
-      "roomNum": "26354",
-      "roomType": {
-        "name": "Double",
-        "price": 500.0
-      },
-      "isAvailable": true,
-      "duration": 1,
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-09",
       "roomAmenities": [
         {
           "name": "Wifi",
-          "price": 50.0
+          "price": 45.0
         },
         {
-          "name": "Wifi",
-          "price": 50.0
+          "name": "Pool Table",
+          "price": 100.0
+        }
+      ]
+    },
+    {
+      "roomNum": "102",
+      "roomType": {
+        "name": "Deluxe",
+        "price": 700.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-09",
+      "roomAmenities": [
+        {
+          "name": "Tv",
+          "price": 40.0
+        }
+      ]
+    },
+    {
+      "roomNum": "103",
+      "roomType": {
+        "name": "Single",
+        "price": 400.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-09",
+      "roomAmenities": [
+        {
+          "name": "Tv",
+          "price": 40.0
+        },
+        {
+          "name": "Snacks",
+          "price": 90.0
+        },
+        {
+          "name": "Jacuzzi",
+          "price": 80.0
         }
       ]
     }

@@ -98,6 +98,10 @@ public class Room {
     public ArrayList<Amenity> getAmenities() {
         return roomAmenities;
     }
+
+    public void setAmenities(ArrayList<Amenity> amenities) {
+        this.roomAmenities = amenities;
+    }
     public String getTypeName(){
         return roomType.getName();
     }

@@ -20,12 +20,12 @@
          </font>
       </Label>
       <Pane prefHeight="70.0" prefWidth="270.0" HBox.hgrow="ALWAYS" />
-      <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editItem" prefHeight="48.0" prefWidth="92.0" text="Edit">
+      <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editItem" prefHeight="48.0" prefWidth="92.0" style="-fx-background-color: #F39C12;" styleClass="btn-orange" text="Edit">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="deleteBtn" layoutX="743.0" layoutY="36.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="48.0" prefWidth="120.0" text="Delete">
+      <Button fx:id="deleteBtn" layoutX="743.0" layoutY="36.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="48.0" prefWidth="120.0" styleClass="btn-green" text="Delete">
          <font>
             <Font size="15.0" />
          </font>
