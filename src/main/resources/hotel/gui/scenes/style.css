@@ -1,6 +1,4 @@
-/* ========================================================
-   GLOBAL SETTINGS (Background & Font Family)
-   ======================================================== */
+
 .root {
     -fx-background-color: #F4F7F6; /* Soft, modern light-grey/blue */
     -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;

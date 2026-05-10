@@ -2,6 +2,8 @@ package hotel.gui.controllers;
 
 import hotel.data.Room;
 import hotel.gui.GuiData;
+import hotel.services.RoomManager;
+import hotel.users.Guest;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,21 +30,24 @@ public class RoomsController {
     private LocalDate currentDate = LocalDate.now();
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("EEE, MMM d yyyy");
 
-    // Inject this from wherever you store your rooms (GuiData, a service, etc.)
-    private List<Room> allRooms;
+    private Guest       guest;
+    private RoomManager roomManager;
+    private List<Room>  allRooms;
 
     @FXML
     public void initialize() {
-        // Replace this with however you load rooms, e.g. GuiData.getInstance().getRooms()
         allRooms = loadRooms();
         populateRoomTypeFilter();
         refreshView();
     }
 
+    // ── Context injection (called by kkkcontroller) ────────────────
+    public void setContext(Guest guest, RoomManager roomManager) {
+        this.guest       = guest;
+        this.roomManager = roomManager;
+    }
 
-    // Day navigation
-
-
+    // ── Day navigation ─────────────────────────────────────────────
     @FXML
     private void prevDay() {
         currentDate = currentDate.minusDays(1);
@@ -55,19 +60,12 @@ public class RoomsController {
         refreshView();
     }
 
-
-    // Filter
-
-
     @FXML
     private void filterByRoomType() {
         refreshView();
     }
 
-
-    // View refresh
-
-
+    // ── View refresh ───────────────────────────────────────────────
     private void refreshView() {
         lblCurrentDate.setText(currentDate.format(dateFormatter));
 
@@ -85,22 +83,16 @@ public class RoomsController {
         }
     }
 
-
-    // Card builder
-
-
+    // ── Card builder ───────────────────────────────────────────────
     private VBox buildRoomCard(Room room) {
         boolean occupied = room.getCheckOut() != null
                 && room.getCheckOut().isAfter(currentDate);
 
-        String status  = occupied ? "Occupied"  : "Available";
-        String bgColor = occupied ? "rgba(200, 50, 50, 0.82)"
-                : "rgba(40, 160, 75, 0.82)";
+        String status  = occupied ? "Occupied" : "Available";
+        String bgColor = occupied ? "rgba(200, 50, 50, 0.82)" : "rgba(40, 160, 75, 0.82)";
 
         VBox card = new VBox(12);
         card.setPrefWidth(340);
-        // No fixed prefHeight — let content decide
-
         card.setStyle(
                 "-fx-background-color: " + bgColor + ";" +
                         "-fx-background-radius: 16;" +
@@ -109,24 +101,20 @@ public class RoomsController {
                         "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 12, 0, 0, 4);"
         );
 
-
         Label lblNumber = new Label("Room " + room.getRoomNum());
         lblNumber.setFont(new Font("Arial Bold", 28));
         lblNumber.setStyle("-fx-text-fill: white;");
         lblNumber.setMaxWidth(Double.MAX_VALUE);
-
 
         Label lblType = new Label(room.getTypeName());
         lblType.setFont(new Font("Arial", 18));
         lblType.setStyle("-fx-text-fill: rgba(255,255,255,0.85);");
         lblType.setMaxWidth(Double.MAX_VALUE);
 
-
         Label lblPrice = new Label(String.format("$%.2f / night", room.getPrice()));
         lblPrice.setFont(new Font("Arial", 15));
         lblPrice.setStyle("-fx-text-fill: rgba(255,255,255,0.80);");
         lblPrice.setMaxWidth(Double.MAX_VALUE);
-
 
         Label lblCheckout = new Label(
                 occupied
@@ -138,7 +126,6 @@ public class RoomsController {
         lblCheckout.setMaxWidth(Double.MAX_VALUE);
         lblCheckout.setWrapText(true);
 
-        // Status badge
         Label lblStatus = new Label(status);
         lblStatus.setFont(new Font("Arial Bold", 14));
         lblStatus.setStyle(
@@ -149,11 +136,8 @@ public class RoomsController {
         );
 
         card.getChildren().addAll(lblNumber, lblType, lblPrice, lblCheckout, lblStatus);
-
-
         card.setOnMouseClicked(e -> openRoomDetail(room));
 
-        // Hover effect
         String hoverStyle =
                 "-fx-background-color: " + bgColor + ";" +
                         "-fx-background-radius: 16;" +
@@ -174,10 +158,7 @@ public class RoomsController {
         return card;
     }
 
-
-    // Scene transition
-
-
+    // ── Open Room Detail – pass guest + roomManager ────────────────
     private void openRoomDetail(Room room) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -187,6 +168,7 @@ public class RoomsController {
 
             RoomDetailController detail = loader.getController();
             detail.setRoom(room, currentDate);
+            detail.setContext(guest, roomManager);  // ← was missing, caused the NPE
 
             Stage stage = (Stage) tileRooms.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -197,26 +179,29 @@ public class RoomsController {
         }
     }
 
-
-    // Back button
-
-
+    // ── Back to guest dashboard – forward guest ────────────────────
     @FXML
     private void switchScene1() {
         try {
-            Parent root = FXMLLoader.load(
+            FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/hotel/gui/scenes/kkk.fxml")
             );
+            Parent root = loader.load();
+
+            kkkcontroller kk = loader.getController();
+            kk.setCurrentguest(guest);
+
             Stage stage = (Stage) tileRooms.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-    // Helpers
 
+    // ── Helpers ────────────────────────────────────────────────────
     private void populateRoomTypeFilter() {
         List<String> types = allRooms.stream()
                 .map(Room::getTypeName)
@@ -228,8 +213,7 @@ public class RoomsController {
         cmbRoomType.setValue("All");
     }
 
-    // Replace this with GuiData.getInstance().getRooms() or however you load rooms
     private List<Room> loadRooms() {
-        return GuiData.roomManager.getRooms(); // adjust to your actual data source
+        return GuiData.roomManager.getRooms();
     }
 }

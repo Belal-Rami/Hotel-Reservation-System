@@ -15,7 +15,6 @@ import java.time.format.DateTimeFormatter;
 
 public class GuestProfileController {
 
-    // ── FXML bindings ──────────────────────────────────────────────
     @FXML private Label lblUsername;
     @FXML private Label lblGender;
     @FXML private Label lblGenderDetail;
@@ -30,7 +29,7 @@ public class GuestProfileController {
     private Guest       guest;
     private RoomManager roomManager;
 
-    // ── Called by whichever scene opens this one ───────────────────
+    // ── Context injection ──────────────────────────────────────────
     public void setContext(Guest guest, RoomManager roomManager) {
         this.guest       = guest;
         this.roomManager = roomManager;
@@ -38,16 +37,39 @@ public class GuestProfileController {
     }
 
     private void populateView() {
-        lblUsername        .setText(guest.getUsername());
-        lblGender          .setText(guest.getGender().toString());
-        lblGenderDetail    .setText(guest.getGender().toString());
-        lblDOB             .setText(guest.getDateOfBirth().format(DOB_FMT));
-        lblAddress         .setText(guest.getAddress());
-        lblBalance         .setText(String.format("$%.2f", guest.getBalance()));
-        lblReservationCount.setText(String.valueOf(guest.getReservations().size()));
+        // Username — always set at registration
+        lblUsername.setText(guest.getUsername());
+
+        // Gender — null for guests registered with username+password only
+        String gender = guest.getGender() != null
+                ? guest.getGender().toString()
+                : "Not set";
+        lblGender      .setText(gender);
+        lblGenderDetail.setText(gender);
+
+        // Date of birth — optional
+        String dob = guest.getDateOfBirth() != null
+                ? guest.getDateOfBirth().format(DOB_FMT)
+                : "Not set";
+        lblDOB.setText(dob);
+
+        // Address — optional
+        String address = (guest.getAddress() != null && !guest.getAddress().isBlank())
+                ? guest.getAddress()
+                : "Not set";
+        lblAddress.setText(address);
+
+        // Balance — primitive double, always safe
+        lblBalance.setText(String.format("$%.2f", guest.getBalance()));
+
+        // Reservations — guard against null list
+        int count = guest.getReservations() != null
+                ? guest.getReservations().size()
+                : 0;
+        lblReservationCount.setText(String.valueOf(count));
     }
 
-    // ── Navigate to My Reservations ────────────────────────────────
+    // ── Go to My Reservations ──────────────────────────────────────
     @FXML
     private void goToReservations() {
         try {
@@ -68,7 +90,7 @@ public class GuestProfileController {
         }
     }
 
-    // Back
+    // ── Back to guest dashboard ────────────────────────────────────
     @FXML
     private void goBack() {
         try {
@@ -76,6 +98,9 @@ public class GuestProfileController {
                     getClass().getResource("/hotel/gui/scenes/kkk.fxml")
             );
             Parent root = loader.load();
+
+            kkkcontroller kk = loader.getController();
+            kk.setCurrentguest(guest);
 
             Stage stage = (Stage) lblUsername.getScene().getWindow();
             stage.setScene(new Scene(root));

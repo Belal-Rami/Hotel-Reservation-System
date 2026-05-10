@@ -1,8 +1,6 @@
-
 package hotel.gui.controllers;
 
 import hotel.data.Amenity;
-import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
@@ -17,11 +15,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 
 public class RoomDetailController {
 
-    // ── FXML bindings ──────────────────────────────────────────────
     @FXML private Label lblRoomNumber;
     @FXML private Label lblRoomType;
     @FXML private Label lblBasePrice;
@@ -35,7 +31,7 @@ public class RoomDetailController {
     @FXML private ListView<String> listAmenities;
     @FXML private Button btnMakeReservation;
 
-    private static final DateTimeFormatter DATE_FMT =
+    private static final DateTimeFormatter DATE_FMT  =
             DateTimeFormatter.ofPattern("EEE, MMM d yyyy");
     private static final DateTimeFormatter SHORT_FMT =
             DateTimeFormatter.ofPattern("MMM d, yyyy");
@@ -45,7 +41,7 @@ public class RoomDetailController {
     private Guest       currentGuest;
     private RoomManager roomManager;
 
-    //Called by the previous scene before switching
+    // ── Called by RoomsController ──────────────────────────────────
     public void setRoom(Room room, LocalDate viewingDate) {
         this.room        = room;
         this.viewingDate = viewingDate;
@@ -57,25 +53,20 @@ public class RoomDetailController {
         this.roomManager  = roomManager;
     }
 
-    //Populate all UI elements
+    // ── Populate UI ────────────────────────────────────────────────
     private void populateView() {
-
-        lblRoomNumber.setText("Room " + room.getRoomNum());
-        lblRoomType  .setText(room.getTypeName());
-
+        lblRoomNumber    .setText("Room " + room.getRoomNum());
+        lblRoomType      .setText(room.getTypeName());
         lblBasePrice     .setText(String.format("$%.2f", room.getPrice()));
         lblAmenitiesPrice.setText(String.format("$%.2f", room.amenitiesPriceperDay()));
         lblTotalPerNight .setText(String.format("$%.2f", room.totalPricePerDay()));
 
         LocalDate checkOut = room.getCheckOut();
         lblCheckOut.setText(checkOut != null ? checkOut.format(SHORT_FMT) : "No reservation");
-
         lblViewingDate.setText(viewingDate.format(DATE_FMT));
 
-        // Status badge + button colour
         boolean occupied = checkOut != null && checkOut.isAfter(viewingDate);
         styleStatusBadge(occupied);
-
         populateAmenities();
     }
 
@@ -84,32 +75,18 @@ public class RoomDetailController {
             lblStatusBadge.setText("Occupied");
             lblStatusBadge.setStyle(
                     "-fx-background-color: rgba(210,60,60,0.82);" +
-                            "-fx-background-radius: 10;" +
-                            "-fx-padding: 8 24;" +
-                            "-fx-text-fill: white;"
-            );
-            // Dim the button to signal it will block, but keep it clickable
-            // so we can show the error message
+                            "-fx-background-radius: 10; -fx-padding: 8 24; -fx-text-fill: white;");
             btnMakeReservation.setStyle(
                     "-fx-background-color: rgba(210,60,60,0.55);" +
-                            "-fx-background-radius: 16;" +
-                            "-fx-text-fill: white;" +
-                            "-fx-cursor: hand;"
-            );
+                            "-fx-background-radius: 16; -fx-text-fill: white; -fx-cursor: hand;");
         } else {
             lblStatusBadge.setText("Available");
             lblStatusBadge.setStyle(
                     "-fx-background-color: rgba(40,160,75,0.82);" +
-                            "-fx-background-radius: 10;" +
-                            "-fx-padding: 8 24;" +
-                            "-fx-text-fill: white;"
-            );
+                            "-fx-background-radius: 10; -fx-padding: 8 24; -fx-text-fill: white;");
             btnMakeReservation.setStyle(
                     "-fx-background-color: rgba(40,160,75,0.85);" +
-                            "-fx-background-radius: 16;" +
-                            "-fx-text-fill: white;" +
-                            "-fx-cursor: hand;"
-            );
+                            "-fx-background-radius: 16; -fx-text-fill: white; -fx-cursor: hand;");
         }
     }
 
@@ -145,28 +122,23 @@ public class RoomDetailController {
                                     "-fx-text-fill: white;" +
                                     "-fx-font-size: 22px;" +
                                     "-fx-font-family: 'Arial';" +
-                                    "-fx-padding: 8 4;"
-                    );
+                                    "-fx-padding: 8 4;");
                 }
             }
         });
     }
 
-    // ── Make Reservation button ────────────────────────────────────
+    // ── Make Reservation ───────────────────────────────────────────
     @FXML
     private void handleMakeReservation() {
-
-        // Check if room is occupied on the viewing date
         LocalDate checkOut = room.getCheckOut();
         boolean occupied   = checkOut != null && checkOut.isAfter(viewingDate);
 
         if (occupied) {
-            // Show the inline error — do NOT navigate
             lblReservationError.setVisible(true);
             return;
         }
 
-        // Room is free — open the Make Reservation scene
         lblReservationError.setVisible(false);
 
         try {
@@ -187,7 +159,7 @@ public class RoomDetailController {
         }
     }
 
-
+    // ── Back to Rooms – forward guest + roomManager ────────────────
     @FXML
     private void goBack() {
         try {
@@ -195,6 +167,9 @@ public class RoomDetailController {
                     getClass().getResource("/hotel/gui/scenes/sceneROoms.fxml")
             );
             Parent root = loader.load();
+
+            RoomsController ctrl = loader.getController();
+            ctrl.setContext(currentGuest, roomManager); // ← guest forwarded back
 
             Stage stage = (Stage) lblRoomNumber.getScene().getWindow();
             stage.setScene(new Scene(root));

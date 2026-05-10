@@ -20,14 +20,13 @@ import java.time.temporal.ChronoUnit;
 
 public class MakeReservationController {
 
-
-    @FXML private Label    lblSummaryRoom;
-    @FXML private Label    lblSummaryType;
-    @FXML private Label    lblSummaryPrice;
-    @FXML private Label    lblCheckIn;
-    @FXML private Label    lblNights;
-    @FXML private Label    lblTotalCost;
-    @FXML private Label    lblGuestBalance;
+    @FXML private Label      lblSummaryRoom;
+    @FXML private Label      lblSummaryType;
+    @FXML private Label      lblSummaryPrice;
+    @FXML private Label      lblCheckIn;
+    @FXML private Label      lblNights;
+    @FXML private Label      lblTotalCost;
+    @FXML private Label      lblGuestBalance;
 
     @FXML private DatePicker datePickerCheckOut;
 
@@ -44,27 +43,35 @@ public class MakeReservationController {
     private static final DateTimeFormatter SHORT_FMT =
             DateTimeFormatter.ofPattern("MMM d, yyyy");
 
-
     private Room        room;
     private LocalDate   checkInDate;
     private Guest       guest;
     private RoomManager roomManager;
 
-    public void setCurrentguest1(Guest currentguest) {
-        this.guest =currentguest;
-    }
-
+    // ── Called when navigating from kkk / RoomDetail ───────────────
     public void setContext(Room room, LocalDate checkIn,
                            Guest guest, RoomManager roomManager) {
         this.room        = room;
         this.checkInDate = checkIn;
-       // this.guest       = guest;
+        this.guest       = guest;       // ← was wrongly commented out before
         this.roomManager = roomManager;
         populateSummary();
         wireListeners();
     }
 
+    /**
+     * Legacy entry point kept for backward-compat with kkkcontroller.
+     * Prefer setContext() which sets everything in one call.
+     */
+    public void setCurrentguest1(Guest currentguest) {
+        this.guest = currentguest;
+        // Refresh balance label if the summary is already showing
+        if (lblGuestBalance != null && guest != null) {
+            lblGuestBalance.setText(String.format("$%.2f", guest.getBalance()));
+        }
+    }
 
+    // ── Populate summary panel ─────────────────────────────────────
     private void populateSummary() {
         lblSummaryRoom .setText("Room " + room.getRoomNum());
         lblSummaryType .setText(room.getTypeName());
@@ -72,16 +79,13 @@ public class MakeReservationController {
         lblCheckIn     .setText(checkInDate.format(SHORT_FMT));
         lblGuestBalance.setText(String.format("$%.2f", guest.getBalance()));
 
-        // Default night/cost labels until a date is picked
         lblNights   .setText("—");
         lblTotalCost.setText("—");
 
-        // Prevent picking dates before check-in +1day
         datePickerCheckOut.setDayCellFactory(dp -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                // Disable any date that is not AFTER the check-in date
                 if (date.isBefore(checkInDate.plusDays(1))) {
                     setDisable(true);
                     setStyle("-fx-background-color: rgba(100,100,100,0.4);");
@@ -90,12 +94,12 @@ public class MakeReservationController {
         });
     }
 
-    // Live update: nights + total whenever date changes
+    // ── Live-update nights + total ─────────────────────────────────
     private void wireListeners() {
         datePickerCheckOut.valueProperty().addListener((obs, oldVal, newVal) -> {
-            lblDateError.setVisible(false);
+            lblDateError   .setVisible(false);
             lblBalanceError.setVisible(false);
-            lblSuccess.setVisible(false);
+            lblSuccess     .setVisible(false);
 
             if (newVal == null) {
                 lblNights   .setText("—");
@@ -103,40 +107,34 @@ public class MakeReservationController {
                 return;
             }
 
-            long nights = ChronoUnit.DAYS.between(checkInDate, newVal);
-            double total = room.totalPricePerDay() * nights;
-
+            long   nights = ChronoUnit.DAYS.between(checkInDate, newVal);
+            double total  = room.totalPricePerDay() * nights;
             lblNights   .setText(nights + " night" + (nights == 1 ? "" : "s"));
             lblTotalCost.setText(String.format("$%.2f", total));
         });
     }
 
-    //Confirm Reservation
+    // ── Confirm reservation ────────────────────────────────────────
     @FXML
     private void handleConfirm() {
-
-        // Reset all error / success labels
         lblDateError   .setVisible(false);
         lblBalanceError.setVisible(false);
         lblSuccess     .setVisible(false);
 
         LocalDate checkOut = datePickerCheckOut.getValue();
 
-        // 1. Must pick a check-out date
         if (checkOut == null || !checkOut.isAfter(checkInDate)) {
             lblDateError.setText("⚠  Please pick a check-out date after the check-in date.");
             lblDateError.setVisible(true);
             return;
         }
 
-        // 2. Check if the room is already reserved during ANY part of the chosen period
         if (isRoomConflicting(checkInDate, checkOut)) {
             lblDateError.setText("⚠  Room is already reserved during part of that period.");
             lblDateError.setVisible(true);
             return;
         }
 
-        // 3. Payment method
         double totalCost = room.totalPricePerDay()
                 * ChronoUnit.DAYS.between(checkInDate, checkOut);
 
@@ -145,22 +143,16 @@ public class MakeReservationController {
                 lblBalanceError.setVisible(true);
                 return;
             }
-            // Deduct from balance
             guest.setBalance(guest.getBalance() - totalCost);
             lblGuestBalance.setText(String.format("$%.2f", guest.getBalance()));
         }
-        // Cash and Credit: no balance change needed (handled physically / externally)
 
-        // 4. Create and register the reservation
         Reservation reservation = new Reservation(
                 guest, room, checkInDate, checkOut, Status.CONFIRMED
         );
         roomManager.addReservation(reservation);
-
-        // 5. Update room's checkout so availability reflects the new booking
         room.setCheckOut(checkOut);
 
-        // 6. Show success and disable confirm so they can't double-submit
         lblSuccess.setVisible(true);
         btnConfirm.setDisable(true);
         btnConfirm.setStyle(
@@ -170,23 +162,17 @@ public class MakeReservationController {
         );
     }
 
-
     private boolean isRoomConflicting(LocalDate newCheckIn, LocalDate newCheckOut) {
         for (Reservation r : roomManager.getReservations()) {
             if (!r.getRoom().getRoomNum().equals(room.getRoomNum())) continue;
-
             LocalDate existIn  = r.getCheckIn();
             LocalDate existOut = r.getCheckOut();
-
-            // Overlap condition
-            if (newCheckIn.isBefore(existOut) && existIn.isBefore(newCheckOut)) {
-                return true;
-            }
+            if (newCheckIn.isBefore(existOut) && existIn.isBefore(newCheckOut)) return true;
         }
         return false;
     }
 
-    // Back to Room Detail scene
+    // ── Back to Room Detail ────────────────────────────────────────
     @FXML
     private void goBack() {
         try {
@@ -197,7 +183,7 @@ public class MakeReservationController {
 
             RoomDetailController ctrl = loader.getController();
             ctrl.setRoom(room, checkInDate);
-            ctrl.setContext(guest, roomManager);
+            ctrl.setContext(guest, roomManager);   // guest and roomManager forwarded
 
             Stage stage = (Stage) lblSummaryRoom.getScene().getWindow();
             stage.setScene(new Scene(root));

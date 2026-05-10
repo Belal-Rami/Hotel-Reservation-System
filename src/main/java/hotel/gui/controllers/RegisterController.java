@@ -1,6 +1,6 @@
 package hotel.gui.controllers;
 
-import hotel.services.GuestManager;
+import hotel.gui.GuiData;
 import hotel.users.Guest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,50 +9,47 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.util.ArrayList;
 
-    public class RegisterController {
-        @FXML private TextField regUsernameField;
-        @FXML private TextField regPasswordField;
+public class RegisterController {
 
+    @FXML private TextField regUsernameField;
+    @FXML private TextField regPasswordField;
 
-        private GuestManager guestManager = new GuestManager(new ArrayList<>());
+    // !! Do NOT create a new GuestManager here — always use the shared one !!
+    // private GuestManager guestManager = new GuestManager(...);  ← WRONG
+    // Use GuiData.guestManager everywhere so data is shared across the whole app.
 
-//        //public RegisterController(TextField regPasswordField) {
-//            this.regPasswordField = regPasswordField;
-//        }
+    @FXML
+    void handleRegister(ActionEvent event) throws Exception {
+        String user = regUsernameField.getText().trim();
+        String pass = regPasswordField.getText().trim();
 
-        @FXML
-        void handleRegister(ActionEvent event) throws Exception {
-            String user = regUsernameField.getText();
-            String pass = regPasswordField.getText();
+        // Register in the SHARED manager so the guest is visible app-wide
+        Guest newGuest = new Guest(user, pass);
+        GuiData.guestManager.registerGuest(newGuest);
+        System.out.println("Guest registered: " + user);
 
-            // Create a new Guest object
-            Guest newGuest = new Guest(user, pass);
+        // Navigate to the guest dashboard and pass the new guest
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/kkk.fxml")
+        );
+        Scene scene = new Scene(loader.load(), 1920, 1080);
 
-            guestManager.registerGuest(newGuest);
+        kkkcontroller kk = loader.getController();
+        kk.setCurrentguest(newGuest);          // ← pass the actual object
 
-            System.out.println("Guest registered successfully!");
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/hotel/gui/scenes/kkk.fxml")
-            );
-
-            Scene scene = new Scene(loader.load(), 1920, 1080);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        }
-        public void Back(ActionEvent e) throws Exception {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/hotel/gui/scenes/GuestOptions.fxml")
-            );
-
-            Scene scene = new Scene(loader.load(), 1920, 1080);
-
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        }
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
+    @FXML
+    public void Back(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/GuestOptions.fxml")
+        );
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(loader.load(), 1920, 1080));
+        stage.show();
+    }
+}

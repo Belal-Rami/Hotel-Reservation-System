@@ -33,6 +33,9 @@ public Guest loginGuest(String username, String password){
         return null;
 
 }
+public void setBalance(Guest guest, double amount){
+        guest.setBalance(amount);
+}
 
 public void registerGuest(Guest newGuest){
         if(usernameExists(newGuest.getUsername())){
