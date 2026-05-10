@@ -150,9 +150,10 @@ public class MakeReservationController {
         }
 
         Reservation reservation = new Reservation(
-                guest, room, checkInDate, checkOut, Status.CONFIRMED
+                guest, room, checkInDate, checkOut, Status.PENDING
         );
         roomManager.addReservation(reservation);
+        System.out.println(guest.getUsername());
         room.setCheckOut(checkOut);
         GuiMain.saveData(GuiData.database);
 
