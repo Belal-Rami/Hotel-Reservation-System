@@ -8,15 +8,13 @@
       "address": "Cairo",
       "gender": "MALE",
       "guestId": 0,
-      "Greservations": [
-      
-      ]
+      "Greservations": []
     },
     {
       "username": "Shawkat",
       "password": "345",
       "dateOfBirth": "2012-04-05",
-      "balance": 0.0,
+      "balance": 1114432.0,
       "address": "Ain Shams",
       "gender": "MALE",
       "guestId": 1,
@@ -24,25 +22,33 @@
         {
           "guestId": 1,
           "assignedRoom": {
-            "roomNum": "102",
+            "roomNum": "103",
             "roomType": {
-              "name": "Deluxe",
-              "price": 700.0
+              "name": "Single",
+              "price": 400.0
             },
             "isAvailable": false,
             "duration": 0,
-            "checkOut": "2026-05-22",
+            "checkOut": "2026-05-15",
             "roomAmenities": [
               {
                 "name": "Tv",
                 "price": 40.0
+              },
+              {
+                "name": "Snacks",
+                "price": 90.0
+              },
+              {
+                "name": "Jacuzzi",
+                "price": 80.0
               }
             ]
           },
-          "checkInDate": "2026-05-21",
-          "checkOutDate": "2026-05-22",
+          "checkInDate": "2026-05-10",
+          "checkOutDate": "2026-05-15",
           "status": "PENDING",
-          "reservationID": 13328
+          "reservationID": 12185
         }
       ]
     },
@@ -50,6 +56,123 @@
       "balance": 0.0,
       "guestId": 0,
       "Greservations": []
+    },
+    {
+      "username": "aa",
+      "password": "aa",
+      "balance": 0.0,
+      "guestId": 0,
+      "Greservations": []
+    },
+    {
+      "username": "Mazen",
+      "password": "mazen123",
+      "dateOfBirth": "2005-03-15",
+      "balance": 5000.0,
+      "address": "Heliopolis",
+      "gender": "MALE",
+      "guestId": 4,
+      "Greservations": [
+        {
+          "guestId": 4,
+          "assignedRoom": {
+            "roomNum": "104",
+            "roomType": {
+              "name": "Double",
+              "price": 500.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-18",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              },
+              {
+                "name": "Wifi",
+                "price": 45.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-15",
+          "checkOutDate": "2026-05-18",
+          "status": "PENDING",
+          "reservationID": 12186
+        }
+      ]
+    },
+    {
+      "username": "Mario",
+      "password": "mario123",
+      "dateOfBirth": "2005-07-22",
+      "balance": 8000.0,
+      "address": "Maadi",
+      "gender": "MALE",
+      "guestId": 5,
+      "Greservations": [
+        {
+          "guestId": 5,
+          "assignedRoom": {
+            "roomNum": "105",
+            "roomType": {
+              "name": "Deluxe",
+              "price": 750.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-20",
+            "roomAmenities": [
+              {
+                "name": "Wifi",
+                "price": 45.0
+              },
+              {
+                "name": "Pool Table",
+                "price": 100.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-17",
+          "checkOutDate": "2026-05-20",
+          "status": "PENDING",
+          "reservationID": 12187
+        }
+      ]
+    },
+    {
+      "username": "Nour",
+      "password": "nour456",
+      "dateOfBirth": "1998-11-30",
+      "balance": 3200.0,
+      "address": "Zamalek",
+      "gender": "FEMALE",
+      "guestId": 6,
+      "Greservations": [
+        {
+          "guestId": 6,
+          "assignedRoom": {
+            "roomNum": "106",
+            "roomType": {
+              "name": "Single",
+              "price": 400.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-19",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-16",
+          "checkOutDate": "2026-05-19",
+          "status": "PENDING",
+          "reservationID": 12188
+        }
+      ]
     }
   ],
   "staffMembers": [
@@ -68,6 +191,22 @@
       "dateOfBirth": "2004-09-01",
       "role": "RECEPTIONIST",
       "workingHours": 40
+    },
+    {
+      "type": "Admin",
+      "username": "Khaled",
+      "password": "khaled789",
+      "dateOfBirth": "1990-06-14",
+      "role": "ADMIN",
+      "workingHours": 55
+    },
+    {
+      "type": "Receptionist",
+      "username": "Reem",
+      "password": "reem456",
+      "dateOfBirth": "1999-02-20",
+      "role": "RECEPTIONIST",
+      "workingHours": 42
     }
   ],
   "amenities": [
@@ -111,7 +250,7 @@
       },
       "isAvailable": false,
       "duration": 0,
-      "checkOut": "2026-05-20",
+      "checkOut": "2026-05-30",
       "roomAmenities": [
         {
           "name": "Wifi",
@@ -147,7 +286,7 @@
       },
       "isAvailable": false,
       "duration": 0,
-      "checkOut": "2026-06-01",
+      "checkOut": "2026-05-15",
       "roomAmenities": [
         {
           "name": "Tv",
@@ -162,10 +301,239 @@
           "price": 80.0
         }
       ]
+    },
+    {
+      "roomNum": "104",
+      "roomType": {
+        "name": "Double",
+        "price": 500.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-18",
+      "roomAmenities": [
+        {
+          "name": "Tv",
+          "price": 40.0
+        },
+        {
+          "name": "Wifi",
+          "price": 45.0
+        }
+      ]
+    },
+    {
+      "roomNum": "105",
+      "roomType": {
+        "name": "Deluxe",
+        "price": 750.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-20",
+      "roomAmenities": [
+        {
+          "name": "Wifi",
+          "price": 45.0
+        },
+        {
+          "name": "Pool Table",
+          "price": 100.0
+        }
+      ]
+    },
+    {
+      "roomNum": "106",
+      "roomType": {
+        "name": "Single",
+        "price": 400.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-19",
+      "roomAmenities": [
+        {
+          "name": "Tv",
+          "price": 40.0
+        }
+      ]
+    },
+    {
+      "roomNum": "107",
+      "roomType": {
+        "name": "Double",
+        "price": 500.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-21",
+      "roomAmenities": [
+        {
+          "name": "Snacks",
+          "price": 90.0
+        },
+        {
+          "name": "Wifi",
+          "price": 45.0
+        }
+      ]
+    },
+    {
+      "roomNum": "108",
+      "roomType": {
+        "name": "Deluxe",
+        "price": 750.0
+      },
+      "isAvailable": false,
+      "duration": 0,
+      "checkOut": "2026-05-22",
+      "roomAmenities": [
+        {
+          "name": "Tv",
+          "price": 40.0
+        },
+        {
+          "name": "Pool Table",
+          "price": 100.0
+        }
+      ]
     }
   ],
   "reservations": [
-    
-      
+    {
+      "guestId": 1,
+      "assignedRoom": {
+        "roomNum": "103",
+        "roomType": {
+          "name": "Single",
+          "price": 400.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-15",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          },
+          {
+            "name": "Snacks",
+            "price": 90.0
+          },
+          {
+            "name": "Jacuzzi",
+            "price": 80.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-10",
+      "checkOutDate": "2026-05-15",
+      "status": "PENDING",
+      "reservationID": 12185
+    },
+    {
+      "guestId": 4,
+      "assignedRoom": {
+        "roomNum": "104",
+        "roomType": {
+          "name": "Double",
+          "price": 500.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-18",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          },
+          {
+            "name": "Wifi",
+            "price": 45.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-15",
+      "checkOutDate": "2026-05-18",
+      "status": "PENDING",
+      "reservationID": 12186
+    },
+    {
+      "guestId": 5,
+      "assignedRoom": {
+        "roomNum": "105",
+        "roomType": {
+          "name": "Deluxe",
+          "price": 750.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-20",
+        "roomAmenities": [
+          {
+            "name": "Wifi",
+            "price": 45.0
+          },
+          {
+            "name": "Pool Table",
+            "price": 100.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-17",
+      "checkOutDate": "2026-05-20",
+      "status": "PENDING",
+      "reservationID": 12187
+    },
+    {
+      "guestId": 6,
+      "assignedRoom": {
+        "roomNum": "106",
+        "roomType": {
+          "name": "Single",
+          "price": 400.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-19",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-16",
+      "checkOutDate": "2026-05-19",
+      "status": "PENDING",
+      "reservationID": 12188
+    },
+    {
+      "guestId": 4,
+      "assignedRoom": {
+        "roomNum": "107",
+        "roomType": {
+          "name": "Double",
+          "price": 500.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-21",
+        "roomAmenities": [
+          {
+            "name": "Snacks",
+            "price": 90.0
+          },
+          {
+            "name": "Wifi",
+            "price": 45.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-18",
+      "checkOutDate": "2026-05-21",
+      "status": "PENDING",
+      "reservationID": 12189
+    }
   ]
 }

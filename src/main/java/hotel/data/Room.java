@@ -1,7 +1,5 @@
 package hotel.data;
 
-import hotel.gui.GuiData;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -11,33 +9,33 @@ public class Room {
     // 1. DATA FIELDS
     private String roomNum;
     private RoomType roomType;
-    private Boolean isAvailable=false;
+    private Boolean isAvailable = true;  // FIXED: default to true, not false
     private Long duration;
     private LocalDate checkOut;
-    private  List<LocalDate> reservedDates;
+    private List<LocalDate> reservedDates;
     private ArrayList<Amenity> roomAmenities = new ArrayList<>();
 
     // 2. CONSTRUCTOR
     public Room(String roomNum, RoomType roomType, LocalDate checkIn, LocalDate checkOut) {
         this.roomNum = roomNum;
         this.roomType = roomType;
-        this.checkOut=checkOut;
+        this.checkOut = checkOut;
         duration = ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
-        //This no-argument constructor is needed for Gson to work
+    // This no-argument constructor is needed for Gson to work
     public Room() {
     }
-    public boolean isReservedOn(LocalDate date) {
-        return reservedDates.contains(date);
-    }
-    
-    // 3. GETTERS
 
+    public boolean isReservedOn(LocalDate date) {
+        return reservedDates != null && reservedDates.contains(date);
+    }
+
+    // 3. GETTERS
     public RoomType getRoomType() {
         return roomType;
     }
-    //The functions that calculate the expenses of the room
+
     public double amenitiesPriceperDay() {
         double amenitesPricePerDay = 0;
         for (Amenity i : roomAmenities) {
@@ -54,9 +52,6 @@ public class Room {
         return totalPricePerDay() * duration;
     }
 
-
-    //Functions to edit the amenity list inside each room
-
     public void createAmenity(Amenity amenity) {
         roomAmenities.add(amenity);
     }
@@ -64,7 +59,6 @@ public class Room {
     public void deleteAmenity(Amenity amenity) {
         roomAmenities.remove(amenity);
     }
-
 
     public void invoice() {
         System.out.println("Your trip lasted " + duration + " days");
@@ -76,13 +70,9 @@ public class Room {
         System.out.println("--------------THANK YOU--------------");
     }
 
-    // Getter and Setter methods.
-
-
     public void setRoomType(RoomType roomType) {
         this.roomType = roomType;
     }
-
 
     public Boolean getAvailable() {
         return isAvailable;
@@ -101,28 +91,38 @@ public class Room {
     public ArrayList<Amenity> getAmenities() {
         return roomAmenities;
     }
-
     public void setAmenities(ArrayList<Amenity> amenities) {
         this.roomAmenities = amenities;
     }
-    public String getTypeName(){
+
+    public String getTypeName() {
         return roomType.getName();
     }
-    public LocalDate getCheckOut(){
+
+    public LocalDate getCheckOut() {
         return checkOut;
     }
     public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
-    public String getStatus(){
 
-        if(checkOut.isBefore(LocalDate.now())){
-            return "Available";
+    // FIXED: room is occupied only if date falls strictly within [checkIn, checkOut)
+    public String getStatus(LocalDate date, ArrayList<Reservation> reservations) {
+        if (reservations == null) return "Available";
+        for (Reservation r : reservations) {
+            if (r.getRoom() == null) continue;
+            if (r.getRoom().getRoomNum().equals(this.roomNum)) {
+                LocalDate in  = r.getCheckIn();
+                LocalDate out = r.getCheckOut();
+                if (in == null || out == null) continue;
+                // occupied only if date is within [checkIn, checkOut)
+                if (!date.isBefore(in) && date.isBefore(out)) {
+                    return "Occupied";
+                }
+            }
         }
-
-        return "Occupied";
+        return "Available";
     }
-
 
     @Override
     public String toString() {
@@ -130,8 +130,8 @@ public class Room {
                 + duration + ", roomAmenities=" + roomAmenities + ", amenitiesPriceperDay()=" + amenitiesPriceperDay()
                 + ", totalPricePerDay()=" + totalPricePerDay() + ", totalPrice()=" + totalPrice() + "]";
     }
-    public double getPrice(){
+
+    public double getPrice() {
         return roomType.getPrice();
     }
-
 }

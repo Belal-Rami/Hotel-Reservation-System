@@ -66,12 +66,12 @@ public class ViewGuestsController {
     public void searchbyname(){
         String name=searchField.getText();
         if(name.isEmpty()){
-            System.out.println("please enter name");
+            System.out.println("please enter ID");
             return;
         }
         ObservableList namee =FXCollections.observableArrayList();
         for(Guest g: GuiData.guestManager.getGuests()){
-            if(g.getUsername().equals(name)){
+            if(String.valueOf(g.getGuestId()).equals(name)){
                 namee.add(g);
             }
         }

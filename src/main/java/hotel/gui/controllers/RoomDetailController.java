@@ -1,7 +1,9 @@
 package hotel.gui.controllers;
 
 import hotel.data.Amenity;
+import hotel.data.Reservation;
 import hotel.data.Room;
+import hotel.gui.GuiData;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
 
@@ -61,13 +63,33 @@ public class RoomDetailController {
         lblAmenitiesPrice.setText(String.format("$%.2f", room.amenitiesPriceperDay()));
         lblTotalPerNight .setText(String.format("$%.2f", room.totalPricePerDay()));
 
-        LocalDate checkOut = room.getCheckOut();
-        lblCheckOut.setText(checkOut != null ? checkOut.format(SHORT_FMT) : "No reservation");
+        Reservation activeRes = findActiveReservation(viewingDate);
+
+        if (activeRes != null) {
+            lblCheckOut.setText(activeRes.getCheckOut().format(SHORT_FMT));
+        } else {
+            lblCheckOut.setText("No reservation");
+        }
+
         lblViewingDate.setText(viewingDate.format(DATE_FMT));
 
-        boolean occupied = checkOut != null && checkOut.isAfter(viewingDate);
+        // ADDED: if viewing a past date, treat as occupied (unbookable)
+        boolean occupied = activeRes != null || viewingDate.isBefore(LocalDate.now());
         styleStatusBadge(occupied);
         populateAmenities();
+    }
+
+        // ADDED: loops through reservations to find one active on the given date
+    private Reservation findActiveReservation(LocalDate date) {
+        for (Reservation r : GuiData.roomManager.getReservations()) {
+            if (r.getRoom() == null) continue;
+            if (!r.getRoom().getRoomNum().equals(room.getRoomNum())) continue;
+            LocalDate in  = r.getCheckIn();
+            LocalDate out = r.getCheckOut();
+            if (in == null || out == null) continue;
+            if (!date.isBefore(in) && date.isBefore(out)) return r;
+        }
+        return null;
     }
 
     private void styleStatusBadge(boolean occupied) {
@@ -131,8 +153,14 @@ public class RoomDetailController {
     // ── Make Reservation ───────────────────────────────────────────
     @FXML
     private void handleMakeReservation() {
-        LocalDate checkOut = room.getCheckOut();
-        boolean occupied   = checkOut != null && checkOut.isAfter(viewingDate);
+        // ADDED: block booking on past dates
+        if (viewingDate.isBefore(LocalDate.now())) {
+            lblReservationError.setText("⚠  Cannot make a reservation for a past date.");
+            lblReservationError.setVisible(true);
+            return;
+        }
+
+        boolean occupied = findActiveReservation(viewingDate) != null;
 
         if (occupied) {
             lblReservationError.setVisible(true);
@@ -169,7 +197,7 @@ public class RoomDetailController {
             Parent root = loader.load();
 
             RoomsController ctrl = loader.getController();
-            ctrl.setContext(currentGuest, roomManager); // ← guest forwarded back
+            ctrl.setContext(currentGuest, roomManager);
 
             Stage stage = (Stage) lblRoomNumber.getScene().getWindow();
             stage.setScene(new Scene(root));

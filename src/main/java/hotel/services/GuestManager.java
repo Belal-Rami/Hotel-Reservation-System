@@ -15,24 +15,23 @@ public class GuestManager {
         this.guests = guests;
     }
 
-      public boolean usernameExists(String username){
+    public boolean usernameExists(String username){
         for(Guest g : guests){
-            if(g.getUsername().equalsIgnoreCase(username)){
+            if(g.getUsername() != null && g.getUsername().equalsIgnoreCase(username)){
                 return true;
             }
-
         }
         return false;
     }
-public Guest loginGuest(String username, String password){
+    public Guest loginGuest(String username, String password){
         for(Guest g: guests){
-            if(g.getUsername().equalsIgnoreCase(username)&&g.getPassword().equals(password)){
+            if(g.getUsername() != null && g.getPassword() != null &&
+                    g.getUsername().equalsIgnoreCase(username) && g.getPassword().equals(password)){
                 return g;
             }
         }
         return null;
-
-}
+    }
 public void setBalance(Guest guest, double amount){
         guest.setBalance(amount);
 }

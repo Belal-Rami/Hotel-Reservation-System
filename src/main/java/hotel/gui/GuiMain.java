@@ -13,12 +13,14 @@ import com.google.gson.JsonSerializer;
 
 import hotel.RuntimeTypeAdapterFactory;
 import hotel.data.HotelDatabase;
+import hotel.data.Reservation;
 import hotel.services.AmenityManager;
 import hotel.services.GuestManager;
 import hotel.services.RoomManager;
 import hotel.services.RoomTypeManager;
 import hotel.services.StaffManager;
 import hotel.users.Admin;
+import hotel.users.Guest;
 import hotel.users.Receptionist;
 import hotel.users.Staff;
 
@@ -62,9 +64,31 @@ public class GuiMain extends Application {
             System.out.println("Error saving: " + e.getMessage());
         }
     }
+
+    // ADDED: rebuilds each guest's Greservations list from the reservations
+    // in the database after loading, since Greservations is runtime-only
+    private void relinkGuestReservations(HotelDatabase database) {
+        // Clear all guest reservation lists first to avoid duplicates
+        for (Guest g : database.getGuests()) {
+            g.getReservations().clear();
+        }
+        // Loop through all reservations and add each to the matching guest
+        for (Reservation r : database.getReservations()) {
+            for (Guest g : database.getGuests()) {
+                if (g.getGuestId() == r.getGuestId()) {
+                    g.addReservation(r);
+                    break;
+                }
+            }
+        }
+    }
+
     @Override
     public void init() {
         HotelDatabase database = loadData();
+
+        // ADDED: relink guest reservation lists after loading
+        relinkGuestReservations(database);
 
         // Initialize Managers
         GuiData.roomManager = new RoomManager(database.getRooms(), database.getReservations(), database.getGuests());
@@ -72,13 +96,9 @@ public class GuiMain extends Application {
         GuiData.guestManager = new GuestManager(database.getGuests());
         GuiData.staffManager = new StaffManager(database.getStaffMembers());
         GuiData.roomTypeManager = new RoomTypeManager(database.getRoomTypes());
-        GuiData.database = database; 
-
-
-
-
-
+        GuiData.database = database;
     }
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
@@ -93,6 +113,5 @@ public class GuiMain extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        
     }
 }

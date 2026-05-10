@@ -1,6 +1,7 @@
 package hotel.gui.controllers;
 
 import hotel.gui.GuiData;
+import hotel.gui.GuiMain;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
 
@@ -160,6 +161,7 @@ public class MyBalanceController {
             lblFeedback.setText(String.format("✔  $%.2f added successfully.", amount));
             lblFeedback.setStyle("-fx-text-fill: rgba(80,220,120,0.95);");
             lblFeedback.setVisible(true);
+            GuiMain.saveData(GuiData.database);
         });
 
         popup.show();

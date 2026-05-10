@@ -1,5 +1,6 @@
 package hotel.gui.controllers;
 
+import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.gui.GuiData;
 import hotel.services.RoomManager;
@@ -85,10 +86,14 @@ public class RoomsController {
 
     // ── Card builder ───────────────────────────────────────────────
     private VBox buildRoomCard(Room room) {
-        boolean occupied = room.getCheckOut() != null
-                && room.getCheckOut().isAfter(currentDate);
+        String status = room.getStatus(currentDate, GuiData.roomManager.getReservations());
 
-        String status  = occupied ? "Occupied" : "Available";
+        // Past dates are always shown as occupied/unbookable
+        if (currentDate.isBefore(LocalDate.now())) {
+            status = "Occupied";
+        }
+
+        boolean occupied = status.equals("Occupied");
         String bgColor = occupied ? "rgba(200, 50, 50, 0.82)" : "rgba(40, 160, 75, 0.82)";
 
         VBox card = new VBox(12);
@@ -116,9 +121,24 @@ public class RoomsController {
         lblPrice.setStyle("-fx-text-fill: rgba(255,255,255,0.80);");
         lblPrice.setMaxWidth(Double.MAX_VALUE);
 
+        // Find the active reservation for this room on currentDate
+        Reservation activeRes = null;
+        for (Reservation r : GuiData.roomManager.getReservations()) {
+            if (r.getRoom() == null) continue;
+            if (r.getRoom().getRoomNum().equals(room.getRoomNum())) {
+                LocalDate in  = r.getCheckIn();
+                LocalDate out = r.getCheckOut();
+                if (in == null || out == null) continue;
+                if (!currentDate.isBefore(in) && currentDate.isBefore(out)) {
+                    activeRes = r;
+                    break;
+                }
+            }
+        }
+
         Label lblCheckout = new Label(
-                occupied
-                        ? "Checkout: " + room.getCheckOut().format(DateTimeFormatter.ofPattern("MMM d, yyyy"))
+                activeRes != null
+                        ? "Checkout: " + activeRes.getCheckOut().format(DateTimeFormatter.ofPattern("MMM d, yyyy"))
                         : "No active reservation"
         );
         lblCheckout.setFont(new Font("Arial", 13));

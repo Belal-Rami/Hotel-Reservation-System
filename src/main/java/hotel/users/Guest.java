@@ -19,6 +19,8 @@ public class Guest {
     private ArrayList<Reservation> Greservations = new ArrayList<Reservation>();
 
     public Guest(String user, String pass) {
+        setUsername(user);
+        setPassword(pass);
     }
 
     public void addReservation(Reservation r) {
