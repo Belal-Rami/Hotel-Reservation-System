@@ -53,18 +53,6 @@
       ]
     },
     {
-      "balance": 0.0,
-      "guestId": 0,
-      "Greservations": []
-    },
-    {
-      "username": "aa",
-      "password": "aa",
-      "balance": 0.0,
-      "guestId": 0,
-      "Greservations": []
-    },
-    {
       "username": "Mazen",
       "password": "mazen123",
       "dateOfBirth": "2005-03-15",
@@ -99,6 +87,33 @@
           "checkOutDate": "2026-05-18",
           "status": "PENDING",
           "reservationID": 12186
+        },
+        {
+          "guestId": 4,
+          "assignedRoom": {
+            "roomNum": "107",
+            "roomType": {
+              "name": "Double",
+              "price": 500.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-21",
+            "roomAmenities": [
+              {
+                "name": "Snacks",
+                "price": 90.0
+              },
+              {
+                "name": "Wifi",
+                "price": 45.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-18",
+          "checkOutDate": "2026-05-21",
+          "status": "PENDING",
+          "reservationID": 12189
         }
       ]
     },
@@ -207,6 +222,30 @@
       "dateOfBirth": "1999-02-20",
       "role": "RECEPTIONIST",
       "workingHours": 42
+    },
+    {
+      "type": "Receptionist",
+      "username": "Mohamed",
+      "password": "123456",
+      "dateOfBirth": "2002-04-10",
+      "role": "RECEPTIONIST",
+      "workingHours": 70
+    },
+    {
+      "type": "Receptionist",
+      "username": "Mo",
+      "password": "123456",
+      "dateOfBirth": "2003-04-30",
+      "role": "RECEPTIONIST",
+      "workingHours": 30
+    },
+    {
+      "type": "Receptionist",
+      "username": "Ahmed",
+      "password": "123456",
+      "dateOfBirth": "2003-04-30",
+      "role": "RECEPTIONIST",
+      "workingHours": 20
     }
   ],
   "amenities": [
@@ -217,10 +256,6 @@
     {
       "name": "Snacks",
       "price": 90.0
-    },
-    {
-      "name": "Wifi",
-      "price": 45.0
     },
     {
       "name": "Pool Table",

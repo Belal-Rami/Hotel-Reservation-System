@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import hotel.services.RoomManager;
 import hotel.data.Reservation;
 import hotel.enums.Gender;
+import hotel.gui.GuiData;
 
 public class Guest {
     // Data fields.
@@ -18,9 +19,45 @@ public class Guest {
 
     private ArrayList<Reservation> Greservations = new ArrayList<Reservation>();
 
-    public Guest(String user, String pass) {
+    // 1. Helper function to find the next ID
+    private int generateNextGuestId(ArrayList<Guest> existingGuests) {
+        // If the list is empty or null, start the IDs at 1
+        if (existingGuests == null || existingGuests.isEmpty()) {
+            return 1;
+        }
+        
+        // Loop through the list to find the highest ID currently in use
+        int highestId = 0;
+        for (Guest g : existingGuests) {
+            if (g.getGuestId() > highestId) {
+                highestId = g.getGuestId();
+            }
+        }
+        
+        // Return the highest ID found plus 1
+        return highestId + 1;
+    }
+
+    // 2. Updated Constructor (Basic)
+    public Guest(String user, String pass, ArrayList<Guest> existingGuests) {
         setUsername(user);
         setPassword(pass);
+        this.guestId = generateNextGuestId(existingGuests); // Assign the new ID
+    }
+
+    // 3. Updated Constructor (Parameterized)
+    public Guest(String username, String password, LocalDate dateOfBirth, String address, Gender gender) {
+        setUsername(username);
+        setPassword(password);
+        setDateOfBirth(dateOfBirth);
+        setBalance(0); // Initialize balance to 0
+        setAddress(address);
+        setGender(gender);
+        this.guestId = generateNextGuestId(GuiData.guestManager.getGuests()); // Assign the new ID
+    }
+
+    // This no-argument constructor is needed for Gson to work
+    public Guest() {
     }
 
     public void addReservation(Reservation r) {
@@ -29,20 +66,6 @@ public class Guest {
 
     public ArrayList<Reservation> getReservations() {
         return Greservations;
-    }
-
-    //Parameterized constructor.
-    public Guest(String username,String password,LocalDate dateOfBirth,double balance,String address,Gender gender){
-        setUsername(username);
-        setPassword(password);
-        setDateOfBirth(dateOfBirth);
-        setBalance(balance);
-        setAddress(address);
-        setGender(gender);
-    }
-
-    //This no-argument constructor is needed for Gson to work
-    public Guest() {
     }
 
     // Getter and Setter methods.
@@ -116,7 +139,7 @@ public class Guest {
     // toString() method to print data info.
     @Override
     public String toString(){
-        return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
+        return "ID: " + guestId + "\nUsername: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
                 + "\nAddress: " + address + "\nGender: "+ gender;
     }
 }

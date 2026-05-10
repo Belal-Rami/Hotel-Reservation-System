@@ -23,7 +23,7 @@
         </ImageView>
 
         <!-- ── Dark overlay panel ── -->
-        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55); -fx-background-radius: 20;" />
 
         <!-- ── Page Title ── -->
         <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="700.0" text="All Rooms" textFill="WHITE">
@@ -33,27 +33,48 @@
         <!-- ── Search bar (top-right) ── -->
         <HBox alignment="CENTER_LEFT" layoutX="1102.0" layoutY="68.0" prefHeight="66.0" prefWidth="734.0" spacing="16.0">
 
-            <Button mnemonicParsing="false" onAction="#showAllRooms" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 10;                            -fx-border-width: 1;" text="Show All">
+            <Button mnemonicParsing="false" onAction="#showAllRooms" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: rgba(255,255,255,0.25); -fx-border-radius: 10; -fx-border-width: 1;" text="Show All">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
-            <TextField fx:id="searchField" prefHeight="66.0" prefWidth="300.0" promptText="Enter Room Number" style="-fx-background-color: rgba(255,255,255,0.12);                               -fx-background-radius: 10;                               -fx-border-color: rgba(255,255,255,0.28);                               -fx-border-radius: 10;                               -fx-text-fill: white;                               -fx-prompt-text-fill: rgba(255,255,255,0.35);                               -fx-font-size: 22px;" />
+            <TextField fx:id="searchField" prefHeight="66.0" prefWidth="300.0" promptText="Enter Room Number" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 10; -fx-border-color: rgba(255,255,255,0.28); -fx-border-radius: 10; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.35); -fx-font-size: 22px;" />
 
-            <Button mnemonicParsing="false" onAction="#searchByNum" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Search">
+            <Button mnemonicParsing="false" onAction="#searchByNum" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand;" text="Search">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
         </HBox>
 
         <!-- ── Rooms TableView ── -->
-        <TableView fx:id="roomTable" layoutX="80.0" layoutY="200.0" prefHeight="820.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0);                           -fx-border-color: rgba(255,255,255,0.15);                           -fx-border-radius: 12;                           -fx-background-radius: 12;                           -fx-control-inner-background: rgba(255,255,255,0.06);                           -fx-table-cell-border-color: rgba(255,255,255,0.08);                           -fx-text-fill: white;">
+        <TableView fx:id="roomTable" layoutX="80.0" layoutY="200.0" prefHeight="820.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0); -fx-border-color: rgba(255,255,255,0.15); -fx-border-radius: 12; -fx-background-radius: 12; -fx-control-inner-background: rgba(255,255,255,0.06); -fx-table-cell-border-color: rgba(255,255,255,0.08); -fx-text-background-color: white; -fx-font-weight: bold; -fx-font-size: 18px;">
             <columns>
-                <TableColumn fx:id="roomNumber" prefWidth="440.0" text="Room Number" />
-                <TableColumn fx:id="roomType" prefWidth="560.0" text="Room Type" />
-                <TableColumn fx:id="roomPrice" prefWidth="380.0" text="Price" />
-                <TableColumn fx:id="roomStatus" prefWidth="380.0" text="Status" />
+                <TableColumn fx:id="roomNumber" prefWidth="440.0">
+                    <graphic>
+                        <Label text="Room Number" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="roomType" prefWidth="560.0">
+                    <graphic>
+                        <Label text="Room Type" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="roomPrice" prefWidth="380.0">
+                    <graphic>
+                        <Label text="Price" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="roomStatus" prefWidth="380.0">
+                    <graphic>
+                        <Label text="Status" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
             </columns>
         </TableView>
+        
+        <!-- Back Button -->
         <Button contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="65.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
             <graphic>
                 <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">

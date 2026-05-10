@@ -23,7 +23,7 @@
         </ImageView>
 
         <!-- ── Dark overlay panel ── -->
-        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55); -fx-background-radius: 20;" />
 
         <!-- ── Page Title ── -->
         <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="900.0" text="View Reservations" textFill="WHITE">
@@ -33,42 +33,73 @@
         <!-- ── Search bar (top-right) ── -->
         <HBox alignment="CENTER_LEFT" layoutX="1096.0" layoutY="68.0" prefHeight="66.0" prefWidth="740.0" spacing="16.0">
 
-            <Button mnemonicParsing="false" onAction="#showAll" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 10;                            -fx-border-width: 1;" text="Show All">
+            <Button mnemonicParsing="false" onAction="#showAll" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: rgba(255,255,255,0.13); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: rgba(255,255,255,0.25); -fx-border-radius: 10; -fx-border-width: 1;" text="Show All">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
-            <TextField fx:id="searchIdField" prefHeight="66.0" prefWidth="320.0" promptText="Enter Reservation Id" style="-fx-background-color: rgba(255,255,255,0.12);                               -fx-background-radius: 10;                               -fx-border-color: rgba(255,255,255,0.28);                               -fx-border-radius: 10;                               -fx-text-fill: white;                               -fx-prompt-text-fill: rgba(255,255,255,0.35);                               -fx-font-size: 22px;" />
+            <TextField fx:id="searchIdField" prefHeight="66.0" prefWidth="320.0" promptText="Enter Reservation Id" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 10; -fx-border-color: rgba(255,255,255,0.28); -fx-border-radius: 10; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.35); -fx-font-size: 22px;" />
 
-            <Button mnemonicParsing="false" onAction="#searchById" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Search">
+            <Button mnemonicParsing="false" onAction="#searchById" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand;" text="Search">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
         </HBox>
 
         <!-- ── Reservations TableView ── -->
-        <TableView fx:id="reservationTable" editable="true" fixedCellSize="24.0" layoutX="80.0" layoutY="200.0" prefHeight="720.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0);                           -fx-border-color: rgba(255,255,255,0.15);                           -fx-border-radius: 12;                           -fx-background-radius: 12;                           -fx-control-inner-background: rgba(255,255,255,0.06);                           -fx-table-cell-border-color: rgba(255,255,255,0.08);                           -fx-text-fill: white;">
+        <TableView fx:id="reservationTable" editable="true" layoutX="80.0" layoutY="200.0" prefHeight="720.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0); -fx-border-color: rgba(255,255,255,0.15); -fx-border-radius: 12; -fx-background-radius: 12; -fx-control-inner-background: rgba(255,255,255,0.06); -fx-table-cell-border-color: rgba(255,255,255,0.08); -fx-text-background-color: white; -fx-font-weight: bold; -fx-font-size: 18px;">
             <columns>
-                <TableColumn fx:id="guestNameColumn" prefWidth="295.0" text="Guest Name" />
-                <TableColumn fx:id="roomNumberColumn" prefWidth="307.0" text="Room Number" />
-                <TableColumn fx:id="checkInColumn" prefWidth="300.0" text="Check In" />
-                <TableColumn fx:id="checkOutColumn" prefWidth="300.0" text="Check Out" />
-                <TableColumn fx:id="statusColumn" prefWidth="280.0" text="Status" />
-                <TableColumn fx:id="reservationIdColumn" prefWidth="278.0" text="Reservation Id" />
+                <TableColumn fx:id="guestNameColumn" prefWidth="295.0">
+                    <graphic>
+                        <Label text="Guest Name" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="roomNumberColumn" prefWidth="307.0">
+                    <graphic>
+                        <Label text="Room Number" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="checkInColumn" prefWidth="300.0">
+                    <graphic>
+                        <Label text="Check In" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="checkOutColumn" prefWidth="300.0">
+                    <graphic>
+                        <Label text="Check Out" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="statusColumn" prefWidth="280.0">
+                    <graphic>
+                        <Label text="Status" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="reservationIdColumn" prefWidth="278.0">
+                    <graphic>
+                        <Label text="Reservation Id" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
             </columns>
         </TableView>
 
         <!-- ── Bottom action buttons ── -->
         <HBox alignment="CENTER_LEFT" layoutX="80.0" layoutY="944.0" prefHeight="90.0" spacing="30.0">
 
-            <Button mnemonicParsing="false" onAction="#checkIn" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 12;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Check In">
+            <Button mnemonicParsing="false" onAction="#checkIn" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 12; -fx-text-fill: white; -fx-cursor: hand;" text="Check In">
                 <font><Font name="Arial Bold" size="30.0" /></font>
             </Button>
 
-            <Button mnemonicParsing="false" onAction="#checkOut" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(210,60,60,0.80);                            -fx-background-radius: 12;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Check Out">
+            <Button mnemonicParsing="false" onAction="#checkOut" prefHeight="90.0" prefWidth="260.0" style="-fx-background-color: rgba(210,60,60,0.80); -fx-background-radius: 12; -fx-text-fill: white; -fx-cursor: hand;" text="Check Out">
                 <font><Font name="Arial Bold" size="30.0" /></font>
             </Button>
 
         </HBox>
+        
+        <!-- Back Button -->
         <Button contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="65.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
             <graphic>
                 <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
@@ -81,4 +112,3 @@
 
     </children>
 </AnchorPane>
-

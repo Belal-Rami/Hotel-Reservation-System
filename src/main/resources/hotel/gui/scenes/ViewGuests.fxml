@@ -23,7 +23,7 @@
         </ImageView>
 
         <!-- ── Dark overlay panel ── -->
-        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55); -fx-background-radius: 20;" />
 
         <!-- ── Page Title ── -->
         <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="700.0" text="Guests" textFill="WHITE">
@@ -33,30 +33,61 @@
         <!-- ── Search bar (top-right) ── -->
         <HBox alignment="CENTER_LEFT" layoutX="1128.0" layoutY="68.0" prefHeight="66.0" prefWidth="710.0" spacing="16.0">
 
-            <Button mnemonicParsing="false" onAction="#viewAll" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(255,255,255,0.13);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 10;                            -fx-border-width: 1;" text="View All">
+            <Button mnemonicParsing="false" onAction="#viewAll" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(255,255,255,0.13); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: rgba(255,255,255,0.25); -fx-border-radius: 10; -fx-border-width: 1;" text="View All">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
-            <TextField fx:id="searchField" prefHeight="66.0" prefWidth="300.0" promptText="Type username" style="-fx-background-color: rgba(255,255,255,0.12);                               -fx-background-radius: 10;                               -fx-border-color: rgba(255,255,255,0.28);                               -fx-border-radius: 10;                               -fx-text-fill: white;                               -fx-prompt-text-fill: rgba(255,255,255,0.35);                               -fx-font-size: 22px;" />
+            <TextField fx:id="searchField" prefHeight="66.0" prefWidth="300.0" promptText="Type username" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 10; -fx-border-color: rgba(255,255,255,0.28); -fx-border-radius: 10; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.35); -fx-font-size: 22px;" />
 
-            <Button mnemonicParsing="false" onAction="#searchbyname" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85);                            -fx-background-radius: 10;                            -fx-text-fill: white;                            -fx-cursor: hand;" text="Search">
+            <Button mnemonicParsing="false" onAction="#searchbyname" prefHeight="66.0" prefWidth="180.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand;" text="Search">
                 <font><Font name="Arial Bold" size="24.0" /></font>
             </Button>
 
         </HBox>
 
         <!-- ── Guests TableView ── -->
-        <TableView fx:id="GuestTable" layoutX="80.0" layoutY="200.0" prefHeight="820.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0);                           -fx-border-color: rgba(255,255,255,0.15);                           -fx-border-radius: 12;                           -fx-background-radius: 12;                           -fx-control-inner-background: rgba(255,255,255,0.06);                           -fx-table-cell-border-color: rgba(255,255,255,0.08);                           -fx-text-fill: white;">
+        <TableView fx:id="GuestTable" layoutX="80.0" layoutY="200.0" prefHeight="820.0" prefWidth="1760.0" style="-fx-background-color: rgba(0,0,0,0.0); -fx-border-color: rgba(255,255,255,0.15); -fx-border-radius: 12; -fx-background-radius: 12; -fx-control-inner-background: rgba(255,255,255,0.06); -fx-table-cell-border-color: rgba(255,255,255,0.08); -fx-text-background-color: white; -fx-font-weight: bold; -fx-font-size: 18px;">
             <columns>
-                <TableColumn fx:id="usernameCol" prefWidth="320.0" text="Username" />
-                <TableColumn fx:id="passwordCol" prefWidth="240.0" text="Password" />
-                <TableColumn fx:id="dateOfBirthCol" prefWidth="280.0" text="Date of Birth" />
-                <TableColumn fx:id="AddressCol" prefWidth="280.0" text="Address" />
-                <TableColumn fx:id="BalanceCol" prefWidth="320.0" text="Balance" />
-                <TableColumn fx:id="GenderCol" prefWidth="320.0" text="Gender" />
+                <TableColumn fx:id="usernameCol" prefWidth="320.0">
+                    <graphic>
+                        <Label text="Username" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="passwordCol" prefWidth="240.0">
+                    <graphic>
+                        <Label text="Password" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="dateOfBirthCol" prefWidth="280.0">
+                    <graphic>
+                        <Label text="Date of Birth" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="AddressCol" prefWidth="280.0">
+                    <graphic>
+                        <Label text="Address" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="BalanceCol" prefWidth="320.0">
+                    <graphic>
+                        <Label text="Balance" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
+                
+                <TableColumn fx:id="GenderCol" prefWidth="320.0">
+                    <graphic>
+                        <Label text="Gender" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                    </graphic>
+                </TableColumn>
             </columns>
         </TableView>
-        <Button contentDisplay="GRAPHIC_ONLY" layoutX="76.0" layoutY="55.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+
+        <!-- Back Button -->
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="76.0" layoutY="55.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -68,4 +99,3 @@
 
     </children>
 </AnchorPane>
-

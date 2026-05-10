@@ -36,7 +36,7 @@ public class AdminRegisterController {
     @FXML private Label errorLabel;
 
     @FXML
-    void handleRegister(ActionEvent event) {
+    void handleRegister(ActionEvent event)throws Exception {
         // 1. Reset error label
         errorLabel.setText("");
 
@@ -87,18 +87,19 @@ public class AdminRegisterController {
         GuiData.staffManager.registerStaff(newStaff); 
                     GuiMain.saveData(GuiData.database);
 
-        
+                FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
+        );
 
-        System.out.println("Success! Registered: " + username + " as " + newStaff.getRole());
+        Scene scene = new Scene(loader.load(), 1920, 1080);
 
-        // 6. Close Window
-        closeWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    
     }
 
-    @FXML
-    void handleCancel(ActionEvent event) {
-        closeWindow();
-    }
 
     private void closeWindow() {
         Stage stage = (Stage) usernameField.getScene().getWindow();

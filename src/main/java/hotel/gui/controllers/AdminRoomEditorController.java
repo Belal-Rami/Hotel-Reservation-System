@@ -62,7 +62,7 @@ public class AdminRoomEditorController {
         }
     }
 
-@FXML
+    @FXML
     void handleSave() {
         if (roomNumberField.getText().isEmpty() || roomTypeComboBox.getValue() == null) {
             errorLabel.setText("Please fill out the Room Number and Type.");
@@ -72,6 +72,19 @@ public class AdminRoomEditorController {
         try {
             String roomNum = roomNumberField.getText().trim();
             
+            // --- NEW VALIDATION: Check for duplicate room number ---
+            // We only need to check this if we are creating a new room
+            if (editingRoom == null) {
+                for (Room existingRoom : GuiData.roomManager.getRooms()) {
+                    // Convert both to strings for safe comparison
+                    if (String.valueOf(existingRoom.getRoomNum()).equalsIgnoreCase(roomNum)) {
+                        errorLabel.setText("Error: Room " + roomNum + " already exists!");
+                        return; // Stop the save process
+                    }
+                }
+            }
+            // --------------------------------------------------------
+
             // 1. Find the selected RoomType using a local loop instead of a manager method
             String selectedTypeName = roomTypeComboBox.getValue();
             RoomType selectedType = null;

@@ -316,7 +316,7 @@ public class MainApplication {
                                 System.out.print("Enter gender (MALE/FEMALE): ");
                                 String g = input.nextLine();
                                 Gender gender = Gender.valueOf(g.toUpperCase());
-                                Guest newGuest = new Guest(username, password, dob, balance, address, gender);
+                                Guest newGuest = new Guest(username, password, dob, address, gender);
                                 guestManager.registerGuest(newGuest);
                                 System.out.println("Registration successful.");
                                 break;

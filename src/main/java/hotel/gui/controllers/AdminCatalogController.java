@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert; // Added import for Alert
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -36,7 +37,6 @@ public class AdminCatalogController {
     public void initialize() {
         refreshGrids();
     }
-
 
     public void refreshGrids() {
         // Clear the old cards first so they don't stack infinitely
@@ -74,12 +74,13 @@ public class AdminCatalogController {
             targetGrid.getChildren().add(cardRow);
             
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
+
     @FXML
     void createNewRoomType(ActionEvent event) {
-            try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/hotel/gui/scenes/admin-create-item.fxml"));
             Parent root = loader.load();
 
@@ -95,6 +96,21 @@ public class AdminCatalogController {
             if (popupController.isSaved()) {
                 String name = popupController.getNewName();
                 double price = popupController.getNewPrice();
+                
+                // --- NEW VALIDATION: Check if Room Type already exists ---
+                boolean exists = false;
+                for (RoomType rt : GuiData.roomTypeManager.getRoomTypes()) {
+                    if (rt.getName().equalsIgnoreCase(name)) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (exists) {
+                    showAlert("Duplicate Error", "A Room Type named '" + name + "' already exists!");
+                    return; // Stop here, don't create it
+                }
+                // ---------------------------------------------------------
                 
                 GuiData.roomTypeManager.createRoomType(name, price);
                 // GuiData.roomTypeManager.saveToDisk(); // Uncomment if your manager has this method
@@ -127,9 +143,23 @@ public class AdminCatalogController {
                 String name = popupController.getNewName();
                 double price = popupController.getNewPrice();
                 
+                // --- NEW VALIDATION: Check if Amenity already exists ---
+                boolean exists = false;
+                for (Amenity am : GuiData.amenityManager.getAmenities()) {
+                    if (am.getName().equalsIgnoreCase(name)) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (exists) {
+                    showAlert("Duplicate Error", "An Amenity named '" + name + "' already exists!");
+                    return; // Stop here, don't create it
+                }
+                // ---------------------------------------------------------
 
                 GuiData.amenityManager.createAmenity(name, price);
-            GuiMain.saveData(GuiData.database);
+                GuiMain.saveData(GuiData.database);
                 
                 refreshGrids(); 
             }
@@ -138,7 +168,7 @@ public class AdminCatalogController {
         }
     }
 
-        @FXML
+    @FXML
     public void Back(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
@@ -150,6 +180,13 @@ public class AdminCatalogController {
         stage.setScene(scene);
         stage.show();
     }
+
+    // Helper method to show error dialogues easily
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
-
-
