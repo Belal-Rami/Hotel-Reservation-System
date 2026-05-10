@@ -23,7 +23,7 @@
                    layoutX="-54.0" layoutY="-1.0"
                    pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
+                <Image url="@Background.png" />
             </image>
         </ImageView>
 

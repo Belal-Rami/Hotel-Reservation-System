@@ -1,117 +1,33 @@
-
-.root {
-    -fx-background-color: #F4F7F6; /* Soft, modern light-grey/blue */
-    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+/* Base styling for the general button */
+.general-button {
+    background-color: #EFD16D; /* The pastel yellow/gold from your logo */
+    color: #1A1A1A; /* A very dark gray/black for high-contrast, readable text */
+    
+    border: none;
+    border-radius: 8px; /* Modern, soft rounded corners */
+    padding: 12px 24px; /* Gives the text room to breathe */
+    
+    font-size: 16px;
+    font-weight: 600; /* Semi-bold looks great on modern buttons */
+    font-family: inherit; /* Inherits the font from your application */
+    
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow for depth */
+    
+    /* Smooth animation for the hover and active states */
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
-/* ========================================================
-   TYPOGRAPHY (Use these in "Style Class" for Labels)
-   ======================================================== */
-.text-title {
-    -fx-font-size: 28px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #2C3E50; /* Deep professional slate blue */
+/* Hover state (when the mouse is over the button) */
+.general-button:hover {
+    background-color: #D4B34C; /* A slightly darker, richer shade of the yellow */
+    transform: translateY(-2px); /* Lifts the button up slightly */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow expands to match the lift */
 }
 
-.text-card-header {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333; /* Dark grey */
-}
-
-.text-body {
-    -fx-font-size: 14px;
-    -fx-font-weight: normal;
-    -fx-text-fill: #4F4F4F; /* Medium grey */
-}
-
-.text-muted {
-    -fx-font-size: 12px;
-    -fx-font-style: italic;
-    -fx-text-fill: #7F8C8D; /* Light grey */
-}
-
-/* ========================================================
-   INPUT FIELDS (TextField, PasswordField, DatePicker)
-   ======================================================== */
-.text-field, .password-field, .date-picker {
-    -fx-background-color: white;
-    -fx-border-color: #CED4DA;
-    -fx-border-radius: 4px;
-    -fx-background-radius: 4px;
-    -fx-padding: 6px;
-    -fx-text-fill: #333333;
-}
-
-/* Adds a nice blue highlight border when the user is typing */
-.text-field:focused, .password-field:focused, .date-picker:focused {
-    -fx-border-color: #4A90E2; 
-    -fx-border-width: 2px;
-}
-
-/* ========================================================
-   BASE BUTTON SHAPE
-   (Applies automatically to ALL buttons to give them shape)
-   ======================================================== */
-.button {
-    -fx-padding: 8px 16px;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-}
-
-/* ========================================================
-   BUTTON COLORS (Apply via Style Class: btn-green, etc.)
-   ======================================================== */
-
-/* GREEN "SUCCESS" BUTTON (+ Add New Room / Save) */
-.btn-green {
-    -fx-background-color: #0F9D58;
-    -fx-text-fill: white;
-}
-.btn-green:hover { -fx-background-color: #0B8043; }
-.btn-green:pressed { -fx-background-color: #096635; }
-
-/* RED "DANGER" BUTTON (Delete / Remove / Cancel) */
-.btn-red {
-    -fx-background-color: #D93025;
-    -fx-text-fill: white;
-}
-.btn-red:hover { -fx-background-color: #B3261E; }
-.btn-red:pressed { -fx-background-color: #8C1D18; }
-
-/* ORANGE "WARNING" BUTTON (Edit / Update / Modify) */
-.btn-orange {
-    -fx-background-color: #F39C12;
-    -fx-text-fill: white;
-}
-.btn-orange:hover { -fx-background-color: #E67E22; }
-.btn-orange:pressed { -fx-background-color: #D35400; }
-/* ========================================================
-   TAB PANE STYLING
-   ======================================================== */
-.tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #2C3E50; /* Deep slate background for the whole bar */
-}
-
-.tab-pane .tab {
-    -fx-background-color: #34495E; /* Slightly lighter slate for unselected tabs */
-    -fx-padding: 8px 25px;
-    -fx-background-radius: 5px 5px 0px 0px; /* Round the top corners only */
-}
-
-.tab-pane .tab .tab-label {
-    -fx-text-fill: white; /* White text for unselected tabs */
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;
-}
-
-/* When a tab is actively selected */
-.tab-pane .tab:selected {
-    -fx-background-color: #F4F7F6; /* Matches your global app background color! */
-}
-
-.tab-pane .tab:selected .tab-label {
-    -fx-text-fill: #2C3E50; /* Dark text so it pops against the light background */
+/* Active state (when the button is actively being clicked) */
+.general-button:active {
+    background-color: #C0A142; /* Even darker for the click press */
+    transform: translateY(1px); /* Pushes the button down */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow shrinks on press */
 }

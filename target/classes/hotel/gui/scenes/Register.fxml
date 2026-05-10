@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="1088.0" fitWidth="1968.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@PHOTO-2026-05-08-16-07-01.jpg" />
+            <Image url="@Background.png" />
          </image>
       </ImageView>
       
@@ -60,10 +60,13 @@
                <ToggleGroup fx:id="genderGroup" />
             </fx:define>
 
-            <RadioButton fx:id="maleRadio" mnemonicParsing="false" text="Male" textFill="WHITE" toggleGroup="$genderGroup">
+            <RadioButton fx:id="maleRadio" mnemonicParsing="false" text="Male" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="genderGroup" />
+               </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="femaleRadio" mnemonicParsing="false" text="Female" textFill="WHITE" toggleGroup="$genderGroup">
                <font>
@@ -73,7 +76,7 @@
          </children>
       </HBox>
       
-      <Button layoutX="610.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="100.0" prefWidth="700.0" style="-fx-background-color: #28a04b; -fx-background-radius: 50;" text="Create Account" textFill="WHITE">
+      <Button layoutX="610.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="100.0" prefWidth="700.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 50;" text="Create Account" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>

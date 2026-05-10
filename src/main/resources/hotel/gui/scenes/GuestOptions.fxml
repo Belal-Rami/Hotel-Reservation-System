@@ -20,12 +20,12 @@
       </ImageView>
       <HBox alignment="CENTER" spacing="300.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onLoginChoice" prefHeight="145.0" prefWidth="267.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 30;" text="Login">
+            <Button mnemonicParsing="false" onAction="#onLoginChoice" prefHeight="145.0" prefWidth="267.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 30;" text="Login">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#onRegisterChoice" prefHeight="133.0" prefWidth="276.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 30;" text="Register">
+            <Button mnemonicParsing="false" onAction="#onRegisterChoice" prefHeight="133.0" prefWidth="276.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 30;" text="Register">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
