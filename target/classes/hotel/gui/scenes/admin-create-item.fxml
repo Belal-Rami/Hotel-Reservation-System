@@ -33,12 +33,13 @@
                   style="-fx-background-color: rgba(0,0,0,0.60);" />
 
       <!-- ── Create item glass card centred ── -->
-      <VBox layoutX="660.0" layoutY="320.0"
-            prefWidth="600.0" spacing="26.0"
+      <VBox layoutX="660.0" layoutY="300.0"
+            prefWidth="600.0"
+            spacing="26.0"
             alignment="CENTER"
             style="-fx-background-color: rgba(255,255,255,0.07);
                      -fx-background-radius: 20;
-                     -fx-border-color: rgba(255,255,255,0.12);
+                     -fx-border-color: rgba(255,255,255,0.15);
                      -fx-border-radius: 20;
                      -fx-border-width: 1;
                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.50), 20, 0, 0, 8);">
@@ -60,38 +61,40 @@
                <Label fx:id="namePromptLabel"
                       prefWidth="180.0"
                       text="Item Name:"
-                      textFill="rgba(255,255,255,0.55)">
+                      textFill="rgba(255,255,255,0.65)">
                   <font><Font name="Arial Bold" size="22.0" /></font>
                </Label>
                <TextField fx:id="nameField"
                           prefHeight="58.0"
                           HBox.hgrow="ALWAYS"
-                          style="-fx-background-color: rgba(255,255,255,0.12);
+                          style="-fx-background-color: rgba(255,255,255,0.10);
                                       -fx-background-radius: 10;
-                                      -fx-border-color: rgba(255,255,255,0.28);
+                                      -fx-border-color: rgba(255,255,255,0.30);
                                       -fx-border-radius: 10;
                                       -fx-text-fill: white;
-                                      -fx-prompt-text-fill: rgba(255,255,255,0.35);
-                                      -fx-font-size: 22px;" />
+                                      -fx-prompt-text-fill: rgba(255,255,255,0.38);
+                                      -fx-font-size: 22px;
+                                      -fx-padding: 0 12 0 12;" />
             </HBox>
 
             <!-- Base Price -->
             <HBox alignment="CENTER_LEFT" spacing="20.0">
                <Label prefWidth="180.0"
                       text="Base Price ($):"
-                      textFill="rgba(255,255,255,0.55)">
+                      textFill="rgba(255,255,255,0.65)">
                   <font><Font name="Arial Bold" size="22.0" /></font>
                </Label>
                <TextField fx:id="priceField"
                           prefHeight="58.0"
                           HBox.hgrow="ALWAYS"
-                          style="-fx-background-color: rgba(255,255,255,0.12);
+                          style="-fx-background-color: rgba(255,255,255,0.10);
                                       -fx-background-radius: 10;
-                                      -fx-border-color: rgba(255,255,255,0.28);
+                                      -fx-border-color: rgba(255,255,255,0.30);
                                       -fx-border-radius: 10;
                                       -fx-text-fill: white;
-                                      -fx-prompt-text-fill: rgba(255,255,255,0.35);
-                                      -fx-font-size: 22px;" />
+                                      -fx-prompt-text-fill: rgba(255,255,255,0.38);
+                                      -fx-font-size: 22px;
+                                      -fx-padding: 0 12 0 12;" />
             </HBox>
 
             <!-- Buttons -->

@@ -29,114 +29,136 @@
          </image>
       </ImageView>
 
-      <!-- ── Dark overlay panel ── -->
-      <AnchorPane layoutX="60.0" layoutY="40.0"
-                  prefHeight="1000.0" prefWidth="1800.0"
-                  style="-fx-background-color: rgba(0,0,0,0.55);
-                           -fx-background-radius: 20;" />
+      <!-- ── Full-screen dark overlay ── -->
+      <AnchorPane layoutX="0.0" layoutY="0.0"
+                  prefHeight="1080.0" prefWidth="1920.0"
+                  style="-fx-background-color: rgba(0,0,0,0.62);" />
+
+      <!-- ── Header strip ── -->
+      <AnchorPane layoutX="0.0" layoutY="0.0"
+                  prefHeight="130.0" prefWidth="1920.0"
+                  style="-fx-background-color: rgba(0,0,0,0.45);" />
 
       <!-- ── Page Title ── -->
-      <Label layoutX="100.0" layoutY="55.0"
-             prefHeight="100.0"
-             text="System Catalog" textFill="WHITE">
-         <font><Font name="Arial Bold" size="64.0" /></font>
+      <Label layoutX="40.0" layoutY="30.0"
+             text="System Catalog"
+             textFill="WHITE">
+         <font><Font name="Arial Bold" size="58.0" /></font>
       </Label>
 
       <!-- ── Two-column layout ── -->
-      <HBox layoutX="80.0" layoutY="175.0"
-            prefHeight="860.0" prefWidth="1760.0"
+      <HBox layoutX="0.0" layoutY="130.0"
+            prefHeight="950.0" prefWidth="1920.0"
             spacing="0.0">
          <children>
 
             <!-- ===== Amenities Column ===== -->
-            <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+            <VBox spacing="14.0" HBox.hgrow="ALWAYS"
+                  style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;">
 
+               <!-- Section header -->
                <HBox alignment="CENTER_LEFT" spacing="16.0">
                   <Label text="Amenities" textFill="WHITE">
-                     <font><Font name="Arial Bold" size="40.0" /></font>
+                     <font><Font name="Arial Bold" size="38.0" /></font>
                   </Label>
                   <Region HBox.hgrow="ALWAYS" />
                   <Button fx:id="createAmenityBtn"
                           mnemonicParsing="false"
                           onAction="#createNewAmenity"
-                          prefHeight="60.0" prefWidth="230.0"
+                          prefHeight="54.0" prefWidth="220.0"
                           text="+ Create Amenity"
-                          style="-fx-background-color: rgba(40,160,75,0.85);
+                          style="-fx-background-color: rgba(40,160,75,0.90);
                                        -fx-background-radius: 10;
                                        -fx-text-fill: white;
-                                       -fx-cursor: hand;">
-                     <font><Font name="Arial Bold" size="20.0" /></font>
+                                       -fx-cursor: hand;
+                                       -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);">
+                     <font><Font name="Arial Bold" size="18.0" /></font>
                   </Button>
                </HBox>
 
-               <!-- Sub-headers -->
+               <!-- Column sub-headers -->
                <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
-                  <Label text="Name" prefWidth="320.0"
+                  <Label text="Name" prefWidth="260.0"
                          textFill="rgba(255,255,255,0.45)">
-                     <font><Font name="Arial Bold" size="17.0" /></font>
+                     <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                   <Label text="Price"
                          textFill="rgba(255,255,255,0.45)">
-                     <font><Font name="Arial Bold" size="17.0" /></font>
+                     <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                </HBox>
 
-               <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+               <!-- Amenities list — transparent scroll -->
+               <ScrollPane fitToWidth="true"
+                           hbarPolicy="NEVER"
                            VBox.vgrow="ALWAYS"
-                           style="-fx-background-color: transparent;
+                           style="-fx-background: transparent;
+                                       -fx-background-color: transparent;
                                        -fx-control-inner-background: transparent;
-                                       -fx-border-color: transparent;">
-                  <VBox fx:id="amenitiesGrid" spacing="10.0"
-                        style="-fx-background-color: transparent;" />
+                                       -fx-border-color: transparent;
+                                       -fx-padding: 0;">
+                  <content>
+                     <VBox fx:id="amenitiesGrid"
+                           spacing="10.0"
+                           style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
+                  </content>
                </ScrollPane>
             </VBox>
 
             <!-- ── Vertical divider ── -->
             <Separator orientation="VERTICAL"
-                       style="-fx-background-color: rgba(255,255,255,0.20);">
-               <HBox.margin><Insets left="30.0" right="30.0" /></HBox.margin>
-            </Separator>
+                       style="-fx-background-color: rgba(255,255,255,0.20);" />
 
             <!-- ===== Room Types Column ===== -->
-            <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+            <VBox spacing="14.0" HBox.hgrow="ALWAYS"
+                  style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;">
 
+               <!-- Section header -->
                <HBox alignment="CENTER_LEFT" spacing="16.0">
                   <Label text="Room Types" textFill="WHITE">
-                     <font><Font name="Arial Bold" size="40.0" /></font>
+                     <font><Font name="Arial Bold" size="38.0" /></font>
                   </Label>
                   <Region HBox.hgrow="ALWAYS" />
                   <Button fx:id="createRoomTypeBtn"
                           mnemonicParsing="false"
                           onAction="#createNewRoomType"
-                          prefHeight="60.0" prefWidth="250.0"
+                          prefHeight="54.0" prefWidth="240.0"
                           text="+ Create Room Type"
-                          style="-fx-background-color: rgba(40,160,75,0.85);
+                          style="-fx-background-color: rgba(40,160,75,0.90);
                                        -fx-background-radius: 10;
                                        -fx-text-fill: white;
-                                       -fx-cursor: hand;">
-                     <font><Font name="Arial Bold" size="20.0" /></font>
+                                       -fx-cursor: hand;
+                                       -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);">
+                     <font><Font name="Arial Bold" size="18.0" /></font>
                   </Button>
                </HBox>
 
-               <!-- Sub-headers -->
+               <!-- Column sub-headers -->
                <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
-                  <Label text="Name" prefWidth="320.0"
+                  <Label text="Name" prefWidth="260.0"
                          textFill="rgba(255,255,255,0.45)">
-                     <font><Font name="Arial Bold" size="17.0" /></font>
+                     <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                   <Label text="Price"
                          textFill="rgba(255,255,255,0.45)">
-                     <font><Font name="Arial Bold" size="17.0" /></font>
+                     <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                </HBox>
 
-               <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+               <!-- Room types list — transparent scroll -->
+               <ScrollPane fitToWidth="true"
+                           hbarPolicy="NEVER"
                            VBox.vgrow="ALWAYS"
-                           style="-fx-background-color: transparent;
+                           style="-fx-background: transparent;
+                                       -fx-background-color: transparent;
                                        -fx-control-inner-background: transparent;
-                                       -fx-border-color: transparent;">
-                  <VBox fx:id="roomTypesGrid" spacing="10.0"
-                        style="-fx-background-color: transparent;" />
+                                       -fx-border-color: transparent;
+                                       -fx-padding: 0;">
+                  <content>
+                     <VBox fx:id="roomTypesGrid"
+                           spacing="10.0"
+                           style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
+                  </content>
                </ScrollPane>
             </VBox>
 
@@ -145,4 +167,3 @@
 
    </children>
 </AnchorPane>
-

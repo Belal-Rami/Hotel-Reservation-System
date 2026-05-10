@@ -18,187 +18,99 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0"
-            stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/26"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hotel.gui.controllers.AdminRegisterController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminRegisterController">
     <children>
 
         <!-- ── Background image ── -->
-        <ImageView fitHeight="1080.0" fitWidth="1920.0"
-                   layoutX="0.0" layoutY="0.0"
-                   pickOnBounds="true" preserveRatio="false">
+        <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
             <image>
                 <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
             </image>
         </ImageView>
 
         <!-- ── Dark overlay panel ── -->
-        <AnchorPane layoutX="60.0" layoutY="40.0"
-                    prefHeight="1000.0" prefWidth="1800.0"
-                    style="-fx-background-color: rgba(0,0,0,0.55);
-                           -fx-background-radius: 20;" />
+        <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
 
         <!-- ── Page Title ── -->
-        <Label layoutX="100.0" layoutY="55.0"
-               prefHeight="100.0"
-               text="Register New Staff" textFill="WHITE">
-            <font><Font name="Arial Bold" size="64.0" /></font>
+        <Label alignment="CENTER" layoutX="100.0" layoutY="60.0" prefHeight="120.0" prefWidth="1800.0" text="Register New Staff" textAlignment="CENTER" textFill="WHITE">
+            <font><Font name="Arial Bold" size="72.0" /></font>
         </Label>
 
         <!-- ── Form glass card ── -->
-        <VBox layoutX="360.0" layoutY="200.0"
-              prefWidth="1200.0" spacing="28.0"
-              alignment="TOP_LEFT"
-              style="-fx-background-color: rgba(255,255,255,0.07);
-                     -fx-background-radius: 20;
-                     -fx-border-color: rgba(255,255,255,0.12);
-                     -fx-border-radius: 20;
-                     -fx-border-width: 1;
-                     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.45), 16, 0, 0, 6);">
+        <VBox alignment="TOP_LEFT" layoutX="310.0" layoutY="210.0" prefWidth="1300.0" spacing="24.0" style="-fx-background-color: rgba(255,255,255,0.07);                      -fx-background-radius: 20;                      -fx-border-color: rgba(255,255,255,0.15);                      -fx-border-radius: 20;                      -fx-border-width: 1;                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.50), 18, 0, 0, 6);">
             <padding>
                 <Insets bottom="50.0" left="60.0" right="60.0" top="50.0" />
             </padding>
             <children>
 
-                <!-- Form grid -->
-                <GridPane hgap="24.0" vgap="24.0">
+                <!-- ── Form grid ── -->
+                <GridPane hgap="24.0" vgap="20.0">
                     <columnConstraints>
-                        <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints minWidth="220.0" prefWidth="220.0" />
                         <ColumnConstraints hgrow="ALWAYS" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="70.0" />
-                        <RowConstraints minHeight="70.0" />
-                        <RowConstraints minHeight="70.0" />
-                        <RowConstraints minHeight="70.0" />
-                        <RowConstraints minHeight="70.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="70.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="70.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="70.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="70.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="70.0" />
                     </rowConstraints>
 
-                    <!-- Username -->
-                    <Label text="Username:"
-
-                           GridPane.columnIndex="0"
-                           GridPane.rowIndex="0">
+                    <!-- Row 0 : Username -->
+                    <Label text="Username:" textFill="rgba(255,255,255,0.65)" GridPane.columnIndex="0" GridPane.rowIndex="0">
                         <font><Font name="Arial Bold" size="22.0" /></font>
                     </Label>
-                    <TextField fx:id="usernameField"
-                               prefHeight="60.0"
-                               GridPane.columnIndex="1" GridPane.rowIndex="0"
-                               style="-fx-background-color: rgba(255,255,255,1);
-                                      -fx-background-radius: 10;
-                                      -fx-border-color: rgba(255,255,255,1);
-                                      -fx-border-radius: 10;
-                                      -fx-text-fill: white;
-                                      -fx-prompt-text-fill: rgba(255,255,255,1);
-                                      -fx-font-size: 22px;" />
+                    <TextField fx:id="usernameField" prefHeight="58.0" style="-fx-background-color: rgba(255,255,255,0.10);                                       -fx-background-radius: 10;                                       -fx-border-color: rgba(255,255,255,0.30);                                       -fx-border-radius: 10;                                       -fx-text-fill: white;                                       -fx-prompt-text-fill: rgba(255,255,255,0.40);                                       -fx-font-size: 20px;                                       -fx-padding: 0 14 0 14;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                    <!-- Password -->
-                    <Label text="Password:"
-
-                           GridPane.columnIndex="0"
-                           GridPane.rowIndex="1">
+                    <!-- Row 1 : Password -->
+                    <Label text="Password:" textFill="rgba(255,255,255,0.65)" GridPane.columnIndex="0" GridPane.rowIndex="1">
                         <font><Font name="Arial Bold" size="22.0" /></font>
                     </Label>
-                    <PasswordField fx:id="passwordField"
-                                   prefHeight="60.0"
-                                   GridPane.columnIndex="1" GridPane.rowIndex="1"
-                                   style="-fx-background-color: rgba(255,255,255,0.12);
-                                         -fx-background-radius: 10;
-                                         -fx-border-color: rgba(255,255,255,0.28);
-                                         -fx-border-radius: 10;
-                                         -fx-text-fill: white;
-                                         -fx-prompt-text-fill: rgba(255,255,255,0.35);
-                                         -fx-font-size: 22px;" />
+                    <PasswordField fx:id="passwordField" prefHeight="58.0" style="-fx-background-color: rgba(255,255,255,0.10);                                          -fx-background-radius: 10;                                          -fx-border-color: rgba(255,255,255,0.30);                                          -fx-border-radius: 10;                                          -fx-text-fill: white;                                          -fx-prompt-text-fill: rgba(255,255,255,0.40);                                          -fx-font-size: 20px;                                          -fx-padding: 0 14 0 14;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <!-- Date of Birth -->
-                    <Label text="Date of Birth:"
-                           textFill="rgba(255,255,255,0.55)"
-                           GridPane.rowIndex="2">
+                    <!-- Row 2 : Date of Birth -->
+                    <Label text="Date of Birth:" textFill="rgba(255,255,255,0.65)" GridPane.columnIndex="0" GridPane.rowIndex="2">
                         <font><Font name="Arial Bold" size="22.0" /></font>
                     </Label>
-                    <DatePicker fx:id="dobPicker"
-                                prefHeight="60.0" maxWidth="1.7976931348623157E308"
-                                GridPane.columnIndex="1" GridPane.rowIndex="2"
-                                style="-fx-background-color: rgba(255,255,255,0.12);
-                                       -fx-background-radius: 10;
-                                       -fx-border-color: rgba(255,255,255,0.28);
-                                       -fx-border-radius: 10;
-                                       -fx-font-size: 22px;" />
+                    <DatePicker fx:id="dobPicker" maxWidth="1.7976931348623157E308" prefHeight="58.0" style="-fx-background-color: rgba(255,255,255,0.10);                                        -fx-background-radius: 10;                                        -fx-border-color: rgba(255,255,255,0.30);                                        -fx-border-radius: 10;                                        -fx-font-size: 20px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                    <!-- Working Hours -->
-                    <Label text="Working Hours:"
-                           textFill="rgba(255,255,255,0.55)"
-                           GridPane.rowIndex="3">
+                    <!-- Row 3 : Working Hours -->
+                    <Label text="Working Hours:" textFill="rgba(255,255,255,0.65)" GridPane.columnIndex="0" GridPane.rowIndex="3">
                         <font><Font name="Arial Bold" size="22.0" /></font>
                     </Label>
-                    <TextField fx:id="hoursField"
-                               promptText="e.g. 40"
-                               prefHeight="60.0"
-                               GridPane.columnIndex="1" GridPane.rowIndex="3"
-                               style="-fx-background-color: rgba(255,255,255,0.12);
-                                      -fx-background-radius: 10;
-                                      -fx-border-color: rgba(255,255,255,0.28);
-                                      -fx-border-radius: 10;
-                                      -fx-text-fill: white;
-                                      -fx-prompt-text-fill: rgba(255,255,255,0.35);
-                                      -fx-font-size: 22px;" />
+                    <TextField fx:id="hoursField" prefHeight="58.0" promptText="e.g. 40" style="-fx-background-color: rgba(255,255,255,0.10);                                       -fx-background-radius: 10;                                       -fx-border-color: rgba(255,255,255,0.30);                                       -fx-border-radius: 10;                                       -fx-text-fill: white;                                       -fx-prompt-text-fill: rgba(255,255,255,0.40);                                       -fx-font-size: 20px;                                       -fx-padding: 0 14 0 14;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                    <!-- Role -->
-                    <Label text="Role:"
-                           textFill="rgba(255,255,255,0.55)"
-                           GridPane.rowIndex="4">
+                    <!-- Row 4 : Role — ToggleGroup nested inside RadioButton, NO $reference -->
+                    <Label text="Role:" textFill="rgba(255,255,255,0.65)" GridPane.columnIndex="0" GridPane.rowIndex="4">
                         <font><Font name="Arial Bold" size="22.0" /></font>
                     </Label>
-                    <HBox spacing="30.0" alignment="CENTER_LEFT"
-                          GridPane.columnIndex="1" GridPane.rowIndex="4">
-                        <fx:define>
-                            <ToggleGroup fx:id="roleGroup" />
-                        </fx:define>
-                        <RadioButton fx:id="adminRadio"
-                                     selected="true"
-                                     text="Admin"
-                                     toggleGroup="$roleGroup"
-                                     textFill="WHITE"
-                                     style="-fx-font-size: 22px;" />
-                        <RadioButton fx:id="receptionistRadio"
-                                     text="Receptionist"
-                                     toggleGroup="$roleGroup"
-                                     textFill="WHITE"
-                                     style="-fx-font-size: 22px;" />
+                    <HBox alignment="CENTER_LEFT" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <children>
+                            <RadioButton fx:id="adminRadio" selected="true" style="-fx-font-size: 22px;" text="Admin" textFill="WHITE">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="roleGroup" />
+                                </toggleGroup>
+                            </RadioButton>
+                            <RadioButton fx:id="receptionistRadio" style="-fx-font-size: 22px;" text="Receptionist" textFill="WHITE" toggleGroup="$roleGroup" />
+                        </children>
                     </HBox>
+
                 </GridPane>
 
                 <!-- Error label -->
-                <Label fx:id="errorLabel"
-                       minHeight="26.0"
-                       textFill="rgba(255,80,80,0.95)"
-                       wrapText="true"
-                       style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+                <Label fx:id="errorLabel" minHeight="28.0" style="-fx-font-weight: bold; -fx-font-size: 18px;" textFill="rgba(255,80,80,0.95)" wrapText="true" />
 
                 <!-- Action buttons -->
                 <HBox alignment="CENTER_RIGHT" spacing="24.0">
-                    <Button mnemonicParsing="false"
-                            onAction="#handleCancel"
-                            prefHeight="66.0" prefWidth="190.0"
-                            text="Cancel"
-                            style="-fx-background-color: rgba(217,48,37,0.85);
-                                   -fx-background-radius: 10;
-                                   -fx-text-fill: white;
-                                   -fx-cursor: hand;">
-                        <font><Font name="Arial Bold" size="24.0" /></font>
-                    </Button>
-                    <Button mnemonicParsing="false"
-                            onAction="#handleRegister"
-                            prefHeight="66.0" prefWidth="240.0"
-                            text="Register Staff"
-                            style="-fx-background-color: rgba(40,160,75,0.85);
-                                   -fx-background-radius: 10;
-                                   -fx-text-fill: white;
-                                   -fx-cursor: hand;">
-                        <font><Font name="Arial Bold" size="24.0" /></font>
-                    </Button>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="64.0" prefWidth="190.0" style="-fx-background-color: rgba(217,48,37,0.85);                                        -fx-background-radius: 12;                                        -fx-text-fill: white;                                        -fx-cursor: hand;" text="Cancel">
+                            <font><Font name="Arial Bold" size="22.0" /></font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleRegister" prefHeight="64.0" prefWidth="240.0" style="-fx-background-color: rgba(40,160,75,0.85);                                        -fx-background-radius: 12;                                        -fx-text-fill: white;                                        -fx-cursor: hand;" text="Register Staff">
+                            <font><Font name="Arial Bold" size="22.0" /></font>
+                        </Button>
+                    </children>
                 </HBox>
 
             </children>
@@ -206,4 +118,3 @@
 
     </children>
 </AnchorPane>
-

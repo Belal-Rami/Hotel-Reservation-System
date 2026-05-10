@@ -61,7 +61,7 @@ public class AdminCatalogController {
     private void loadCard(String name, double price, Object data, VBox targetGrid) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/hotel/gui/scenes/admin-catalog-card.fxml"));
-            HBox cardRow = loader.load();
+            Parent cardRow = loader.load();
 
             // Connect the Mini-Brain
             AdminCatalogCardController cardController = loader.getController();
