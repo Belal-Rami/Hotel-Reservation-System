@@ -1,7 +1,9 @@
 package hotel.gui.controllers;
 
 import hotel.data.Reservation;
+import hotel.users.Guest;
 import hotel.enums.Status;
+import hotel.gui.GuiData;
 import javafx.animation.Animation;
 
 public class ReservationRow {
@@ -13,7 +15,8 @@ public class ReservationRow {
         return reservation;
     }
     public String getGuestName(){
-        return reservation.getGuest().getUsername();
+        Guest guest = GuiData.guestManager.getGuestById(reservation.getGuestId());
+        return guest.getUsername();
     }
     public String getRoomNumber(){
         return reservation.getRoom().getRoomNum();

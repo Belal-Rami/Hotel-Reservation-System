@@ -10,6 +10,7 @@ import hotel.data.Amenity;
 import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.data.RoomType;
+import hotel.gui.GuiData;
 import hotel.users.Guest;
 
 public class RoomManager {
@@ -18,11 +19,10 @@ public class RoomManager {
     private ArrayList<Reservation> reservations;
 
     //CONSTRUCTOR
-    public RoomManager(ArrayList<Room> rooms, ArrayList<Reservation> reservations) {
+    public RoomManager(ArrayList<Room> rooms, ArrayList<Reservation> reservations, ArrayList<Guest> guests) {
         this.rooms = rooms;
         this.reservations = reservations;
     }
-
 
     // SETTER for the array list
     public void setRooms(ArrayList<Room> rooms) {
@@ -31,9 +31,7 @@ public class RoomManager {
 
     //CRUD METHODS for the rooms themselves
     public void addroom(Room room){
-
         rooms.add(room);
-
     }
 
     public void removeroom(Room room){
@@ -72,11 +70,10 @@ public class RoomManager {
         }
     }
 
-    
     public void addAmenityToRoom(Room room, Amenity amenity) {
-                room.createAmenity(amenity);
+        room.createAmenity(amenity);
     }
-    
+
     public void deleteAmenity(Amenity amenity) {
         for (Room r : rooms) {
             r.deleteAmenity(amenity);
@@ -85,52 +82,52 @@ public class RoomManager {
 
     public void changeRoomType(RoomType type, Room room) {
         room.setRoomType(type);
-
     }
 
     public void deleteRoomType(RoomType oldRoomType, RoomType newRoomType) {
         for (Room r : rooms) {
-            //Here, == is used since the actual reference of the two objects are being compared
             if (r.getRoomType() == oldRoomType) {
                 r.setRoomType(newRoomType);
             }
         }
-
     }
 
-
-    // RANDOM ID GENERATOR
+    // RANDOM ID GENERATOR for reservations
     Set<Integer> usedIDs = new HashSet<>();
     Random rand = new Random();
 
     public int generateID() {
         int id;
-
         do {
             id = 10000 + rand.nextInt(90000);
-        } while (usedIDs.contains(id)); // keep trying if duplicate
-
+        } while (usedIDs.contains(id));
         usedIDs.add(id);
         return id;
     }
 
+    // RANDOM ID GENERATOR for guests
+    Set<Integer> usedGuestIDs = new HashSet<>();
+
+    public int generateGuestId() {
+        int id;
+        do {
+            id = 10000 + rand.nextInt(90000);
+        } while (usedGuestIDs.contains(id));
+        usedGuestIDs.add(id);
+        return id;
+    }
+
     public void checkRoomStatus(LocalDate date) {
-
         for (Room room : rooms) {
-
-             room.setAvailable(true) ;
-
+            room.setAvailable(true);
             for (Reservation r : reservations) {
                 if (r.getRoom().equals(room)) {
-
-                    // if date is inside reservation period → NOT available
                     if (!(date.isBefore(r.getCheckIn()) || date.isEqual(r.getCheckOut()) || date.isAfter(r.getCheckOut()))) {
-                        room.setAvailable(false) ;
+                        room.setAvailable(false);
                         break;
                     }
                 }
             }
-
             System.out.println("Room " + room.getRoomNum() + ": " +
                     (room.getAvailable()? "Available" : "Occupied"));
         }
@@ -139,37 +136,54 @@ public class RoomManager {
     public void addReservation(Reservation reservation) {
         reservations.add(reservation);
         reservation.setReservationID(generateID());
-        reservation.getGuest().addReservation(reservation);
-
+        // Loop to find the guest by ID and add reservation to their list
+        Guest guest = GuiData.guestManager.getGuestById(reservation.getGuestId());
+        if (guest != null) {
+            guest.addReservation(reservation);
+        }
     }
 
+    // FIXED: was reservations.size(), caused IndexOutOfBoundsException
     public boolean removeReservation(int reservationID, String password) {
-
-        for (int i = reservations.size(); i>=0; i--) {
+        for (int i = reservations.size() - 1; i >= 0; i--) {
             Reservation r = reservations.get(i);
-
-            if (r.getReservationID() == reservationID &&
-                    r.getpassword().equals(password)) {
-
+            // Loop to find the guest by ID to verify password
+            Guest guest = GuiData.guestManager.getGuestById(r.getGuestId());
+            if (guest != null &&
+                    r.getReservationID() == reservationID &&
+                    guest.getPassword().equals(password)) {
                 reservations.remove(i);
-                r.getGuest().getReservations().remove(r);
+                guest.getReservations().remove(r);
                 System.out.println("Reservation removed successfully!");
                 return true;
             }
         }
-
         System.out.println("Invalid ID or password.");
         return false;
     }
+
+    public boolean removeReservation(int reservationID) {
+        for (int i = reservations.size() - 1; i >= 0; i--) {
+            Reservation r = reservations.get(i);
+            if (r.getReservationID() == reservationID) {
+                reservations.remove(i);
+                Guest guest = GuiData.guestManager.getGuestById(r.getGuestId());
+                if (guest != null) {
+                    guest.getReservations().remove(r);
+                }
+                return true;
+            }
+        }
+        System.out.println("Invalid ID.");
+        return false;
+    }
+
     public void viewGuestReservations(Guest guest) {
-
         ArrayList<Reservation> guestRes = guest.getReservations();
-
         if (guestRes.isEmpty()) {
             System.out.println("No reservations found.");
             return;
         }
-
         for (Reservation r : guestRes) {
             System.out.println("Reservation ID: " + r.getReservationID() +
                     ", Room: " + r.getRoom().getRoomNum() +
@@ -179,8 +193,6 @@ public class RoomManager {
         }
     }
 
-
-        // Add room to the database for the first time.
     public void createRoom(Room room) {
         rooms.add(room);
         System.out.println("Room " + room.getRoomNum() + " added successfully.");
@@ -193,7 +205,6 @@ public class RoomManager {
         return null;
     }
 
-    // Modify the details of the room that already exists in the database.
     public void updateRoom(String roomNumber, Room updatedData) {
         Room existing = readRoom(roomNumber);
         if (existing != null) {
@@ -203,7 +214,7 @@ public class RoomManager {
             System.out.println("Room not found.");
         }
     }
-    // Delete room from the database.
+
     public void deleteRoom(String roomNumber) {
         Room r = readRoom(roomNumber);
         if (r != null) {
@@ -215,11 +226,9 @@ public class RoomManager {
     public ArrayList<Reservation> getReservations() {
         return reservations;
     }
+
     public ArrayList<Room> getRooms(){
         return rooms;
     }
+
 }
-
-
-
-

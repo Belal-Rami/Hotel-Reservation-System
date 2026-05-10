@@ -7,23 +7,23 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ReceptionistDashboardController {
-    public void openreservation(ActionEvent e) throws Exception{
-        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/ViewReservation.fxml"));
+public class AdminDashboardController {
+    public void roomManagment(ActionEvent e) throws Exception{
+        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/admin-rooms.fxml"));
         Scene scene = new Scene(load.load(),1920,1080);
         Stage stage=(Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
-    public void openrooms(ActionEvent e) throws Exception{
-        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/ViewRooms.fxml"));
+    public void staffRegistration(ActionEvent e) throws Exception{
+        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/admin-registeration.fxml"));
         Scene scene = new Scene(load.load(),1920,1080);
         Stage stage =(Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
-    public void openguests(ActionEvent e) throws Exception{
-      FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/ViewGuests.fxml"));
+    public void systemCatalog(ActionEvent e) throws Exception{
+      FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/admin-catalog.fxml"));
       Scene scene = new Scene(load.load(),1920,1080);
       Stage stage =(Stage)((Node)e.getSource()).getScene().getWindow();
       stage.setScene(scene);

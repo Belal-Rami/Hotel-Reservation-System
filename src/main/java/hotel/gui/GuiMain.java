@@ -67,7 +67,7 @@ public class GuiMain extends Application {
         HotelDatabase database = loadData();
 
         // Initialize Managers
-        GuiData.roomManager = new RoomManager(database.getRooms(), database.getReservations());
+        GuiData.roomManager = new RoomManager(database.getRooms(), database.getReservations(), database.getGuests());
         GuiData.amenityManager = new AmenityManager(database.getAmenities());
         GuiData.guestManager = new GuestManager(database.getGuests());
         GuiData.staffManager = new StaffManager(database.getStaffMembers());

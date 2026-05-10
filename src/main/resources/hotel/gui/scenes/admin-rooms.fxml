@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -10,71 +9,50 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0"
-            stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/26"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hotel.gui.controllers.AdminRoomsController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminRoomsController">
    <children>
 
       <!-- ── Background image ── -->
-      <ImageView fitHeight="1080.0" fitWidth="1920.0"
-                 layoutX="0.0" layoutY="0.0"
-                 pickOnBounds="true" preserveRatio="false">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
          </image>
       </ImageView>
 
       <!-- ── Dark overlay — full screen so background shows everywhere ── -->
-      <AnchorPane layoutX="0.0" layoutY="0.0"
-                  prefHeight="1080.0" prefWidth="1920.0"
-                  style="-fx-background-color: rgba(0,0,0,0.62);" />
+      <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: rgba(0,0,0,0.62);" />
 
       <!-- ── Header bar ── -->
-      <AnchorPane layoutX="0.0" layoutY="0.0"
-                  prefHeight="150.0" prefWidth="1920.0"
-                  style="-fx-background-color: rgba(0,0,0,0.45);" />
+      <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="150.0" prefWidth="1920.0" style="-fx-background-color: rgba(0,0,0,0.45);">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
 
-      <!-- ── Page Title ── -->
-      <Label layoutX="40.0" layoutY="44.0"
-             text="Manage Physical Rooms"
-             textFill="WHITE">
-         <font><Font name="Arial Bold" size="58.0" /></font>
+            <!-- ── Page Title ── -->
+      <Label layoutX="206.0" layoutY="44.0" text="Manage Physical Rooms" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="58.0" />
+         </font>
       </Label>
 
       <!-- ── Add Room Button ── -->
-      <Button layoutX="1590.0" layoutY="50.0"
-              mnemonicParsing="false"
-              onAction="#openAddRoomPopup"
-              prefHeight="58.0" prefWidth="250.0"
-              text="+ Add New Room"
-              style="-fx-background-color: rgba(40,160,75,0.90);
-                       -fx-background-radius: 12;
-                       -fx-text-fill: white;
-                       -fx-cursor: hand;
-                       -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.50), 10, 0, 0, 4);">
+      <Button layoutX="1590.0" layoutY="50.0" mnemonicParsing="false" onAction="#openAddRoomPopup" prefHeight="58.0" prefWidth="250.0" style="-fx-background-color: rgba(40,160,75,0.90);                        -fx-background-radius: 12;                        -fx-text-fill: white;                        -fx-cursor: hand;                        -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.50), 10, 0, 0, 4);" text="+ Add New Room">
          <font><Font name="Arial Bold" size="20.0" /></font>
       </Button>
 
       <!-- ── Scrollable room grid ── -->
       <!-- viewport-fill and control-inner-background forced transparent -->
-      <ScrollPane layoutX="0.0" layoutY="150.0"
-                  prefHeight="930.0" prefWidth="1920.0"
-                  fitToWidth="true"
-                  hbarPolicy="NEVER"
-                  pannable="false"
-                  style="-fx-background: transparent;
-                           -fx-background-color: transparent;
-                           -fx-control-inner-background: transparent;
-                           -fx-border-color: transparent;
-                           -fx-padding: 0;">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="0.0" layoutY="150.0" pannable="false" prefHeight="930.0" prefWidth="1920.0" style="-fx-background: transparent;                            -fx-background-color: transparent;                            -fx-control-inner-background: transparent;                            -fx-border-color: transparent;                            -fx-padding: 0;">
          <content>
-            <FlowPane fx:id="roomsGrid"
-                      orientation="HORIZONTAL"
-                      hgap="22.0" vgap="22.0"
-                      style="-fx-background-color: transparent;
-                                 -fx-padding: 24 30 24 30;">
+            <FlowPane fx:id="roomsGrid" hgap="22.0" orientation="HORIZONTAL" style="-fx-background-color: transparent;                                  -fx-padding: 24 30 24 30;" vgap="22.0">
             </FlowPane>
          </content>
       </ScrollPane>

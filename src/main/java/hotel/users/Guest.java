@@ -14,6 +14,7 @@ public class Guest {
     private double balance;
     private String address;
     private Gender gender;
+    private int guestId;
 
     private ArrayList<Reservation> Greservations = new ArrayList<Reservation>();
 
@@ -41,10 +42,6 @@ public class Guest {
     //This no-argument constructor is needed for Gson to work
     public Guest() {
     }
-
-
-
-
 
     // Getter and Setter methods.
     public String getUsername(){
@@ -77,9 +74,8 @@ public class Guest {
         this.dateOfBirth=dateOfBirth;
     }
 
-    public double  getBalance(){
-        return balance
-                ;
+    public double getBalance(){
+        return balance;
     }
     public void setBalance(double balance){
         if(balance<0){
@@ -108,12 +104,17 @@ public class Guest {
         this.gender=gender;
     }
 
-       // toString() method to print data info.
+    public int getGuestId() {
+        return guestId;
+    }
+    public void setGuestId(int guestId) {
+        this.guestId = guestId;
+    }
+
+    // toString() method to print data info.
     @Override
     public String toString(){
         return "Username: " + username + "\nDate of birth: " + dateOfBirth + "\nBalance: " + balance+"$"
                 + "\nAddress: " + address + "\nGender: "+ gender;
     }
 }
-
-

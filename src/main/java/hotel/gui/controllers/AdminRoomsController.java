@@ -19,7 +19,7 @@ public class AdminRoomsController {
     private FlowPane roomsGrid;
     public void Back(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/hotel/gui/scenes/choose.fxml")
+                getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
         );
 
         Scene scene = new Scene(loader.load(), 1920, 1080);
@@ -83,4 +83,5 @@ public class AdminRoomsController {
             e.printStackTrace();
         }
     }
+    
 }

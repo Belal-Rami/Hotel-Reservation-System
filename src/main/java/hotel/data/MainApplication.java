@@ -56,7 +56,7 @@ public class MainApplication {
         HotelDatabase database = loadData();
 
         // Initialize Managers
-        RoomManager roomManager = new RoomManager(database.getRooms(), database.getReservations());
+        RoomManager roomManager = new RoomManager(database.getRooms(), database.getReservations(), database.getGuests());
         AmenityManager amenityManager = new AmenityManager(database.getAmenities());
         GuestManager guestManager = new GuestManager(database.getGuests());
         StaffManager staffManager = new StaffManager(database.getStaffMembers());

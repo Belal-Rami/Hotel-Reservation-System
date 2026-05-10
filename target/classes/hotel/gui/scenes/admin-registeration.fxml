@@ -104,9 +104,6 @@
                 <!-- Action buttons -->
                 <HBox alignment="CENTER_RIGHT" spacing="24.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="64.0" prefWidth="190.0" style="-fx-background-color: rgba(217,48,37,0.85);                                        -fx-background-radius: 12;                                        -fx-text-fill: white;                                        -fx-cursor: hand;" text="Cancel">
-                            <font><Font name="Arial Bold" size="22.0" /></font>
-                        </Button>
                         <Button mnemonicParsing="false" onAction="#handleRegister" prefHeight="64.0" prefWidth="240.0" style="-fx-background-color: rgba(40,160,75,0.85);                                        -fx-background-radius: 12;                                        -fx-text-fill: white;                                        -fx-cursor: hand;" text="Register Staff">
                             <font><Font name="Arial Bold" size="22.0" /></font>
                         </Button>
@@ -115,6 +112,15 @@
 
             </children>
         </VBox>
+      <Button contentDisplay="GRAPHIC_ONLY" layoutX="101.0" layoutY="67.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="121.0" style="-fx-background-color: transparent;" text="Button">
+         <graphic>
+            <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
 
     </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package hotel.gui.controllers;
 
 import hotel.gui.GuiData;
+import hotel.gui.GuiMain;
 import hotel.users.Guest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,10 +16,6 @@ public class RegisterController {
     @FXML private TextField regUsernameField;
     @FXML private TextField regPasswordField;
 
-    // !! Do NOT create a new GuestManager here — always use the shared one !!
-    // private GuestManager guestManager = new GuestManager(...);  ← WRONG
-    // Use GuiData.guestManager everywhere so data is shared across the whole app.
-
     @FXML
     void handleRegister(ActionEvent event) throws Exception {
         String user = regUsernameField.getText().trim();
@@ -27,11 +24,13 @@ public class RegisterController {
         // Register in the SHARED manager so the guest is visible app-wide
         Guest newGuest = new Guest(user, pass);
         GuiData.guestManager.registerGuest(newGuest);
-        System.out.println("Guest registered: " + user);
 
+        GuiMain.saveData(GuiData.database);
+
+        
         // Navigate to the guest dashboard and pass the new guest
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/hotel/gui/scenes/kkk.fxml")
+                getClass().getResource("/hotel/gui/scenes/guest-dashboard.fxml")
         );
         Scene scene = new Scene(loader.load(), 1920, 1080);
 

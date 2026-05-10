@@ -3,6 +3,8 @@ package hotel.gui.controllers;
 import hotel.data.Reservation;
 import hotel.data.Room;
 import hotel.enums.Status;
+import hotel.gui.GuiData;
+import hotel.gui.GuiMain;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
 
@@ -43,9 +45,9 @@ public class MakeReservationController {
     private static final DateTimeFormatter SHORT_FMT =
             DateTimeFormatter.ofPattern("MMM d, yyyy");
 
-    private Room        room;
-    private LocalDate   checkInDate;
-    private Guest       guest;
+    private Room room;
+    private LocalDate checkInDate;
+    private Guest guest;
     private RoomManager roomManager;
 
     // ── Called when navigating from kkk / RoomDetail ───────────────
@@ -152,6 +154,8 @@ public class MakeReservationController {
         );
         roomManager.addReservation(reservation);
         room.setCheckOut(checkOut);
+        GuiMain.saveData(GuiData.database);
+
 
         lblSuccess.setVisible(true);
         btnConfirm.setDisable(true);

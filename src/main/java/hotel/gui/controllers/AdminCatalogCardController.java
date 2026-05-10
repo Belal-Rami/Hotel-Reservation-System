@@ -114,8 +114,10 @@ public class AdminCatalogCardController{
             GuiData.amenityManager.deleteAmenity((Amenity)itemData, GuiData.roomManager);      
             masterController.refreshGrids();   
         }
-
+        
         GuiMain.saveData(GuiData.database);
+
+
     }
 
 }

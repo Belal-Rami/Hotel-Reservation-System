@@ -9,6 +9,8 @@ import hotel.gui.GuiData;
 import hotel.gui.GuiMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -16,6 +18,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
 import java.time.LocalDate;
 
@@ -82,12 +85,13 @@ public class AdminRegisterController {
         // 5. Save to System
         // Note: Make sure GuiData.staffManager has an addStaff method or similar
         GuiData.staffManager.registerStaff(newStaff); 
-
-        GuiMain.saveData(GuiData.database);
+                    GuiMain.saveData(GuiData.database);
 
         
 
+        System.out.println("Success! Registered: " + username + " as " + newStaff.getRole());
 
+        // 6. Close Window
         closeWindow();
     }
 
@@ -99,5 +103,18 @@ public class AdminRegisterController {
     private void closeWindow() {
         Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.close();
+    }
+
+            @FXML
+    public void Back(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

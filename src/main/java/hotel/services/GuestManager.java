@@ -46,6 +46,14 @@ public void registerGuest(Guest newGuest){
         guests.add(newGuest);
     }
 }
+    public Guest getGuestById(int guestId) {
+        for (int i = 0; i < guests.size(); i++) {
+            if (guests.get(i).getGuestId() == guestId) {
+                return guests.get(i);
+            }
+        }
+        return null;
+    }
 }
 
 

@@ -95,7 +95,7 @@ public class GuestProfileController {
     private void goBack() {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/hotel/gui/scenes/kkk.fxml")
+                    getClass().getResource("/hotel/gui/scenes/guest-dashboard.fxml")
             );
             Parent root = loader.load();
 

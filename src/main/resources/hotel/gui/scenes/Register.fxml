@@ -36,7 +36,7 @@
             <Font size="64.0" />
          </font>
       </TextField>
-      <TextField fx:id="regPhoneField" layoutX="244.0" layoutY="444.0" prefHeight="115.0" prefWidth="850.0" promptText="Phone Nummber" style="-fx-background-radius: 20; -fx-padding: 10;">
+      <TextField fx:id="regPhoneField" layoutX="244.0" layoutY="444.0" prefHeight="115.0" prefWidth="850.0" promptText="Phone Number" style="-fx-background-radius: 20; -fx-padding: 10;">
          <font>
             <Font size="64.0" />
          </font>

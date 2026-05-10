@@ -25,14 +25,14 @@ public class LoginController {
         String user = usernameField.getText().trim();
         String pass = passwordField.getText().trim();
 
-        if (UserSession.currentRole == Role.GUEST) {
+        if (UserSession.currentRole == "GUEST") {
 
             Guest g = GuiData.guestManager.loginGuest(user, pass);
             if (g != null) {
                 System.out.println("Guest Login Success!");
 
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/hotel/gui/scenes/kkk.fxml")
+                        getClass().getResource("/hotel/gui/scenes/guest-dashboard.fxml")
                 );
                 Scene scene = new Scene(loader.load(), 1920, 1080);
 
@@ -51,14 +51,11 @@ public class LoginController {
                 showError("Invalid Guest Credentials");
             }
 
-        } else {
-            // Staff / Admin
+        } else if (UserSession.currentRole == "ADMIN") {
             Staff s = GuiData.staffManager.loginStaff(user, pass);
             if (s != null) {
-                System.out.println("Staff/Admin Login Success!");
-
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/hotel/gui/scenes/choose.fxml")
+                        getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
                 );
                 Scene scene = new Scene(loader.load(), 1920, 1080);
 
@@ -74,6 +71,27 @@ public class LoginController {
                 showError("Invalid Staff/Admin Credentials");
             }
         }
+        else if (UserSession.currentRole == "RECEPTIONIST") {
+            Staff s = GuiData.staffManager.loginStaff(user, pass);
+            if (s != null) {
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/hotel/gui/scenes/receptionist-dashboard.fxml")
+                );
+                Scene scene = new Scene(loader.load(), 1920, 1080);
+
+                // Pass staff context if choose-controller needs it
+                // ChooseController ctrl = loader.getController();
+                // ctrl.setStaff(s);
+
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+
+            } else {
+                showError("Invalid Receptionist Credentials");
+            }
+        }
+
     }
 
     @FXML

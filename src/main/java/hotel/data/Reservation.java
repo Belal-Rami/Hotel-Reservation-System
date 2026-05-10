@@ -7,7 +7,8 @@ import hotel.users.Guest;
 
 public class Reservation {
     // Data fields.
-    private Guest assignedGuest;
+    // Stores only the guest's ID instead of the full Guest object to avoid circular reference
+    private int guestId;
     private Room assignedRoom;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
@@ -15,19 +16,20 @@ public class Reservation {
     private int reservationID;
 
     // Parameterized constructor to initialize data.
-    public Reservation(Guest guest,Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
+    public Reservation(Guest guest, Room room, LocalDate checkIn, LocalDate checkOut, Status status) {
         this.checkInDate= checkIn;
         this.checkOutDate=checkOut;
         this.assignedRoom=room;
-        this.assignedGuest=guest;
+        this.guestId = guest.getGuestId();
         this.status=status;
     }
+
     // Getter and Setter methods.
-    public Guest getGuest() {
-        return assignedGuest;
+    public int getGuestId() {
+        return guestId;
     }
-    public void setGuest(Guest assignedGuest) {
-        this.assignedGuest = assignedGuest;
+    public void setGuestId(int guestId) {
+        this.guestId = guestId;
     }
 
     public Room getRoom() {
@@ -58,11 +60,6 @@ public class Reservation {
         this.status = status;
     }
 
-    public int getReservationID() { return reservationID;}
-    public void setReservationID(int reservationID) { this.reservationID = reservationID;}
-
-     public String getpassword() {return assignedGuest.getPassword();}
-
-
-
+    public int getReservationID() { return reservationID; }
+    public void setReservationID(int reservationID) { this.reservationID = reservationID; }
 }

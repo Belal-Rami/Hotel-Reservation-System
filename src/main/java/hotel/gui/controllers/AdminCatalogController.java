@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class AdminCatalogController {
 
@@ -135,6 +136,19 @@ public class AdminCatalogController {
         } catch (Exception e) {
             System.out.println("Error opening create amenity popup: " + e.getMessage());
         }
+    }
+
+        @FXML
+    public void Back(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/hotel/gui/scenes/admin-dashboard.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1920, 1080);
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }
 

@@ -46,7 +46,7 @@ public class Receptionist extends Staff {
         room.setAvailable(true);
         Object ReservationStatus = new Object();
         reservation.setStatus((Status) ReservationStatus);
-        System.out.println("Guest " + reservation.getGuest().getUsername() + " checked out of room " + room.getRoomNum());
+        //System.out.println("Guest " + reservation.getGuest().getUsername() + " checked out of room " + room.getRoomNum());
     }
 }
 

@@ -31,17 +31,17 @@
       <VBox alignment="CENTER" layoutX="610.0" layoutY="260.0" prefWidth="700.0" spacing="40.0">
 
          <!-- Reservations -->
-         <Button mnemonicParsing="false" onAction="#openreservation" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="Reservations">
+         <Button mnemonicParsing="false" onAction="#openreservation" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Reservations">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 
          <!-- Rooms -->
-         <Button mnemonicParsing="false" onAction="#openrooms" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="Rooms">
+         <Button mnemonicParsing="false" onAction="#openrooms" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Rooms">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 
          <!-- Guests -->
-         <Button mnemonicParsing="false" onAction="#openguests" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="Guests">
+         <Button mnemonicParsing="false" onAction="#openguests" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Guests">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 

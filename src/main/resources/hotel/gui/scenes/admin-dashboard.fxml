@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.ReceptionistDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminDashboardController">
 
    <children>
 
@@ -23,7 +23,7 @@
       <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="1000.0" prefWidth="1800.0" style="-fx-background-color: rgba(0,0,0,0.55);                            -fx-background-radius: 20;" />
 
       <!-- ── Page Title ── -->
-      <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="1200.0" text="Receptionist Dashboard" textFill="WHITE">
+      <Label layoutX="230.0" layoutY="48.0" prefHeight="110.0" prefWidth="1200.0" text="Admin Dashboard" textFill="WHITE">
          <font><Font name="Arial Bold" size="80.0" /></font>
       </Label>
 
@@ -31,17 +31,17 @@
       <VBox alignment="CENTER" layoutX="610.0" layoutY="260.0" prefWidth="700.0" spacing="40.0">
 
          <!-- Reservations -->
-         <Button mnemonicParsing="false" onAction="#openreservation" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Reservations">
+         <Button mnemonicParsing="false" onAction="#roomManagment" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="Room Managment">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 
          <!-- Rooms -->
-         <Button mnemonicParsing="false" onAction="#openrooms" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Rooms">
+         <Button mnemonicParsing="false" onAction="#systemCatalog" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="System Catalog">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 
          <!-- Guests -->
-         <Button mnemonicParsing="false" onAction="#openguests" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="View Guests">
+         <Button mnemonicParsing="false" onAction="#staffRegistration" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: rgba(255,255,255,0.10);                            -fx-background-radius: 16;                            -fx-text-fill: white;                            -fx-cursor: hand;                            -fx-border-color: rgba(255,255,255,0.25);                            -fx-border-radius: 16;                            -fx-border-width: 1.5;" text="New Staff Registration">
             <font><Font name="Arial Bold" size="40.0" /></font>
          </Button>
 

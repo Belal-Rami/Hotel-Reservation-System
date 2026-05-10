@@ -1,6 +1,8 @@
 package hotel.gui.controllers;
 
 import hotel.data.Reservation;
+import hotel.gui.GuiMain;
+import hotel.gui.GuiData;
 import hotel.services.RoomManager;
 import hotel.users.Guest;
 
@@ -129,9 +131,8 @@ public class MyReservationsController {
     // ── Cancel ─────────────────────────────────────────────────────
     private void cancelReservation(Reservation r, HBox card,
                                    Button btnCancel, Label lblStatus) {
-        boolean removed = roomManager.removeReservation(
-                r.getReservationID(), r.getpassword()
-        );
+        boolean removed = roomManager.removeReservation(r.getReservationID());
+                
         if (removed) {
             card.setStyle(
                     "-fx-background-color: rgba(210,60,60,0.12);" +
@@ -148,6 +149,13 @@ public class MyReservationsController {
             long active = guest.getReservations().size();
             lblCount.setText(active + (active == 1 ? " booking" : " bookings"));
             if (guest.getReservations().isEmpty()) lblEmpty.setVisible(true);
+
+            GuiMain.saveData(GuiData.database);
+        }
+        else{
+                // This should never happen since the user is only cancelling their own reservations,
+                // but just in case, we'll show an error message.
+               System.out.println("Error: Could not cancel reservation. Please try again.");
         }
     }
 

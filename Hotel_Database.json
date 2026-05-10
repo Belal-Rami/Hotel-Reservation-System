@@ -7,7 +7,152 @@
       "balance": 30.0,
       "address": "Cairo",
       "gender": "MALE",
-      "Greservations": []
+      "guestId": 0,
+      "Greservations": [
+        {
+          "guestId": 0,
+          "assignedRoom": {
+            "roomNum": "103",
+            "roomType": {
+              "name": "Single",
+              "price": 400.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-11",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              },
+              {
+                "name": "Snacks",
+                "price": 90.0
+              },
+              {
+                "name": "Jacuzzi",
+                "price": 80.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-10",
+          "checkOutDate": "2026-05-11",
+          "status": "CONFIRMED",
+          "reservationID": 61795
+        },
+        {
+          "guestId": 0,
+          "assignedRoom": {
+            "roomNum": "102",
+            "roomType": {
+              "name": "Deluxe",
+              "price": 700.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-14",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-10",
+          "checkOutDate": "2026-05-14",
+          "status": "CONFIRMED",
+          "reservationID": 50338
+        },
+        {
+          "guestId": 0,
+          "assignedRoom": {
+            "roomNum": "103",
+            "roomType": {
+              "name": "Single",
+              "price": 400.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-19",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              },
+              {
+                "name": "Snacks",
+                "price": 90.0
+              },
+              {
+                "name": "Jacuzzi",
+                "price": 80.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-11",
+          "checkOutDate": "2026-05-14",
+          "status": "CONFIRMED",
+          "reservationID": 76730
+        },
+        {
+          "guestId": 0,
+          "assignedRoom": {
+            "roomNum": "101",
+            "roomType": {
+              "name": "Deluxe",
+              "price": 700.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-20",
+            "roomAmenities": [
+              {
+                "name": "Wifi",
+                "price": 45.0
+              },
+              {
+                "name": "Pool Table",
+                "price": 100.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-15",
+          "checkOutDate": "2026-05-20",
+          "status": "CONFIRMED",
+          "reservationID": 75416
+        },
+        {
+          "guestId": 0,
+          "assignedRoom": {
+            "roomNum": "103",
+            "roomType": {
+              "name": "Single",
+              "price": 400.0
+            },
+            "isAvailable": false,
+            "duration": 0,
+            "checkOut": "2026-05-19",
+            "roomAmenities": [
+              {
+                "name": "Tv",
+                "price": 40.0
+              },
+              {
+                "name": "Snacks",
+                "price": 90.0
+              },
+              {
+                "name": "Jacuzzi",
+                "price": 80.0
+              }
+            ]
+          },
+          "checkInDate": "2026-05-17",
+          "checkOutDate": "2026-05-19",
+          "status": "CONFIRMED",
+          "reservationID": 12515
+        }
+      ]
     },
     {
       "username": "Shawkat",
@@ -16,6 +161,12 @@
       "balance": 0.0,
       "address": "Ain Shams",
       "gender": "MALE",
+      "guestId": 0,
+      "Greservations": []
+    },
+    {
+      "balance": 0.0,
+      "guestId": 0,
       "Greservations": []
     }
   ],
@@ -53,14 +204,6 @@
     {
       "name": "Pool Table",
       "price": 100.0
-    },
-    {
-      "name": "Jacuzzi",
-      "price": 80.0
-    },
-    {
-      "name": "ff",
-      "price": 5.0
     }
   ],
   "roomTypes": [
@@ -74,7 +217,7 @@
     },
     {
       "name": "Deluxe",
-      "price": 700.0
+      "price": 750.0
     }
   ],
   "rooms": [
@@ -86,7 +229,7 @@
       },
       "isAvailable": false,
       "duration": 0,
-      "checkOut": "2026-05-09",
+      "checkOut": "2026-05-20",
       "roomAmenities": [
         {
           "name": "Wifi",
@@ -106,7 +249,7 @@
       },
       "isAvailable": false,
       "duration": 0,
-      "checkOut": "2026-05-09",
+      "checkOut": "2026-05-14",
       "roomAmenities": [
         {
           "name": "Tv",
@@ -122,7 +265,7 @@
       },
       "isAvailable": false,
       "duration": 0,
-      "checkOut": "2026-05-09",
+      "checkOut": "2026-05-19",
       "roomAmenities": [
         {
           "name": "Tv",
@@ -139,5 +282,149 @@
       ]
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "guestId": 0,
+      "assignedRoom": {
+        "roomNum": "103",
+        "roomType": {
+          "name": "Single",
+          "price": 400.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-11",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          },
+          {
+            "name": "Snacks",
+            "price": 90.0
+          },
+          {
+            "name": "Jacuzzi",
+            "price": 80.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-10",
+      "checkOutDate": "2026-05-11",
+      "status": "CONFIRMED",
+      "reservationID": 61795
+    },
+    {
+      "guestId": 0,
+      "assignedRoom": {
+        "roomNum": "102",
+        "roomType": {
+          "name": "Deluxe",
+          "price": 700.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-14",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-10",
+      "checkOutDate": "2026-05-14",
+      "status": "CONFIRMED",
+      "reservationID": 50338
+    },
+    {
+      "guestId": 0,
+      "assignedRoom": {
+        "roomNum": "103",
+        "roomType": {
+          "name": "Single",
+          "price": 400.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-19",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          },
+          {
+            "name": "Snacks",
+            "price": 90.0
+          },
+          {
+            "name": "Jacuzzi",
+            "price": 80.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-11",
+      "checkOutDate": "2026-05-14",
+      "status": "CONFIRMED",
+      "reservationID": 76730
+    },
+    {
+      "guestId": 0,
+      "assignedRoom": {
+        "roomNum": "101",
+        "roomType": {
+          "name": "Deluxe",
+          "price": 700.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-20",
+        "roomAmenities": [
+          {
+            "name": "Wifi",
+            "price": 45.0
+          },
+          {
+            "name": "Pool Table",
+            "price": 100.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-15",
+      "checkOutDate": "2026-05-20",
+      "status": "CONFIRMED",
+      "reservationID": 75416
+    },
+    {
+      "guestId": 0,
+      "assignedRoom": {
+        "roomNum": "103",
+        "roomType": {
+          "name": "Single",
+          "price": 400.0
+        },
+        "isAvailable": false,
+        "duration": 0,
+        "checkOut": "2026-05-19",
+        "roomAmenities": [
+          {
+            "name": "Tv",
+            "price": 40.0
+          },
+          {
+            "name": "Snacks",
+            "price": 90.0
+          },
+          {
+            "name": "Jacuzzi",
+            "price": 80.0
+          }
+        ]
+      },
+      "checkInDate": "2026-05-17",
+      "checkOutDate": "2026-05-19",
+      "status": "CONFIRMED",
+      "reservationID": 12515
+    }
+  ]
 }

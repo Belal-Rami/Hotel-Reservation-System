@@ -20,7 +20,6 @@ hotel/gui/controllers/RegisterController.class
 hotel/gui/controllers/AdminRoomEditorController.class
 hotel/gui/UserSession.class
 hotel/gui/controllers/kkkcontroller.class
-hotel/gui/controllers/AdminController.class
 hotel/users/Guest.class
 hotel/services/RoomTypeManager.class
 hotel/gui/controllers/RoomDetailController$1.class
@@ -31,6 +30,7 @@ hotel/users/RoomNotAvailableException.class
 hotel/services/AmenityManager.class
 hotel/gui/controllers/StartScreenController.class
 hotel/data/MainApplication.class
+hotel/gui/controllers/AdminDashboardController.class
 hotel/gui/controllers/ReservationRow.class
 hotel/users/InvalidInputException.class
 hotel/enums/Status.class

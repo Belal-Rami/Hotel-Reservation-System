@@ -184,7 +184,7 @@ public class RoomsController {
     private void switchScene1() {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/hotel/gui/scenes/kkk.fxml")
+                    getClass().getResource("/hotel/gui/scenes/guest-dashboard.fxml")
             );
             Parent root = loader.load();
 

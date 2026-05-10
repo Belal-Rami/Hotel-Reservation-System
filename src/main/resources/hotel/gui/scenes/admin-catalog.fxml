@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -13,48 +12,46 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0"
-            stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/26"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hotel.gui.controllers.AdminCatalogController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.gui.controllers.AdminCatalogController">
    <children>
 
       <!-- ── Background image ── -->
-      <ImageView fitHeight="1080.0" fitWidth="1920.0"
-                 layoutX="0.0" layoutY="0.0"
-                 pickOnBounds="true" preserveRatio="false">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@Gemini_Generated_Image_wuxsypwuxsypwuxs.png" />
          </image>
       </ImageView>
 
       <!-- ── Full-screen dark overlay ── -->
-      <AnchorPane layoutX="0.0" layoutY="0.0"
-                  prefHeight="1080.0" prefWidth="1920.0"
-                  style="-fx-background-color: rgba(0,0,0,0.62);" />
+      <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: rgba(0,0,0,0.62);" />
 
       <!-- ── Header strip ── -->
-      <AnchorPane layoutX="0.0" layoutY="0.0"
-                  prefHeight="130.0" prefWidth="1920.0"
-                  style="-fx-background-color: rgba(0,0,0,0.45);" />
+      <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="130.0" prefWidth="1920.0" style="-fx-background-color: rgba(0,0,0,0.45);">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back" prefHeight="85.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="135.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@544-5440422_back-arrow-icon-transparent-png-clipart-free-download.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
 
-      <!-- ── Page Title ── -->
-      <Label layoutX="40.0" layoutY="30.0"
-             text="System Catalog"
-             textFill="WHITE">
-         <font><Font name="Arial Bold" size="58.0" /></font>
+            <!-- ── Page Title ── -->
+      <Label layoutX="234.0" layoutY="30.0" text="System Catalog" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="58.0" />
+         </font>
       </Label>
 
       <!-- ── Two-column layout ── -->
-      <HBox layoutX="0.0" layoutY="130.0"
-            prefHeight="950.0" prefWidth="1920.0"
-            spacing="0.0">
+      <HBox layoutX="0.0" layoutY="130.0" prefHeight="950.0" prefWidth="1920.0" spacing="0.0">
          <children>
 
             <!-- ===== Amenities Column ===== -->
-            <VBox spacing="14.0" HBox.hgrow="ALWAYS"
-                  style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;">
+            <VBox spacing="14.0" style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
 
                <!-- Section header -->
                <HBox alignment="CENTER_LEFT" spacing="16.0">
@@ -62,56 +59,34 @@
                      <font><Font name="Arial Bold" size="38.0" /></font>
                   </Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Button fx:id="createAmenityBtn"
-                          mnemonicParsing="false"
-                          onAction="#createNewAmenity"
-                          prefHeight="54.0" prefWidth="220.0"
-                          text="+ Create Amenity"
-                          style="-fx-background-color: rgba(40,160,75,0.90);
-                                       -fx-background-radius: 10;
-                                       -fx-text-fill: white;
-                                       -fx-cursor: hand;
-                                       -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);">
+                  <Button fx:id="createAmenityBtn" mnemonicParsing="false" onAction="#createNewAmenity" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: rgba(40,160,75,0.90);                                        -fx-background-radius: 10;                                        -fx-text-fill: white;                                        -fx-cursor: hand;                                        -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);" text="+ Create Amenity">
                      <font><Font name="Arial Bold" size="18.0" /></font>
                   </Button>
                </HBox>
 
                <!-- Column sub-headers -->
                <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
-                  <Label text="Name" prefWidth="260.0"
-                         textFill="rgba(255,255,255,0.45)">
+                  <Label prefWidth="260.0" text="Name" textFill="rgba(255,255,255,0.45)">
                      <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
-                  <Label text="Price"
-                         textFill="rgba(255,255,255,0.45)">
+                  <Label text="Price" textFill="rgba(255,255,255,0.45)">
                      <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                </HBox>
 
                <!-- Amenities list — transparent scroll -->
-               <ScrollPane fitToWidth="true"
-                           hbarPolicy="NEVER"
-                           VBox.vgrow="ALWAYS"
-                           style="-fx-background: transparent;
-                                       -fx-background-color: transparent;
-                                       -fx-control-inner-background: transparent;
-                                       -fx-border-color: transparent;
-                                       -fx-padding: 0;">
+               <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent;                                        -fx-background-color: transparent;                                        -fx-control-inner-background: transparent;                                        -fx-border-color: transparent;                                        -fx-padding: 0;" VBox.vgrow="ALWAYS">
                   <content>
-                     <VBox fx:id="amenitiesGrid"
-                           spacing="10.0"
-                           style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
+                     <VBox fx:id="amenitiesGrid" spacing="10.0" style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
                   </content>
                </ScrollPane>
             </VBox>
 
             <!-- ── Vertical divider ── -->
-            <Separator orientation="VERTICAL"
-                       style="-fx-background-color: rgba(255,255,255,0.20);" />
+            <Separator orientation="VERTICAL" style="-fx-background-color: rgba(255,255,255,0.20);" />
 
             <!-- ===== Room Types Column ===== -->
-            <VBox spacing="14.0" HBox.hgrow="ALWAYS"
-                  style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;">
+            <VBox spacing="14.0" style="-fx-padding: 24 30 24 30; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
 
                <!-- Section header -->
                <HBox alignment="CENTER_LEFT" spacing="16.0">
@@ -119,45 +94,25 @@
                      <font><Font name="Arial Bold" size="38.0" /></font>
                   </Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Button fx:id="createRoomTypeBtn"
-                          mnemonicParsing="false"
-                          onAction="#createNewRoomType"
-                          prefHeight="54.0" prefWidth="240.0"
-                          text="+ Create Room Type"
-                          style="-fx-background-color: rgba(40,160,75,0.90);
-                                       -fx-background-radius: 10;
-                                       -fx-text-fill: white;
-                                       -fx-cursor: hand;
-                                       -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);">
+                  <Button fx:id="createRoomTypeBtn" mnemonicParsing="false" onAction="#createNewRoomType" prefHeight="54.0" prefWidth="240.0" style="-fx-background-color: rgba(40,160,75,0.90);                                        -fx-background-radius: 10;                                        -fx-text-fill: white;                                        -fx-cursor: hand;                                        -fx-effect: dropshadow(three-pass-box, rgba(40,160,75,0.45), 8, 0, 0, 3);" text="+ Create Room Type">
                      <font><Font name="Arial Bold" size="18.0" /></font>
                   </Button>
                </HBox>
 
                <!-- Column sub-headers -->
                <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 8 0 8;">
-                  <Label text="Name" prefWidth="260.0"
-                         textFill="rgba(255,255,255,0.45)">
+                  <Label prefWidth="260.0" text="Name" textFill="rgba(255,255,255,0.45)">
                      <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
-                  <Label text="Price"
-                         textFill="rgba(255,255,255,0.45)">
+                  <Label text="Price" textFill="rgba(255,255,255,0.45)">
                      <font><Font name="Arial Bold" size="15.0" /></font>
                   </Label>
                </HBox>
 
                <!-- Room types list — transparent scroll -->
-               <ScrollPane fitToWidth="true"
-                           hbarPolicy="NEVER"
-                           VBox.vgrow="ALWAYS"
-                           style="-fx-background: transparent;
-                                       -fx-background-color: transparent;
-                                       -fx-control-inner-background: transparent;
-                                       -fx-border-color: transparent;
-                                       -fx-padding: 0;">
+               <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent;                                        -fx-background-color: transparent;                                        -fx-control-inner-background: transparent;                                        -fx-border-color: transparent;                                        -fx-padding: 0;" VBox.vgrow="ALWAYS">
                   <content>
-                     <VBox fx:id="roomTypesGrid"
-                           spacing="10.0"
-                           style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
+                     <VBox fx:id="roomTypesGrid" spacing="10.0" style="-fx-background-color: transparent; -fx-padding: 4 0 4 0;" />
                   </content>
                </ScrollPane>
             </VBox>

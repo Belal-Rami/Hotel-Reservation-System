@@ -67,6 +67,14 @@ public class kkkcontroller {
         stage.show();
     }
 
+        public void logout(ActionEvent e) throws Exception{
+        FXMLLoader load= new FXMLLoader(getClass().getResource("/hotel/gui/scenes/start-screen.fxml"));
+        Scene scene = new Scene(load.load(),1920,1080);
+        Stage stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();;
+    }
+
     @FXML
     public void Back(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(

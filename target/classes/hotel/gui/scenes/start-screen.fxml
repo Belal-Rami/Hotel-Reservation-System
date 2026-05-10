@@ -28,7 +28,7 @@
 
          <children>
          <!-- Guest Button -->
-         <Button fx:id="guestBtn" mnemonicParsing="false" onAction="#onGuestClicked" prefHeight="168.0" prefWidth="340.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 30;" text="Guest">
+         <Button fx:id="guestBtn" mnemonicParsing="false" onAction="#handleGuestAction" prefHeight="168.0" prefWidth="340.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 30;" text="Guest">
 
             <font>
                <Font name="System Bold" size="48.0" />
@@ -36,7 +36,7 @@
 
          </Button>
 
-            <Button fx:id="staffBtn" mnemonicParsing="false" onAction="#handleStaffAction" prefHeight="176.0" prefWidth="344.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 30;" text="Staff">
+            <Button fx:id="receptionistBtn" mnemonicParsing="false" onAction="#handleReceptionistAction" prefHeight="176.0" prefWidth="391.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 30;" text="Receptionist">
 
                <font>
                   <Font name="System Bold" size="48.0" />
@@ -45,7 +45,7 @@
             </Button>
 
             <!-- Admin Button -->
-            <Button fx:id="adminBtn" mnemonicParsing="false" onAction="#handleAdminAction" prefHeight="188.0" prefWidth="332.0" style="-fx-background-color: rgba(40,160,75,0.85); -fx-background-radius: 30;" text="Admin">
+            <Button fx:id="adminBtn" mnemonicParsing="false" onAction="#handleAdminAction" prefHeight="188.0" prefWidth="332.0" style="-fx-background-color: #EFD16D; -fx-background-radius: 30;" text="Admin">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
